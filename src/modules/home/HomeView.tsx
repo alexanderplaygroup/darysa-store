@@ -76,7 +76,7 @@ export const HomeView = () => {
       <Container className="space-y-8 pt-0">
         <CarouselBlogs />
       </Container>
-      <PromotionalModal modal="/logo-dark.svg" />
+      <PromotionalModal modal="/home/modal.png" />
     </>
   );
 };

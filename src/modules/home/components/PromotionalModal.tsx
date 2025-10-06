@@ -1,4 +1,5 @@
 'use client';
+import { AppImage } from '@/common/components/custom-ui/AppImage';
 import {
   Dialog,
   DialogContent,
@@ -6,7 +7,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/common/components/shadcn-ui/dialog';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 interface PromotionalModalProps {
@@ -31,19 +31,19 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ modal }) => 
         aria-describedby="Promoción especial"
         className="border-none p-0"
       >
-        <DialogHeader>
+        <DialogHeader className="sr-only">
           <DialogTitle>Promoción especial </DialogTitle>
-          <DialogDescription id="promotional-modal-description" className="sr-only">
+          <DialogDescription id="promotional-modal-description">
             This action cannot be undone. This will permanently delete your account and remove your
             data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <Image
+        <AppImage
           src={modal}
           alt="Promotional Modal"
           width={500}
           height={300}
-          className="h-full w-full rounded-lg object-cover"
+          className="h-full w-full rounded-lg"
           priority
         />
       </DialogContent>
