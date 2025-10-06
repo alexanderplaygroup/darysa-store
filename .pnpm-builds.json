@@ -1,0 +1,3 @@
+{
+  "approvedBuiltDependencies": ["@tailwindcss/oxide", "sharp", "unrs-resolver"]
+}
