@@ -13,6 +13,7 @@ import {
 } from '@/common/components/shadcn-ui/select';
 import { cn } from '@/lib/utils';
 import { products } from '../home/data';
+import { FiltersSection } from './components/FilterSection';
 import { promoBanner } from './data';
 import { useSidebarStore } from './store/useSidebarProducts';
 
@@ -36,63 +37,64 @@ export const ProductsView = () => {
         />
       </Container>
       <Container size="full" className="relative px-0 py-0">
-        <Container size="full" className="bg-white py-0">
-          <Container className="flex items-center justify-between gap-4 px-0 py-8">
-            <Button
-              variant="outline"
-              className={cn(
-                'hover:bg-darysa-verde-oscuro h-14 gap-3 rounded-lg !px-4.5 text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white',
-                isOpen
-                  ? '!bg-darysa-verde-oscuro border-darysa-verde-oscuro !text-white'
-                  : 'text-darysa-verde-oscuro border-darysa-verde-oscuro bg-transparent'
-              )}
-              onClick={toggleSidebar}
+        <Container className="flex items-center justify-between gap-4 px-0 py-8">
+          <Button
+            variant="outline"
+            className={cn(
+              'hover:bg-darysa-verde-oscuro h-14 gap-3 rounded-lg !px-4.5 text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white',
+              isOpen
+                ? '!bg-darysa-verde-oscuro border-darysa-verde-oscuro !text-white'
+                : 'text-darysa-verde-oscuro border-darysa-verde-oscuro bg-transparent'
+            )}
+            onClick={toggleSidebar}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="size-6"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-6"
-              >
-                <path d="M21 5H3" />
-                <path d="M17 12H7" />
-                <path d="M19 19H5" />
-              </svg>
-              Categorías de Productos
-            </Button>
+              <path d="M21 5H3" />
+              <path d="M17 12H7" />
+              <path d="M19 19H5" />
+            </svg>
+            Categorías de Productos
+          </Button>
 
-            <Select>
-              <SelectTrigger className="!border-darysa-gris-claro-alt/50 !text-darysa-gris-medio-alt-3/80 !h-14 w-[250px] px-4.5 font-semibold">
-                <SelectValue placeholder="Ordenar por" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="price-high">Por: Precio de mayor a menor</SelectItem>
-                <SelectItem value="price-low">Por: Precio de menor a mayor</SelectItem>
-              </SelectContent>
-            </Select>
-          </Container>
+          <Select>
+            <SelectTrigger className="!border-darysa-gris-claro-alt/50 !text-darysa-gris-medio-alt-3/80 !h-14 w-[250px] px-4.5 font-semibold">
+              <SelectValue placeholder="Ordenar por" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="price-high">Por: Precio de mayor a menor</SelectItem>
+              <SelectItem value="price-low">Por: Precio de menor a mayor</SelectItem>
+            </SelectContent>
+          </Select>
         </Container>
         <Container className="pt-0">
           <div className="relative grid grid-cols-4 gap-6">
             {/* Sidebar */}
-            {isOpen && (
-              <div className="bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 col-span-1 row-span-full rounded-lg border p-4 text-white shadow-lg">
-                <h3 className="mb-4 text-lg font-semibold">Categorías</h3>
-                <ul className="flex flex-col gap-2">
-                  <li>Electrónica</li>
-                  <li>Hogar</li>
-                  <li>Ropa</li>
-                  <li>Deportes</li>
-                  <li>Ofertas</li>
-                </ul>
+            {/* {isOpen && (
+              <div className="bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
+                <FiltersSection />
               </div>
-            )}
+            )} */}
+            <div
+              className={cn(
+                'bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 row-span-full rounded-lg pb-8 text-white shadow-lg transition-all duration-300 ease-in-out',
+                isOpen
+                  ? 'visible col-span-1 translate-x-0 opacity-100'
+                  : 'sr-only w-0 -translate-x-4 opacity-0'
+              )}
+            >
+              <FiltersSection />
+            </div>
 
             {/* Productos y PromoBlock */}
             <div
