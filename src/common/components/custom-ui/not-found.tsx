@@ -1,3 +1,4 @@
+import { Button } from '@shadcnui/button';
 import Link from 'next/link';
 
 export default function NotFound() {
@@ -19,9 +20,12 @@ export default function NotFound() {
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
-          <Link href="/">Ir a Inicio</Link>
-
-          <Link href="/">Volver</Link>
+          <Button asChild size="lg" className="min-w-[160px]">
+            <Link href="/">Ir a Inicio</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="min-w-[160px] bg-transparent">
+            <Link href="javascript:history.back()">Volver</Link>
+          </Button>
         </div>
 
         <div className="text-muted-foreground pt-8 text-sm">
