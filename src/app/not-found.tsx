@@ -24,7 +24,7 @@ export default function NotFound() {
             <Link href="/">Ir a Inicio</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="min-w-[160px] bg-transparent">
-            <Link href="javascript:history.back()">Volver</Link>
+            <Link href="/">Volver</Link>
           </Button>
         </div>
 
