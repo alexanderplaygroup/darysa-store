@@ -30,7 +30,7 @@ export const boston = localFont({
     { path: './boston/BostonExtraLight.otf', weight: '200', style: 'normal' },
     { path: './boston/BostonLight.otf', weight: '300', style: 'normal' },
     { path: './boston/BostonRegular.otf', weight: '400', style: 'normal' },
-    { path: './boston/BostonSemibold.otf', weight: '600', style: 'normal' },
+    { path: './boston/BostonSemiBold.otf', weight: '600', style: 'normal' },
     { path: './boston/BostonBold.otf', weight: '700', style: 'normal' },
     { path: './boston/BostonHeavy.otf', weight: '800', style: 'normal' },
     { path: './boston/BostonBlack.otf', weight: '900', style: 'normal' },
