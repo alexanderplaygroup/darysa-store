@@ -74,6 +74,24 @@ export const products = [
     price: 12.5,
     discount: 0,
   },
+  {
+    id: 9,
+    image: '/product/product.pnasdg',
+    name: 'Limpiador Multiusos Daryza x 1L',
+    sku: '456789123',
+    brand: 'Daryza',
+    price: 12.5,
+    discount: 0,
+  },
+  {
+    id: 10,
+    image: '/product/product.pnasdg',
+    name: 'Limpiador Multiusos Daryza x 1L',
+    sku: '456789123',
+    brand: 'Daryza',
+    price: 12.5,
+    discount: 0,
+  },
 ];
 
 export const promoBanner: BannerPromotional = {
