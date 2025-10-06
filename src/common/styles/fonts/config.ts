@@ -27,7 +27,7 @@ export const inter = Inter({
 export const boston = localFont({
   src: [
     { path: './boston/BostonThin.otf', weight: '100', style: 'normal' },
-    { path: './boston/BostonExtralight.otf', weight: '200', style: 'normal' },
+    { path: './boston/BostonExtraLight.otf', weight: '200', style: 'normal' },
     { path: './boston/BostonLight.otf', weight: '300', style: 'normal' },
     { path: './boston/BostonRegular.otf', weight: '400', style: 'normal' },
     { path: './boston/BostonSemibold.otf', weight: '600', style: 'normal' },
