@@ -1,0 +1,23 @@
+# Ignorar dependencias locales
+node_modules
+.pnpm-store
+.pnpm-debug.log
+
+# Ignorar archivos temporales
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist
+build
+
+# Ignorar configuraciones del editor
+.vscode
+.idea
+*.swp
+
+# Mantener archivos importantes (no los ignores)
+!.pnpm-builds.json
+!next.config.mjs
+!package.json
+!pnpm-lock.yaml
