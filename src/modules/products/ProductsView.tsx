@@ -37,7 +37,7 @@ export const ProductsView = () => {
         />
       </Container>
       <Container size="full" className="relative px-0 py-0">
-        <Container className="flex items-center justify-between gap-4 px-0 py-8">
+        <Container className="flex items-center justify-between gap-4 py-8">
           <Button
             variant="outline"
             className={cn(
@@ -85,7 +85,7 @@ export const ProductsView = () => {
                 <FiltersSection />
               </div>
             )} */}
-            <div
+            <aside
               className={cn(
                 'bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 row-span-full rounded-lg pb-8 text-white shadow-lg transition-all duration-300 ease-in-out',
                 isOpen
@@ -94,13 +94,13 @@ export const ProductsView = () => {
               )}
             >
               <FiltersSection />
-            </div>
+            </aside>
 
             {/* Productos y PromoBlock */}
             <div
               className={cn(
                 'grid gap-6',
-                isOpen ? 'col-span-3 col-start-2 grid-cols-[1fr_1fr_1fr]' : 'col-span-4 grid-cols-4'
+                isOpen ? 'col-span-3 col-start-2 grid-cols-3' : 'col-span-4 grid-cols-4'
               )}
             >
               {products.map((product) => (
