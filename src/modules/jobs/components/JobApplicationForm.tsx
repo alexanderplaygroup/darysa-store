@@ -8,7 +8,15 @@ import { z } from 'zod';
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { cn } from '@/lib/utils';
 import { Checkbox } from '@shadcnui/checkbox';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@shadcnui/form';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@shadcnui/form';
 import { Input } from '@shadcnui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@shadcnui/select';
 import { useTransition } from 'react';
@@ -24,14 +32,14 @@ const ACCEPTED_FILE_TYPES = [
 const formSchema = z.object({
   firstName: z.string().min(2, 'El nombre es obligatorio'),
   lastName: z.string().min(2, 'El apellido es obligatorio'),
-  email: z.string().email('Correo inválido'),
+  email: z.email('Correo inválido'),
   phone: z.string().min(6, 'Número inválido'),
   area: z.string().nonempty('Selecciona un área'),
   position: z.string().nonempty('Selecciona un puesto'),
   location: z.string().nonempty('Selecciona una ubicación'),
   employmentStatus: z.string().nonempty('Selecciona una situación laboral'),
   acceptedPolicy: z.boolean().refine((v) => v === true, 'Debes aceptar la política'),
-  file: z
+  cv: z
     .instanceof(File)
     .optional()
     .refine((file) => !file || file.size <= MAX_FILE_SIZE, 'El archivo debe pesar menos de 8 MB')
@@ -55,8 +63,8 @@ const DEFAULT_VALUES: JobApplicationValues = {
   position: '',
   location: '',
   employmentStatus: '',
-  acceptedPolicy: false,
-  file: undefined,
+  acceptedPolicy: true,
+  cv: undefined,
 };
 
 export function JobApplicationForm() {
@@ -301,13 +309,15 @@ export function JobApplicationForm() {
           {/* CV Upload */}
           <FormField
             control={form.control}
-            name="file"
+            name="cv"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-darysa-gris-700 font-semibold">Adjuntar CV</FormLabel>
+                <FormLabel htmlFor="cv" className="text-darysa-gris-700 font-semibold">
+                  Adjuntar CV
+                </FormLabel>
                 <FormControl>
-                  <div className="relative h-10 w-fit">
-                    <input
+                  <div className="relative h-10 w-full max-w-[300px]">
+                    <Input
                       id="cv"
                       type="file"
                       accept=".pdf,.doc,.docx,.txt"
@@ -318,21 +328,20 @@ export function JobApplicationForm() {
                     <label
                       htmlFor="cv"
                       className={cn(
-                        'border-darysa-amarillo flex w-full items-center justify-center rounded-md border px-4 py-3 transition-colors',
+                        'border-darysa-amarillo flex h-10 w-full items-center justify-center rounded-md border px-4 transition-colors',
                         isPending
                           ? 'cursor-not-allowed opacity-50'
                           : 'cursor-pointer hover:bg-yellow-50'
                       )}
                     >
                       <Upload className="text-darysa-amarillo mr-2 h-5 w-5" />
-                      <span className="text-darysa-amarillo text-sm">
-                        {field.value
-                          ? field.value.name
-                          : 'Tipo de formatos permitidos PDF, WORD Máximo 8 MB'}
-                      </span>
+                      <span className="text-darysa-amarillo text-sm">Subir Archivo</span>
                     </label>
                   </div>
                 </FormControl>
+                <FormDescription>
+                  {field.value ? field.value.name : 'Formatos permitidos: PDF, Word (máx 2MB)'}
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}

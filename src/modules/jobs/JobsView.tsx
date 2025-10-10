@@ -1,8 +1,8 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Container } from '@/common/components/custom-ui/Container';
-import { Fragment } from 'react';
 import { JobApplicationForm } from './components/JobApplicationForm';
 import { PreviewPositionCard } from './components/PreviewPositionCard';
+import { SearchBar } from './components/SearchBar';
 
 export const JobsView = () => {
   const previewPositions = [
@@ -50,9 +50,12 @@ export const JobsView = () => {
     },
   ];
   return (
-    <Fragment>
+    <div className="relative w-full">
+      <Container className="absolute inset-x-0 -top-11 py-0">
+        <SearchBar />
+      </Container>
       <Container className="mb-6 space-y-20">
-        <div className="grid grid-cols-1 gap-x-44 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-44 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
           {previewPositions.map((position, index) => (
             <PreviewPositionCard key={index} {...position} />
           ))}
@@ -70,6 +73,6 @@ export const JobsView = () => {
         </div>
         <JobApplicationForm />
       </Container>
-    </Fragment>
+    </div>
   );
 };

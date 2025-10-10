@@ -1,5 +1,6 @@
 import { Container } from '@/common/components/custom-ui/Container';
 import { Button } from '@/common/components/shadcn-ui/button';
+import { JoinTeamModalForm } from './components/JoinTeamModalForm';
 
 export interface JobDetailProps {
   id?: number;
@@ -80,9 +81,7 @@ export const JobDetailView = ({
 
           {/* Botones */}
           <div className="flex flex-col gap-6">
-            <Button className="bg-darysa-gris-oscuro h-16 w-full text-xl font-bold text-white hover:bg-gray-900">
-              Postular
-            </Button>
+            <JoinTeamModalForm />
             <Button variant="outline" className="h-16 w-full text-xl font-bold">
               Buscar más ofertas
             </Button>

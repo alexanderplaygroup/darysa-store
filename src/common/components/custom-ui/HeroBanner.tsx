@@ -3,7 +3,7 @@ import { AppImage } from './AppImage';
 export interface BannerHero {
   desktop: string;
   mobile: string;
-  title: string;
+  title?: string;
   link?: string;
 }
 
@@ -20,13 +20,15 @@ export const HeroBanner = ({ banner }: HeroBannerProps) => {
         {/* Imagen para pantallas grandes */}
         <source srcSet={desktop} media="(min-width: 768px)" />
         {/* Imagen para móviles */}
-        <AppImage src={mobile} alt={title} fill sizes="100vw" className="object-top" />
+        <AppImage src={mobile} alt="banner-mobile" fill sizes="100vw" className="object-top" />
       </picture>
 
       {/* Contenido encima de la imagen */}
-      <div className="bg-darysa-verde-oscuro absolute top-[13%] left-0 rounded-r-lg py-2.5 pr-10 pl-20">
-        <h1 className="text-3xl font-bold text-white drop-shadow-md md:text-5xl">{title}</h1>
-      </div>
+      {title && (
+        <div className="bg-darysa-verde-oscuro absolute top-[13%] left-0 rounded-r-lg py-2.5 pr-10 pl-20">
+          <h1 className="text-3xl font-bold text-white drop-shadow-md md:text-5xl">{title}</h1>
+        </div>
+      )}
     </div>
   );
 

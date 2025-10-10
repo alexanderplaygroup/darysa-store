@@ -1,5 +1,6 @@
 'use client';
 
+//se personalizó
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
@@ -38,14 +39,21 @@ function DialogOverlay({
   );
 }
 
+/**
+ * Props extendidas para manejar el bloqueo del cierre externo.
+ */
+interface DialogContentProps extends React.ComponentProps<typeof DialogPrimitive.Content> {
+  showCloseButton?: boolean;
+  preventOutsideClose?: boolean; // 🚫 Evita cierre por clic fuera o Escape
+}
+
 function DialogContent({
   className,
   children,
   showCloseButton = true,
+  preventOutsideClose = false,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean;
-}) {
+}: DialogContentProps) {
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -55,6 +63,15 @@ function DialogContent({
           'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg',
           className
         )}
+        onInteractOutside={(e) => {
+          if (preventOutsideClose) e.preventDefault();
+          props.onInteractOutside?.(e);
+        }}
+        // 👇 Evita que se cierre con la tecla Escape
+        onEscapeKeyDown={(e) => {
+          if (preventOutsideClose) e.preventDefault();
+          props.onEscapeKeyDown?.(e);
+        }}
         {...props}
       >
         {children}
