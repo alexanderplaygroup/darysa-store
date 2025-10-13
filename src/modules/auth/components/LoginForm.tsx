@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Form,
@@ -45,9 +46,13 @@ export function LoginForm() {
 
   return (
     <div className="border-darysa-gris-claro-alt/60 rounded-xl border bg-white p-8 shadow-lg md:p-12">
-      <h2 className="text-darysa-gris-medio-alt mb-8 text-xl font-semibold">
+      <Heading
+        as="h2"
+        variant="subheading"
+        className="text-darysa-gris-medio-alt mb-8 text-base sm:text-lg md:text-xl"
+      >
         Entrar con e-mail y contraseña
-      </h2>
+      </Heading>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4.5">

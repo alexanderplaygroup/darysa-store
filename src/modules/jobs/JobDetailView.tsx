@@ -14,7 +14,6 @@ export interface JobDetailProps {
 }
 
 export const JobDetailView = ({
-  id,
   title,
   description,
   requirements,

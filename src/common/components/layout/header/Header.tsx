@@ -34,7 +34,9 @@ export const Header = () => {
           <div className="flex items-center gap-10">
             <Heart className="size-6" />
             <ShoppingCart className="size-6" />
-            <User className="size-6" />
+            <Link href="/login">
+              <User className="size-6" />
+            </Link>
           </div>
         </div>
         <div className="flex w-full items-center justify-between">

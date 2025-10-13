@@ -1,6 +1,7 @@
 import { AppBreadcrumb, BreadcrumbItemType } from '@/common/components/custom-ui/AppBreadcrumb';
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Container } from '@/common/components/custom-ui/Container';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { LoginForm } from './components/LoginForm';
 
 const breadcrumbItems: BreadcrumbItemType[] = [
@@ -13,7 +14,9 @@ export const LoginView = () => {
     <Container>
       <div className="mb-8 space-y-4">
         <AppBreadcrumb items={breadcrumbItems} />
-        <h1 className="text-darysa-verde-oscuro text-4xl font-bold">Iniciar Sesión</h1>
+        <Heading as="h1" variant="heading">
+          Iniciar Sesión
+        </Heading>
       </div>
       <div className="grid w-full grid-cols-1 items-stretch justify-between gap-28 lg:grid-cols-2">
         <LoginForm />

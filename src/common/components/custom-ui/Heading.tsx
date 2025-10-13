@@ -3,13 +3,13 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { ElementType, HTMLAttributes } from 'react';
 
 const headingVariants = cva(
-  'text-darysa-green-500 leading-tight tracking-tight ', // estilos base
+  'text-darysa-green-500  ', // estilos base
   {
     variants: {
       variant: {
         display: 'text-5xl sm:text-6xl md:text-7xl font-extrabold',
-        heading: 'text-3xl sm:text-4xl md:text-5xl font-semibold',
-        subheading: 'text-xl sm:text-2xl md:text-[32px] font-semibold',
+        heading: 'text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight',
+        subheading: 'text-xl sm:text-2xl md:text-[32px] font-semibold leading-tight tracking-tight',
       },
     },
     defaultVariants: {
