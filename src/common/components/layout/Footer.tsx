@@ -19,7 +19,7 @@ export const Footer = () => {
     {
       title: 'Ayuda',
       links: [
-        { name: 'Contacto', href: '#voi' },
+        { name: 'Contacto', href: '/contacto' },
         { name: 'Libro de Reclamaciones', href: '/libro-de-reclamaciones' },
         { name: 'Servicio al Cliente', href: '#solutions' },
         { name: 'Política Anticorrupción y Antisoborno', href: 'politica-de-privacidad' },

@@ -1,0 +1,43 @@
+import { cn } from '@/lib/utils';
+import { cva, type VariantProps } from 'class-variance-authority';
+
+const textVariants = cva('leading-relaxed', {
+  variants: {
+    variant: {
+      body: 'text-sm sm:text-base md:text-lg tracking-wide',
+      small: 'text-xs sm:text-sm md:text-base tracking-wide',
+      caption: 'text-[11px] sm:text-xs md:text-sm uppercase tracking-wide',
+    },
+    tone: {
+      default: 'text-black',
+      muted: 'text-gray-500',
+    },
+  },
+  defaultVariants: {
+    variant: 'body',
+    tone: 'default',
+  },
+});
+
+interface TextProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
+  as?: React.ElementType;
+}
+
+/**
+ * 🧱 Componente de texto escalable y responsive.
+ * Sirve como base tipográfica para párrafos, descripciones o etiquetas.
+ */
+export const Text = ({
+  as: Tag = 'p',
+  children,
+  variant,
+  tone,
+  className,
+  ...props
+}: TextProps) => {
+  return (
+    <Tag className={cn(textVariants({ variant, tone }), className)} {...props}>
+      {children}
+    </Tag>
+  );
+};
