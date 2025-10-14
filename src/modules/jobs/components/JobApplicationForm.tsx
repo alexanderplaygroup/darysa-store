@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { cn } from '@/lib/utils';
 import { Checkbox } from '@shadcnui/checkbox';
 import {
@@ -86,9 +87,9 @@ export function JobApplicationForm() {
 
   return (
     <div>
-      <h1 className="text-darysa-verde-oscuro mb-8 text-3xl font-semibold">
+      <Heading as="h1" variant="subheading" className="mb-8">
         Sé parte de un <span className="font-black">Gran Equipo</span>
-      </h1>
+      </Heading>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">

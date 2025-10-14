@@ -1,5 +1,6 @@
 'use client';
 import { Container } from '@/common/components/custom-ui/Container';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
 import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
 import { Skeleton } from '@/common/components/shadcn-ui/skeleton';
@@ -33,14 +34,18 @@ export const HomeView = () => {
       </Container>
 
       <Container className="space-y-8">
-        <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Marcas Aliadas</h3>
+        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+          Marcas Aliadas
+        </Heading>
         <div className="aspect-[16/3] h-[136px] w-full">
           <CarouselBrands />
         </div>
       </Container>
 
       <Container className="space-y-8">
-        <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Los más vendidos</h3>
+        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+          Los más vendidos
+        </Heading>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard

@@ -4,9 +4,9 @@ import { cva, type VariantProps } from 'class-variance-authority';
 const textVariants = cva('text-black', {
   variants: {
     variant: {
-      body: 'text-sm sm:text-base  tracking-wide ',
+      body: 'text-sm sm:text-base tracking-wide ',
       small: 'text-xs sm:text-sm  tracking-wide leading-relaxed',
-      caption: 'text-[11px] sm:text-xs md:text-sm uppercase tracking-wide',
+      caption: 'text-[11px] sm:text-xs  tracking-wide',
     },
     tone: {
       default: 'text-black',

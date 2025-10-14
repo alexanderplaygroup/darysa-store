@@ -1,4 +1,6 @@
 import { Container } from '@/common/components/custom-ui/Container';
+import { Heading } from '@/common/components/custom-ui/Heading';
+import { Text } from '@/common/components/custom-ui/Text';
 import { Button } from '@/common/components/shadcn-ui/button';
 import { JoinTeamModalForm } from './components/JoinTeamModalForm';
 
@@ -25,16 +27,26 @@ export const JobDetailView = ({
   return (
     <>
       <Container className="mb-6">
-        <h2 className="text-darysa-verde-oscuro text-2xl font-bold md:text-4xl">{title}</h2>
+        <Heading as="h1" variant="heading">
+          {title}
+        </Heading>
       </Container>
       <Container className="grid grid-cols-1 gap-20 md:grid-cols-[1.2fr_0.8fr]">
         {/* Información Principal */}
         <article className="space-y-6">
-          <p className="text-darysa-gris-500">{description}</p>
+          <Text variant="body" className="text-darysa-gris-500">
+            {description}
+          </Text>
 
           {/* Requisitos */}
           <div>
-            <h3 className="text-darysa-gris-500 mb-2 text-2xl font-bold">Requisitos</h3>
+            <Heading
+              as="h3"
+              variant="subheading"
+              className="text-darysa-gris-500 mb-2 font-bold md:text-2xl"
+            >
+              Requisitos
+            </Heading>
             <ul className="text-darysa-gris-500 list-inside list-disc space-y-0.5 pl-4">
               {requirements.map((req, index) => (
                 <li key={index}>{req}</li>
@@ -44,7 +56,13 @@ export const JobDetailView = ({
 
           {/* Beneficios */}
           <div>
-            <h3 className="text-darysa-gris-500 mb-2 text-2xl font-bold">Beneficios</h3>
+            <Heading
+              as="h3"
+              variant="subheading"
+              className="text-darysa-gris-500 mb-2 font-bold md:text-2xl"
+            >
+              Beneficios
+            </Heading>
             <ul className="text-darysa-gris-500 list-inside list-disc space-y-0.5 pl-4">
               {benefits.map((ben, index) => (
                 <li key={index}>{ben}</li>
@@ -57,24 +75,42 @@ export const JobDetailView = ({
         <aside className="space-y-8">
           <div className="border-darysa-gris-claro-alt/60 space-y-6 rounded-lg border px-8 py-6">
             <div>
-              <h3 className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase">
-                Ubicación
-              </h3>
-              <p className="text-darysa-gris-500 text-xl font-bold">{location}</p>
+              <Text
+                as="h3"
+                variant="small"
+                className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase"
+              >
+                Ubicación{' '}
+              </Text>
+
+              <Text variant="body" className="text-darysa-gris-500 font-bold md:text-xl">
+                {location}
+              </Text>
             </div>
             <div>
-              <h3 className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase">
+              <Text
+                as="h3"
+                variant="small"
+                className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase"
+              >
                 Modalidad
-              </h3>
-              <p className="text-darysa-gris-500 text-xl font-bold">{modality}</p>
+              </Text>
+              <Text variant="body" className="text-darysa-gris-500 font-bold md:text-xl">
+                {modality}
+              </Text>
             </div>
             <div>
-              <h3 className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase">
+              <Text
+                as="h3"
+                variant="small"
+                className="text-darysa-verde-oscuro font-barlow text-sm font-semibold uppercase"
+              >
                 Número de Vacantes
-              </h3>
-              <p className="text-darysa-gris-500 text-xl font-bold">
+              </Text>
+
+              <Text variant="body" className="text-darysa-gris-500 font-bold md:text-xl">
                 {vacancies} Vacante{vacancies > 1 ? 's' : ''}
-              </p>
+              </Text>
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 'use client';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
 import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,9 @@ export default function CarouselPacks() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Pack de Productos</h3>
+        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+          Pack de Productos
+        </Heading>
 
         <div className="flex gap-6">
           <button

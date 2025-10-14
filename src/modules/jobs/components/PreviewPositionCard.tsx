@@ -1,4 +1,6 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
+import { Heading } from '@/common/components/custom-ui/Heading';
+import { Text } from '@/common/components/custom-ui/Text';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -34,10 +36,15 @@ export function PreviewPositionCard({
 
       {/* Contenido de texto */}
       <div className="w-full space-y-2">
-        <h3 className="text-darysa-verde-oscuro text-2xl font-bold">{title}</h3>
-        <p className="text-darysa-gris-oscuro min-h-[3rem] text-base leading-tight">
+        <Heading as="h5" variant="cardTitle" className="text-darysa-verde-oscuro md:text-2xl">
+          {title}
+        </Heading>
+        <Text
+          variant="body"
+          className="text-darysa-gris-oscuro min-h-[3rem] leading-tight tracking-normal"
+        >
           {description}
-        </p>
+        </Text>
       </div>
 
       {/* Enlace (botón visual) */}

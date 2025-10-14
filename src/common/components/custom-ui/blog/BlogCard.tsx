@@ -2,6 +2,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@shadcnui/avatar';
 import { Badge } from '@shadcnui/badge';
 import { Separator } from '../../shadcn-ui/separator';
 import { AppImage } from '../AppImage';
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 
 interface BlogCardProps {
   imageUrl: string;
@@ -39,9 +41,14 @@ export function BlogCard({ imageUrl, category, title, author, date }: BlogCardPr
           >
             {category}
           </Badge>
-          <h3 className="text-darysa-gris-oscuro line-clamp-2 min-h-[50px] text-xl leading-tight font-bold">
+          <Heading
+            as="h4"
+            variant="cardTitle"
+            className="text-darysa-gris-oscuro line-clamp-2 min-h-[50px]"
+          >
+            {' '}
             {title}
-          </h3>
+          </Heading>
         </div>
         <Separator className="bg-darysa-gris-claro-alt/60 mb-4.5" />
 
@@ -51,8 +58,12 @@ export function BlogCard({ imageUrl, category, title, author, date }: BlogCardPr
             <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <span className="text-darysa-gris-oscuro font-semibold">{author.name}</span>
-            <span className="text-darysa-gris-medio-alt-2/60 text-sm">{date}</span>
+            <Text variant="body" className="text-darysa-gris-oscuro font-semibold">
+              {author.name}
+            </Text>
+            <Text variant="small" className="text-darysa-gris-medio-alt-2/60 text-sm">
+              {date}
+            </Text>
           </div>
         </div>
       </div>

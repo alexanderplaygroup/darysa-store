@@ -5,6 +5,8 @@ import { cn } from '@/lib/utils';
 import { BadgePercent, Heart, ShoppingCart } from 'lucide-react';
 import { Button } from '../../shadcn-ui/button';
 import { AppImage } from '../AppImage';
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 
 export const ProductCard = ({
   image,
@@ -48,15 +50,15 @@ export const ProductCard = ({
 
         <div className="space-y-2 px-4.5 pb-4.5">
           {/* Product Name */}
-          <h3 className="text-darysa-gris-oscuro line-clamp-1 text-xl leading-tight font-bold">
+          <Heading as="h4" variant="cardTitle" className="text-darysa-gris-oscuro line-clamp-1">
             {name}
-          </h3>
+          </Heading>
 
           {/* Product Subtitle */}
           {(sku || brand) && (
-            <p className="text-darysa-gris-medio-alt-3 text-xs">
+            <Text variant="caption" className="text-darysa-gris-medio-alt-3">
               {[sku, brand].filter(Boolean).join(' / ')}
-            </p>
+            </Text>
           )}
 
           {/* Pricing Section */}

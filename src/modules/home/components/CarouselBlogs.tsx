@@ -1,5 +1,6 @@
 'use client';
 import { BlogCard } from '@/common/components/custom-ui/blog/BlogCard';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@shadcnui/carousel';
@@ -76,7 +77,9 @@ export default function CarouselBlogs() {
 
   return (
     <>
-      <h3 className="text-darysa-gris-oscuro-alt-3 text-4xl font-bold">Nuestro Blog</h3>
+      <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro-alt-3">
+        Nuestro Blog
+      </Heading>
 
       <Carousel
         plugins={[autoplayRef.current]}

@@ -2,6 +2,7 @@
 
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@shadcnui/button';
@@ -113,8 +114,14 @@ export function JoinTeamModalForm() {
           {/* Right side (form) */}
           <div className="px-8 py-12">
             <DialogHeader className="mb-8">
-              <DialogTitle className="text-darysa-verde-oscuro flex flex-col text-2xl leading-none font-bold">
-                ¡Se parte de <span className="text-4xl font-black">un gran equipo!</span>
+              <DialogTitle asChild>
+                <Heading
+                  as="h2"
+                  variant="subheading"
+                  className="flex flex-col font-bold md:text-2xl"
+                >
+                  Sé parte de un <span className="text-4xl font-black">Gran Equipo</span>
+                </Heading>
               </DialogTitle>
               <DialogDescription className="sr-only">un gran equipo!</DialogDescription>
             </DialogHeader>

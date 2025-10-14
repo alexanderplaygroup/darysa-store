@@ -8,8 +8,9 @@ const headingVariants = cva(
     variants: {
       variant: {
         display: 'text-5xl sm:text-6xl md:text-7xl font-extrabold',
-        heading: 'text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight',
+        heading: 'text-2xl sm:text-3xl md:text-4xl font-bold leading-tight',
         subheading: 'text-xl sm:text-2xl md:text-[32px] font-semibold leading-tight tracking-tight',
+        cardTitle: 'text-base sm:text-lg md:text-xl font-bold leading-tight ',
       },
     },
     defaultVariants: {
