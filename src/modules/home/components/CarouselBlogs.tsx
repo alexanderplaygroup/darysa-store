@@ -1,15 +1,15 @@
 'use client';
 import { BlogCard } from '@/common/components/custom-ui/blog/BlogCard';
+import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@shadcnui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
-import { useResponsiveGroupSize } from '../hook/useResponsiveGroupSize';
 
 export default function CarouselBlogs() {
   const autoplayRef = useRef(Autoplay({ delay: 5000, playOnInit: true }));
 
-  const groupSize = useResponsiveGroupSize({ xl: 3, lg: 3, md: 3, sm: 2, base: 1 });
+  const groupSize = useResponsiveItemsPerView({ xl: 3, lg: 3, md: 3, sm: 2, base: 1 });
   const blogPosts = [
     {
       imageUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',

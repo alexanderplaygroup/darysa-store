@@ -37,7 +37,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-darysa-gris-oscuro">
-      <Container className="pt-16 pb-6">
+      <Container className="mb-0 pt-16 pb-6">
         <div className="mb-14 grid grid-cols-[0.6fr_1.4fr]">
           {/* Logo and Contact */}
           <div className="space-y-10">

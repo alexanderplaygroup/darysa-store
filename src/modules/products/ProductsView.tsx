@@ -30,14 +30,14 @@ export const ProductsView = () => {
 
   return (
     <>
-      <Container size="full" className="relative px-0 py-0">
+      <Container size="full" className="relative mb-9">
         <PromotionalBanner
           className="aspect-[16/4] h-[250px] lg:aspect-[16/2]"
           banner={promoBanner}
         />
       </Container>
-      <Container size="full" className="relative px-0 py-0">
-        <Container className="flex items-center justify-between gap-4 py-8">
+      <Container size="full" className="relative">
+        <Container className="mb-9 flex items-center justify-between gap-4">
           <Button
             variant="outline"
             className={cn(
@@ -77,7 +77,7 @@ export const ProductsView = () => {
             </SelectContent>
           </Select>
         </Container>
-        <Container className="pt-0">
+        <Container className="mb-0">
           <div className="relative grid grid-cols-4 gap-6">
             {/* Sidebar */}
             {/* {isOpen && (

@@ -11,7 +11,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
 
 export const LoginView = () => {
   return (
-    <Container>
+    <Container className="mt-14">
       <div className="mb-8 space-y-4">
         <AppBreadcrumb items={breadcrumbItems} />
         <Heading as="h1" variant="heading">

@@ -49,13 +49,13 @@ const ContactView = () => {
   };
   return (
     <>
-      <Container size="full" className="relative mb-32 p-0">
+      <Container size="full" className="relative mb-36">
         <HeroBanner banner={aboutBanner} />
-        <Container className="absolute inset-x-0 -bottom-[75px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
+        <Container className="absolute inset-x-0 -bottom-[150px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
           <InformationContact />
         </Container>
       </Container>
-      <Container className="grid grid-cols-2 gap-11 pt-0 pb-16">
+      <Container className="grid grid-cols-2 gap-11">
         {contactBlocks.map((block) => (
           <ContactBlock key={block.title} {...block} />
         ))}

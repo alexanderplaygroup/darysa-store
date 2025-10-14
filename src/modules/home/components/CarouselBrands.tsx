@@ -1,14 +1,14 @@
 'use client';
+import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@shadcnui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { useResponsiveGroupSize } from '../hook/useResponsiveGroupSize';
 
 export default function CarouselBrands() {
   const autoplayRef = useRef(Autoplay({ delay: 5000, playOnInit: true }));
-  const groupSize = useResponsiveGroupSize({ xl: 6, lg: 5, md: 4, sm: 3, base: 2 });
+  const groupSize = useResponsiveItemsPerView({ xl: 6, lg: 5, md: 4, sm: 3, base: 2 });
 
   const images = [
     '/home/brands/b1.png',

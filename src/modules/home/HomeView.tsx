@@ -28,7 +28,7 @@ export const HomeView = () => {
   };
   return (
     <>
-      <Container size="full" className="px-0 py-0">
+      <Container size="full">
         <Banner />
       </Container>
 
@@ -39,7 +39,7 @@ export const HomeView = () => {
         </div>
       </Container>
 
-      <Container className="space-y-8 pt-0">
+      <Container className="space-y-8">
         <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Los más vendidos</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
@@ -58,22 +58,22 @@ export const HomeView = () => {
         </div>
       </Container>
 
-      <Container size="full" className="relative pt-0">
+      <Container size="full" className="relative">
         <PromotionalBanner banner={promoBanner} />
       </Container>
 
-      <Container className="pt-0">
+      <Container>
         <PromotionalGrid items={promoItems} />
       </Container>
 
-      <Container className="pt-0">
+      <Container>
         <BenefitsSection items={benefitsData} />
       </Container>
 
-      <Container className="space-y-8 pt-0">
+      <Container className="space-y-8">
         <CarouselPacks />
       </Container>
-      <Container className="space-y-8 pt-0">
+      <Container className="space-y-8">
         <CarouselBlogs />
       </Container>
       <PromotionalModal modal="/home/modal.png" />

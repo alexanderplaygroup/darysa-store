@@ -2,10 +2,10 @@ import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { ElementType } from 'react';
 
-const containerVariants = cva('w-full py-14', {
+const containerVariants = cva('w-full mb-14', {
   variants: {
     size: {
-      container: 'max-w-[1440px] px-6 2xl:px-0 mx-auto',
+      container: 'max-w-[1366px] px-6 2xl:px-0 mx-auto',
       full: 'max-w-screen',
     },
   },

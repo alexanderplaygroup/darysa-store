@@ -14,14 +14,14 @@ const AdviserView = () => {
 
   return (
     <>
-      <Container size="full" className="relative mb-32 p-0">
+      <Container size="full" className="relative mb-36">
         <HeroBanner banner={aboutBanner} />
-        <Container className="absolute inset-x-0 -bottom-[75px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
+        <Container className="absolute inset-x-0 -bottom-[150px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
           <InformationContact />
         </Container>
       </Container>
 
-      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16 pt-0">
+      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>

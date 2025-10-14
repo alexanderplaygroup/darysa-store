@@ -51,11 +51,11 @@ export const JobsView = () => {
   ];
   return (
     <div className="relative w-full">
-      <Container className="absolute inset-x-0 -top-11 py-0">
+      <Container className="absolute inset-x-0 -top-[100px]">
         <SearchBar />
       </Container>
-      <Container className="mb-6 space-y-20">
-        <div className="grid grid-cols-1 gap-x-44 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+      <Container>
+        <div className="mb-14 grid grid-cols-1 gap-x-44 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
           {previewPositions.map((position, index) => (
             <PreviewPositionCard key={index} {...position} />
           ))}
@@ -67,7 +67,7 @@ export const JobsView = () => {
           </button>
         </div>
       </Container>
-      <Container className="mb-10 grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
+      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>

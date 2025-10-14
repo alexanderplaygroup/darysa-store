@@ -21,8 +21,8 @@ export const ProductCard = ({
   return (
     <div className="border-darysa-gris-claro-alt/60 w-full max-w-full overflow-hidden rounded-lg border shadow-sm transition-shadow hover:shadow-md">
       {/* Product Image Section */}
-      <div className="relative flex aspect-square h-[340px] w-full items-center justify-center bg-gray-50">
-        <AppImage src={image} alt={name} fill sizes="340px" />
+      <div className="relative flex aspect-square w-full max-w-full items-center justify-center">
+        <AppImage src={image} alt={name} fill sizes="300px" />
         {onToggleFavorite && (
           <button
             className="border-darysa-gris-claro-alt/60 absolute top-3 right-3 rounded-full border p-1.5 transition-colors hover:bg-white/80"

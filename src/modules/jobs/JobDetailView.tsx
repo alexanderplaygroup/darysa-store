@@ -24,10 +24,10 @@ export const JobDetailView = ({
 }: JobDetailProps) => {
   return (
     <>
-      <Container className="pb-6">
+      <Container className="mb-6">
         <h2 className="text-darysa-verde-oscuro text-2xl font-bold md:text-4xl">{title}</h2>
       </Container>
-      <Container className="grid grid-cols-1 gap-20 pt-0 md:grid-cols-[1.2fr_0.8fr]">
+      <Container className="grid grid-cols-1 gap-20 md:grid-cols-[1.2fr_0.8fr]">
         {/* Información Principal */}
         <article className="space-y-6">
           <p className="text-darysa-gris-500">{description}</p>

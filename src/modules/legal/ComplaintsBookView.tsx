@@ -25,7 +25,7 @@ export const ComplaintsBookView = () => {
   `,
   };
   return (
-    <Container>
+    <Container className="mt-14">
       <div className="mb-8 space-y-4">
         <AppBreadcrumb items={breadcrumbItems} />
         <h1 className="text-darysa-verde-oscuro text-4xl font-bold">Libro de Reclamaciones</h1>{' '}

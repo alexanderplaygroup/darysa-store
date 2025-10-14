@@ -2,6 +2,7 @@
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
 import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
+import { products } from '@/modules/home/data';
 import {
   Carousel,
   CarouselApi,
@@ -12,9 +13,8 @@ import {
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { products } from '../data';
 
-export default function CarouselPacks() {
+export default function CarouselProducts() {
   const autoplayRef = useRef(Autoplay({ delay: 5000, playOnInit: true }));
   const [embla, setEmbla] = useState<CarouselApi | null>(null); // Referencia Embla
 
@@ -41,7 +41,7 @@ export default function CarouselPacks() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Pack de Productos</h3>
+        <h3 className="text-darysa-gris-oscuro text-4xl font-bold">Productos en el Blog</h3>
 
         <div className="flex gap-6">
           <button
