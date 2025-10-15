@@ -78,7 +78,7 @@ export const ProductsView = () => {
           </Select>
         </Container>
         <Container className="mb-0">
-          <div className="relative grid grid-cols-4 gap-6">
+          <div className="relative grid grid-cols-4 gap-14">
             {/* Sidebar */}
             {/* {isOpen && (
               <div className="bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
@@ -99,7 +99,7 @@ export const ProductsView = () => {
             {/* Productos y PromoBlock */}
             <div
               className={cn(
-                'grid gap-6',
+                'grid gap-14',
                 isOpen ? 'col-span-3 col-start-2 grid-cols-3' : 'col-span-4 grid-cols-4'
               )}
             >

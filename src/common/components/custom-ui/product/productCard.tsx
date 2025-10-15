@@ -63,7 +63,7 @@ export const ProductCard = ({
 
           {/* Pricing Section */}
           <div className="flex items-end justify-between pt-1">
-            <div className="space-y-2">
+            <div className="space-y-3.5">
               <div className={cn('flex items-center gap-2', !hasDiscount && 'invisible')}>
                 <span className="text-darysa-gris-medio-alt-3 text-xs leading-none line-through">
                   {parseSoles(price)}
@@ -81,7 +81,7 @@ export const ProductCard = ({
             {onAddToCart && (
               <Button
                 size="icon"
-                className="bg-darysa-verde-oscuro size-12 rounded-md text-white hover:bg-green-700"
+                className="bg-darysa-verde-oscuro size-12 rounded-sm text-white hover:bg-green-700"
                 aria-label="Agregar al carrito"
                 onClick={onAddToCart}
               >

@@ -7,7 +7,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
 ];
 export const PrivacyPolicyView = () => {
   return (
-    <Container className="mt-14">
+    <Container className="mt-10">
       <div className="mb-8 space-y-4">
         <AppBreadcrumb items={breadcrumbItems} />
         <h1 className="text-darysa-verde-oscuro text-4xl font-bold">

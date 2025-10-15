@@ -14,7 +14,7 @@ const ServiceClientView = () => {
 
   return (
     <>
-      <Container size="full" className="relative mb-36">
+      <Container size="full" className="relative mb-40">
         <HeroBanner banner={aboutBanner} />
         <Container className="absolute inset-x-0 -bottom-[150px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
           <InformationContact />

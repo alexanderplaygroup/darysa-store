@@ -25,12 +25,17 @@ export const ComplaintsBookView = () => {
   `,
   };
   return (
-    <Container className="mt-14">
-      <div className="mb-8 space-y-4">
-        <AppBreadcrumb items={breadcrumbItems} />
-        <h1 className="text-darysa-verde-oscuro text-4xl font-bold">Libro de Reclamaciones</h1>{' '}
-      </div>
-      <FormBookComplaints data={mockBookComplaint} />
-    </Container>
+    <>
+      <Container className="bg-darysa-gris-800/20 mb-0 h-[1px]"></Container>
+      <Container className="mt-10">
+        <div className="mb-8 space-y-4">
+          <AppBreadcrumb items={breadcrumbItems} />
+          <h1 className="text-darysa-verde-oscuro text-4xl font-bold">
+            Libro de Reclamaciones
+          </h1>{' '}
+        </div>
+        <FormBookComplaints data={mockBookComplaint} />
+      </Container>
+    </>
   );
 };

@@ -15,9 +15,9 @@ interface PromotionalGridProps {
 
 export const PromotionalGrid = ({ items }: PromotionalGridProps) => {
   return (
-    <div className="grid grid-cols-4 gap-6">
+    <div className="grid grid-cols-4 gap-5">
       {/* Columna izquierda */}
-      <div className="col-span-2 grid grid-cols-2 gap-6">
+      <div className="col-span-2 grid grid-cols-2 gap-5">
         {items.slice(0, 4).map((item) => (
           <PromoBlock key={item.id} item={item} aspect="aspect-square" />
         ))}
@@ -25,7 +25,7 @@ export const PromotionalGrid = ({ items }: PromotionalGridProps) => {
       </div>
 
       {/* Columna central */}
-      <div className="col-span-1 flex flex-col gap-6">
+      <div className="col-span-1 flex flex-col gap-5">
         {items.slice(5, 7).map((item) => (
           <PromoBlock key={item.id} item={item} aspect="aspect-[3/4] h-full" />
         ))}

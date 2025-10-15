@@ -1,9 +1,12 @@
-import { socialIcons } from '@/common/data/social';
 import { Mail, PhoneCall } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { AppImage } from '../custom-ui/AppImage';
 import { Container } from '../custom-ui/Container';
+import { FacebookIcon } from '../icons/FacebookIcon';
+import { InstagramIcon } from '../icons/InstagramIcon';
+import { LinkedInIcon } from '../icons/LinkedInIcon';
+import { TikTokIcon } from '../icons/TikTokIcon';
+import { YouTubeIcon } from '../icons/YouTubeIcon';
 
 export const Footer = () => {
   const footerSections = [
@@ -21,7 +24,7 @@ export const Footer = () => {
       links: [
         { name: 'Contacto', href: '/contacto' },
         { name: 'Libro de Reclamaciones', href: '/libro-de-reclamaciones' },
-        { name: 'Servicio al Cliente', href: '#solutions' },
+        { name: 'Servicio al Cliente', href: '/contacto/servicio-cliente' },
         { name: 'Política Anticorrupción y Antisoborno', href: 'politica-de-privacidad' },
       ],
     },
@@ -37,18 +40,21 @@ export const Footer = () => {
 
   return (
     <footer className="bg-darysa-gris-oscuro">
-      <Container className="mb-0 pt-16 pb-6">
-        <div className="mb-14 grid grid-cols-[0.6fr_1.4fr]">
+      <Container className="mb-0 pb-6">
+        <div className="my-14 grid grid-cols-[0.6fr_1.4fr]">
           {/* Logo and Contact */}
-          <div className="space-y-10">
-            <Image
-              src="/logo-dark.svg"
-              alt="logo"
-              className="object-contain"
-              width={247}
-              height={54}
-            />
-            <dl className="text-darysa-gris-claro space-y-2">
+          <div className="flex flex-col gap-10">
+            <Link href="/" className="w-fit">
+              <AppImage
+                src="/logo-dark.svg"
+                alt="Darysa"
+                width={247}
+                height={54}
+                className="object-cover"
+              />
+            </Link>
+
+            <dl className="text-darysa-gris-claro space-y-2.5 text-sm">
               <dt className="sr-only">Teléfono:</dt>
               <dd className="flex items-center gap-2">
                 <PhoneCall className="size-5" />
@@ -63,23 +69,23 @@ export const Footer = () => {
 
           <div className="flex w-full items-start justify-between gap-10">
             <section aria-labelledby="office-info">
-              <h3 id="office-info" className="mb-6 text-xl font-bold text-white">
+              <h3 id="office-info" className="mb-3.5 text-base font-bold text-white">
                 Oficina Central
               </h3>
-              <address className="text-darysa-gris-claro mb-4 space-y-0.5 not-italic">
+              <address className="text-darysa-gris-claro mb-4 space-y-0.5 text-sm not-italic">
                 <p>Granja 1 - Alt Km. 30</p>
                 <p>Antigua Panamericana Sur, Lurín</p>
               </address>
 
               <p className="mb-2.5 text-base font-semibold text-white">Horario de Atención</p>
-              <dl className="text-darysa-gris-claro space-y-0.5">
+              <dl className="text-darysa-gris-claro space-y-0.5 text-sm">
                 <div className="flex items-center gap-2">
-                  <dt>L-V:</dt>
-                  <dd>8:00 AM – 5:00 PM</dd>
+                  <dt>Lunes-Viernes:</dt>
+                  <dd>8:00 AM – 5:15 PM</dd>
                 </div>
                 <div className="flex items-center gap-2">
-                  <dt>S:</dt>
-                  <dd>8:00 AM – 12:00 PM</dd>
+                  <dt>Sábado:</dt>
+                  <dd>8:00 AM – 12:15 PM</dd>
                 </div>
               </dl>
             </section>
@@ -87,13 +93,13 @@ export const Footer = () => {
             {/* Footer Links */}
             {footerSections.map((section, index) => (
               <section key={index}>
-                <h3 className="mb-6 text-xl font-bold text-white">{section.title}</h3>
+                <h3 className="mb-3.5 text-base font-bold text-white">{section.title}</h3>
                 <ul className="w-full space-y-3.5">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex} className="w-full">
                       <Link
                         href={link.href}
-                        className="text-darysa-gris-claro w-full text-end text-base transition-colors hover:text-white"
+                        className="text-darysa-gris-claro w-full text-end text-sm transition-colors hover:text-white"
                       >
                         {link.name}
                       </Link>
@@ -107,7 +113,7 @@ export const Footer = () => {
 
         {/* Bottom Section */}
         <div className="grid grid-cols-[0.6fr_1.4fr] border-t border-white/10 pt-6">
-          <div className="flex w-fit items-center gap-6">
+          {/* <div className="flex w-fit items-center gap-6">
             {socialIcons.map((icon, idx) => (
               <div key={idx} className="h-[32px] min-w-[32px]">
                 <AppImage
@@ -120,9 +126,16 @@ export const Footer = () => {
                 />
               </div>
             ))}
+          </div> */}
+          <div className="flex w-fit items-center gap-6">
+            <FacebookIcon size={30} className="text-white" />
+            <LinkedInIcon size={28} className="text-white" />
+            <InstagramIcon size={30} className="text-white" />
+            <TikTokIcon size={30} className="text-white" />
+            <YouTubeIcon size={30} className="text-white" />
           </div>
           <div className="flex items-center justify-between">
-            <div className="text-darysa-gris-claro text-sm font-bold">
+            <div className="text-darysa-gris-claro text-sm font-semibold">
               © 2012-2024. Daryza S.A.C RUC 20144109458 Todos los derechos reservados
             </div>
 

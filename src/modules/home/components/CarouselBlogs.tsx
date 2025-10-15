@@ -92,11 +92,11 @@ export default function CarouselBlogs() {
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-6">
+        <CarouselContent className="-ml-14">
           {blogPosts.map((post, index) => (
             <CarouselItem
               key={index}
-              className="basis-full pl-6 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
+              className="basis-full pl-14 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
             >
               <BlogCard key={index} {...post} />
             </CarouselItem>

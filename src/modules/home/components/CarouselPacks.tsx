@@ -90,11 +90,11 @@ export default function CarouselPacks() {
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-6">
+        <CarouselContent className="-ml-14">
           {products.map((product, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2 pl-6 sm:basis-1/3 md:basis-1/4 lg:basis-1/4 xl:basis-1/4"
+              className="basis-1/2 pl-14 sm:basis-1/3 md:basis-1/4 lg:basis-1/4 xl:basis-1/4"
             >
               <ProductCard
                 key={product.id}
