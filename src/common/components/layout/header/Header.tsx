@@ -1,13 +1,13 @@
 'use client';
 import { useScrolled } from '@/common/hooks/useScrolled';
 import { cn } from '@/lib/utils';
-import { Heart, MapPin, Menu, Search, ShoppingCart, User } from 'lucide-react';
+import { Heart, MapPin, Search, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
 import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
 import { Badge } from '../../shadcn-ui/badge';
-import { Button } from '../../shadcn-ui/button';
 import { Input } from '../../shadcn-ui/input';
+import { CategoryMegaMenu } from './CategoryMegaMenu';
 
 export const Header = () => {
   const isScrolled = useScrolled(0); // 👈 mucho más limpio
@@ -56,10 +56,11 @@ export const Header = () => {
         </div>
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-10">
-            <Button className="bg-darysa-gris-oscuro flex h-10 items-center gap-2.5 rounded-md !px-4 text-sm">
+            {/* <Button className="bg-darysa-gris-oscuro flex h-10 items-center gap-2.5 rounded-md !px-4 text-sm">
               <Menu className="size-5" />
               Todas las Categorías
-            </Button>
+            </Button> */}
+            <CategoryMegaMenu />
             <nav aria-label="Main navigation">
               <ul className="flex items-center gap-10">
                 <li>

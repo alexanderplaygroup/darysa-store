@@ -107,7 +107,7 @@ export function JoinTeamModalForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Left side (image) */}
-          <div className="relative h-full w-full overflow-hidden rounded-lg">
+          <div className="relative h-full w-full overflow-hidden rounded-l-lg">
             <AppImage src="/about/aboutProm.png" alt="Team image" fill sizes="440px" />
           </div>
 

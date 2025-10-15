@@ -1,7 +1,7 @@
 'use client';
 
+import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@shadcnui/button';
 import { Checkbox } from '@shadcnui/checkbox';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@shadcnui/form';
 import { Input } from '@shadcnui/input';
@@ -16,7 +16,6 @@ import {
 } from '@shadcnui/select';
 import { Textarea } from '@shadcnui/textarea';
 import { format } from 'date-fns';
-import { Loader2 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -135,7 +134,13 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="Nombre y Apellido" {...field} required />
+                  <Input
+                    type="text"
+                    placeholder="Nombre y Apellido"
+                    {...field}
+                    className="h-12"
+                    required
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -147,7 +152,13 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="email" placeholder="Correo Electrónico" {...field} required />
+                  <Input
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    {...field}
+                    className="h-12"
+                    required
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -185,7 +196,13 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="N° de Documento" {...field} required />
+                  <Input
+                    type="text"
+                    placeholder="N° de Documento"
+                    {...field}
+                    className="h-12"
+                    required
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -196,6 +213,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             placeholder="Fecha de Reclamo"
             name="date"
             defaultValue={format(new Date(), 'yyyy-MM-dd')}
+            className="h-12"
             readOnly
           />
         </div>
@@ -207,7 +225,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="Dirección" {...field} required />
+                  <Input type="text" placeholder="Dirección" {...field} className="h-12" required />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -219,7 +237,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="Distrito" {...field} required />
+                  <Input type="text" placeholder="Distrito" {...field} className="h-12" required />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -231,7 +249,13 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="tel" placeholder="Número de Celular" {...field} required />
+                  <Input
+                    type="tel"
+                    placeholder="Número de Celular"
+                    {...field}
+                    className="h-12"
+                    required
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -289,7 +313,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
         </div>
 
         <div className="py-2">
-          <p className="">¿Deseas presentar un reclamo o una queja?</p>
+          <p className="text-darysa-gris-500 text-sm">¿Deseas presentar un reclamo o una queja?</p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 py-2 lg:grid-cols-2">
@@ -318,11 +342,11 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
           />
         </div>
 
-        <div className="mt-4 py-2">
-          <p>
+        <div className="py-2">
+          <p className="text-darysa-gris-500 text-sm">
             <strong>Reclamo:</strong> {reclamo}
           </p>
-          <p>
+          <p className="text-darysa-gris-500 text-sm">
             <strong>Queja:</strong> {queja}
           </p>
         </div>
@@ -348,7 +372,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
         </div>
 
         <div className="py-2">
-          <div>
+          <div className="text-darysa-gris-500 text-sm">
             <strong>{subtitle}</strong>
             <div dangerouslySetInnerHTML={{ __html: paragraph }} />
           </div>
@@ -363,7 +387,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
                 <FormItem className="flex items-center">
                   <FormControl>
                     <Checkbox
-                      className="border-brand-red data-[state=checked]:bg-brand-red data-[state=checked]:border-brand-red"
+                      // className="border-brand-red data-[state=checked]:bg-brand-red data-[state=checked]:border-brand-red"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                       onBlur={field.onBlur}
@@ -384,7 +408,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
           </div>
         </div>
 
-        <div className="py-2">
+        <div className="text-darysa-gris-500 py-2 text-sm">
           <p>
             <strong>Adjuntos</strong>
           </p>
@@ -431,22 +455,14 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
         />
 
         <div className="flex justify-center">
-          <Button
-            variant="destructive"
-            size="lg"
+          <ButtonWithSpinner
             type="submit"
-            className="w-full max-w-xs text-xl"
-            disabled={isSubmitting}
+            isLoading={isSubmitting}
+            loadingText="Enviando..."
+            className="bg-darysa-gris-oscuro h-10 w-full max-w-[150px] rounded-lg text-base text-white"
           >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="h-5 w-5 animate-spin" />
-                Enviando...
-              </>
-            ) : (
-              'Enviar'
-            )}
-          </Button>
+            Enviar
+          </ButtonWithSpinner>
         </div>
       </form>
     </Form>
