@@ -1,5 +1,6 @@
 import { AppBreadcrumb, BreadcrumbItemType } from '@/common/components/custom-ui/AppBreadcrumb';
 import { Container } from '@/common/components/custom-ui/Container';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { FormBookComplaints } from './components/FormBookComplaints';
 import { BookComplaints } from './interfaces';
 
@@ -27,12 +28,12 @@ export const ComplaintsBookView = () => {
   return (
     <>
       <Container className="bg-darysa-gris-800/20 mb-0 h-[1px]"></Container>
-      <Container className="mt-10">
-        <div className="mb-8 space-y-4">
+      <Container className="mt-8">
+        <div className="mb-5 space-y-4">
           <AppBreadcrumb items={breadcrumbItems} />
-          <h1 className="text-darysa-verde-oscuro text-4xl font-bold">
-            Libro de Reclamaciones
-          </h1>{' '}
+          <Heading as="h1" variant="heading" className="md:text-3xl">
+            Libro de Reclamaciones{' '}
+          </Heading>{' '}
         </div>
         <FormBookComplaints data={mockBookComplaint} />
       </Container>

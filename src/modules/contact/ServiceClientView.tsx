@@ -16,12 +16,12 @@ const ServiceClientView = () => {
     <>
       <Container size="full" className="relative mb-40">
         <HeroBanner banner={aboutBanner} />
-        <Container className="absolute inset-x-0 -bottom-[150px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
+        <Container className="absolute inset-x-0 -bottom-[130px] overflow-hidden rounded-lg bg-white p-0 shadow-lg">
           <InformationContact />
         </Container>
       </Container>
 
-      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
+      <Container className="mb-16 grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>

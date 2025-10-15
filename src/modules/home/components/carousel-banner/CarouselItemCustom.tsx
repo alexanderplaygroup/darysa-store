@@ -1,5 +1,4 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
-import { PlayIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 type ImageSlideProps = {
@@ -97,9 +96,21 @@ export function VideoSlide({
       {/* Overlay hasta que el user haga clic */}
       {!isFullscreen && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-lg">
-            <PlayIcon size={32} />
-          </div>
+          <svg
+            width="120"
+            height="120"
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="60" cy="60" r="60" fill="#8F8F8F" fillOpacity="0.1" />
+            <circle cx="60" cy="60" r="59.5" stroke="#949494" strokeOpacity="0.3" />
+            <circle cx="60" cy="60" r="40" fill="white" />
+            <path
+              d="M74.5 59.134C75.1667 59.5189 75.1667 60.4811 74.5 60.866L53.5 72.9904C52.8333 73.3753 52 72.8942 52 72.1244V47.8756C52 47.1058 52.8333 46.6247 53.5 47.0096L74.5 59.134Z"
+              fill="#646464"
+            />
+          </svg>
         </div>
       )}
     </div>

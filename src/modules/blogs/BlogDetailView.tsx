@@ -52,7 +52,7 @@ const BlogDetailView = () => {
     <>
       <Container size="full" className="relative mb-24">
         <HeroBanner banner={aboutBanner} />
-        <Container className="absolute inset-x-0 -bottom-[105px] max-w-[787px] overflow-hidden rounded-lg bg-white shadow-lg">
+        <Container className="absolute inset-x-0 -bottom-[90px] max-w-[787px] overflow-hidden rounded-lg bg-white shadow-lg">
           <SearchBlog />
         </Container>
       </Container>

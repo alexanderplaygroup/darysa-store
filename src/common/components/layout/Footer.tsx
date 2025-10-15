@@ -41,7 +41,7 @@ export const Footer = () => {
   return (
     <footer className="bg-darysa-gris-oscuro">
       <Container className="mb-0 pb-6">
-        <div className="my-14 grid grid-cols-[0.6fr_1.4fr]">
+        <div className="my-14 grid grid-cols-[0.7fr_1.3fr]">
           {/* Logo and Contact */}
           <div className="flex flex-col gap-10">
             <Link href="/" className="w-fit">
@@ -112,7 +112,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="grid grid-cols-[0.6fr_1.4fr] border-t border-white/10 pt-6">
+        <div className="grid grid-cols-[0.7fr_1.3fr] border-t border-white/10 pt-6">
           {/* <div className="flex w-fit items-center gap-6">
             {socialIcons.map((icon, idx) => (
               <div key={idx} className="h-[32px] min-w-[32px]">

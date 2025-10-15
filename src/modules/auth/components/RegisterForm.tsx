@@ -53,7 +53,7 @@ export function RegisterForm() {
   };
 
   return (
-    <div className="border-darysa-gris-claro-alt/60 rounded-xl border bg-white p-8 shadow-lg md:p-12">
+    <div className="border-darysa-gris-claro-alt/60 rounded-xl border bg-white p-8 shadow-lg md:px-12 md:py-10">
       <h2 className="text-darysa-gris-medio-alt mb-8 text-xl font-semibold">
         Registrarme con e-mail y contraseña
       </h2>
