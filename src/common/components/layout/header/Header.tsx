@@ -1,4 +1,5 @@
 'use client';
+import { useCloseOnScroll } from '@/common/hooks/useCloseOnScroll';
 import { useScrolled } from '@/common/hooks/useScrolled';
 import { cn } from '@/lib/utils';
 import { Heart, MapPin, Search, ShoppingCart, User } from 'lucide-react';
@@ -7,10 +8,12 @@ import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
 import { Badge } from '../../shadcn-ui/badge';
 import { Input } from '../../shadcn-ui/input';
-import { CategoryMegaMenu } from './CategoryMegaMenu';
+import { MegaMenu } from './MegaMenu';
 
 export const Header = () => {
   const isScrolled = useScrolled(0); // 👈 mucho más limpio
+  // 👇 Cerrar mega menú al hacer scroll
+  useCloseOnScroll('megaMenu');
 
   return (
     <header
@@ -56,11 +59,17 @@ export const Header = () => {
         </div>
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-10">
-            {/* <Button className="bg-darysa-gris-oscuro flex h-10 items-center gap-2.5 rounded-md !px-4 text-sm">
+            {/* <Button
+              className="bg-darysa-gris-oscuro flex h-10 items-center gap-2.5 rounded-md !px-4 text-sm"
+              onClick={() => toggleUI('megaMenu')}
+            >
               <Menu className="size-5" />
               Todas las Categorías
             </Button> */}
-            <CategoryMegaMenu />
+
+            <MegaMenu />
+
+            {/* <CategoryMegaMenu /> */}
             <nav aria-label="Main navigation">
               <ul className="flex items-center gap-10">
                 <li>

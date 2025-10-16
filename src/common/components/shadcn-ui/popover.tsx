@@ -5,6 +5,10 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
+type PopoverContentProps = React.ComponentProps<typeof PopoverPrimitive.Content> & {
+  /** Si es true, muestra un overlay oscuro detrás del popover */
+  overlay?: boolean;
+};
 function Popover({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
@@ -17,20 +21,29 @@ function PopoverContent({
   className,
   align = 'center',
   sideOffset = 4,
+  overlay = false,
+
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+}: PopoverContentProps) {
   return (
     <PopoverPrimitive.Portal>
-      <PopoverPrimitive.Content
-        data-slot="popover-content"
-        align={align}
-        sideOffset={sideOffset}
-        className={cn(
-          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden',
-          className
-        )}
-        {...props}
-      />
+      {/* 🔹 Overlay semitransparente */}
+      <React.Fragment>
+        {/* 🔹 Overlay opcional */}
+        {overlay && (
+          <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs" aria-hidden="true" />
+        )}{' '}
+        <PopoverPrimitive.Content
+          data-slot="popover-content"
+          align={align}
+          sideOffset={sideOffset}
+          className={cn(
+            'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-0 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden',
+            className
+          )}
+          {...props}
+        />
+      </React.Fragment>
     </PopoverPrimitive.Portal>
   );
 }

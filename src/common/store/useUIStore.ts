@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type UIKey = 'megaMenu' | 'cart' | 'modal' | 'search';
+type UIKey = 'megaMenu' | 'cart' | 'search';
 
 type UIState = {
   open: Record<UIKey, boolean>;
@@ -35,6 +35,6 @@ export const useUIStore = create<UIState>((set) => ({
 
   closeAll: () =>
     set({
-      open: { megaMenu: false, cart: false, modal: false, search: false },
+      open: { megaMenu: false, cart: false, search: false },
     }),
 }));
