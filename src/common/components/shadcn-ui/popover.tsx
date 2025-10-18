@@ -30,9 +30,7 @@ function PopoverContent({
       {/* 🔹 Overlay semitransparente */}
       <React.Fragment>
         {/* 🔹 Overlay opcional */}
-        {overlay && (
-          <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs" aria-hidden="true" />
-        )}{' '}
+        {overlay && <div className="fixed inset-0 z-20 bg-black/50" aria-hidden="true" />}{' '}
         <PopoverPrimitive.Content
           data-slot="popover-content"
           align={align}

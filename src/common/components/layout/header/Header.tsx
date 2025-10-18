@@ -75,7 +75,11 @@ export const Header = () => {
                 <li>
                   <Link
                     href="#"
-                    className="hover:text-darysa-amarillo text-darysa-gris-medio text-sm transition-colors"
+                    className={cn(
+                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                      'after:bg-darysa-gris-550 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'hover:after:left-0 hover:after:w-full'
+                    )}
                   >
                     Nosotros
                   </Link>
@@ -83,7 +87,11 @@ export const Header = () => {
                 <li>
                   <Link
                     href="#"
-                    className="hover:text-darysa-amarillo text-darysa-gris-medio text-sm transition-colors"
+                    className={cn(
+                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                      'after:bg-darysa-gris-550 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'hover:after:left-0 hover:after:w-full'
+                    )}
                   >
                     Distribuidores
                   </Link>
@@ -91,7 +99,11 @@ export const Header = () => {
                 <li>
                   <Link
                     href="/blog"
-                    className="hover:text-darysa-amarillo text-darysa-gris-medio text-sm transition-colors"
+                    className={cn(
+                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                      'after:bg-darysa-gris-550 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'hover:after:left-0 hover:after:w-full'
+                    )}
                   >
                     Blog
                   </Link>
@@ -99,7 +111,11 @@ export const Header = () => {
                 <li>
                   <Link
                     href="/contacto"
-                    className="hover:text-darysa-amarillo text-darysa-gris-medio text-sm transition-colors"
+                    className={cn(
+                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                      'after:bg-darysa-gris-550 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'hover:after:left-0 hover:after:w-full'
+                    )}
                   >
                     Contacto
                   </Link>

@@ -48,18 +48,21 @@ const categories = [
 ];
 
 export function MegaMenu() {
-  const { open, toggleUI, closeUI } = useUIStore();
+  const { open, closeUI, openUI } = useUIStore();
   const [selected, setSelected] = React.useState(categories[0]);
 
   return (
-    <Popover open={open.megaMenu} onOpenChange={() => toggleUI('megaMenu')}>
+    <Popover
+      open={open.megaMenu}
+      onOpenChange={(isOpen) => (isOpen ? openUI('megaMenu') : closeUI('megaMenu'))}
+    >
       <PopoverTrigger asChild>
-        <Button className="bg-darysa-gris-oscuro flex h-10 items-center gap-2.5 rounded-md !px-4 text-sm">
+        <Button className="bg-darysa-gris-oscuro hover:bg-darysa-gris-oscuro flex h-10 cursor-pointer items-center gap-2.5 rounded-md !px-4 text-sm">
           <Menu className="size-5" />
           Todas las Categorías
         </Button>
       </PopoverTrigger>
-      {/* 👇 Este contenido se renderiza justo debajo del trigger */}
+
       <PopoverContent
         overlay
         align="start"
@@ -75,7 +78,7 @@ export function MegaMenu() {
             <div className="px-4 py-6">
               <h3 className="text-xl leading-none font-bold">Categorías</h3>
             </div>
-            <div className="py-2">
+            <div className="space-y-2 py-2">
               {categories.map((category) => {
                 const isSelected = selected.id === category.id;
                 return (
@@ -83,7 +86,7 @@ export function MegaMenu() {
                     key={category.id}
                     onClick={() => setSelected(category)}
                     className={cn(
-                      'group flex w-full items-center justify-between rounded-lg px-4 py-2.5 text-left transition-colors',
+                      'group flex h-10 w-full items-center justify-between rounded-md px-4 text-left transition-colors',
                       isSelected
                         ? 'bg-darysa-green-500 text-white'
                         : 'text-gray-300 hover:bg-white/10'
@@ -92,12 +95,11 @@ export function MegaMenu() {
                     <Package />
                     <span className="line-clamp-1 text-sm">{category.name}</span>
 
-                    {/* 🔹 Aparece solo en hover o cuando está activo */}
                     <ChevronRight
                       className={cn(
                         'h-4 w-4 opacity-0 transition-opacity duration-200',
-                        'group-hover:opacity-70', // visible al hacer hover
-                        isSelected && 'opacity-70' // visible si está activo
+                        'group-hover:opacity-100', // visible al hacer hover
+                        isSelected && 'opacity-100' // visible si está activo
                       )}
                     />
                   </button>
@@ -120,7 +122,13 @@ export function MegaMenu() {
             <div className="grid grid-cols-2 gap-6 pt-6 md:grid-cols-3 lg:grid-cols-4">
               {selected.subcategories.map((sub, i) => (
                 <div key={i}>
-                  <h4 className="text-darysa-green-500 mb-2 cursor-pointer font-medium hover:underline">
+                  <h4
+                    className={cn(
+                      'text-darysa-green-500 relative mb-3.5 w-fit cursor-pointer font-medium transition-colors',
+                      'after:bg-darysa-green-500 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'hover:after:left-0 hover:after:w-full'
+                    )}
+                  >
                     {sub}
                   </h4>
                   <ul className="space-y-1.5 text-sm text-gray-600">
