@@ -83,23 +83,33 @@ export function MegaMenu() {
                 const isSelected = selected.id === category.id;
                 return (
                   <button
+                    type="button"
                     key={category.id}
                     onClick={() => setSelected(category)}
                     className={cn(
-                      'group flex h-10 w-full items-center justify-between rounded-md px-4 text-left transition-colors',
+                      // base
+                      'group flex h-10 w-full items-center justify-between rounded-md px-4 text-left transition-all duration-300 ease-in-out',
+                      // active
                       isSelected
-                        ? 'bg-darysa-green-500 text-white'
+                        ? 'bg-darysa-green-500 text-white shadow-sm'
                         : 'text-gray-300 hover:bg-white/10'
                     )}
                   >
-                    <Package />
+                    <Package
+                      className={cn(
+                        'transition-transform duration-300 ease-in-out',
+                        isSelected ? 'scale-105' : 'group-hover:scale-105'
+                      )}
+                    />
+
                     <span className="line-clamp-1 text-sm">{category.name}</span>
 
                     <ChevronRight
                       className={cn(
-                        'h-4 w-4 opacity-0 transition-opacity duration-200',
-                        'group-hover:opacity-100', // visible al hacer hover
-                        isSelected && 'opacity-100' // visible si está activo
+                        'h-4 w-4 transition-all duration-300 ease-in-out',
+                        isSelected
+                          ? 'translate-x-0.5 opacity-100'
+                          : 'opacity-0 group-hover:translate-x-0.5 group-hover:opacity-100'
                       )}
                     />
                   </button>
