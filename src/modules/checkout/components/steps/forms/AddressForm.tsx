@@ -188,17 +188,19 @@ export function AddressForm({ onSubmit, defaultValues }: Props) {
           control={form.control}
           name="termsAccepted"
           render={({ field }) => (
-            <FormItem className="flex items-center gap-2">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
-                />
-              </FormControl>
-              <FormLabel className="text-darysa-gris-950">
-                Acepto los términos y condiciones
-              </FormLabel>
+            <FormItem className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
+                  />
+                </FormControl>
+                <FormLabel className="text-darysa-gris-950 leading-none">
+                  Acepto los términos y condiciones.
+                </FormLabel>
+              </div>
               <FormMessage />
             </FormItem>
           )}
@@ -207,7 +209,7 @@ export function AddressForm({ onSubmit, defaultValues }: Props) {
         <div className="flex justify-center">
           <Button
             type="submit"
-            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-xl font-bold"
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-lg font-bold"
           >
             Continuar Pago
           </Button>

@@ -25,7 +25,7 @@ export function AppImage({
     return (
       <div
         className={cn(
-          'bg-accent flex h-full w-full items-center justify-center rounded-lg text-sm text-gray-500',
+          'bg-accent flex h-full w-full items-center justify-center rounded-lg text-center text-sm text-gray-500',
           className
         )}
       >

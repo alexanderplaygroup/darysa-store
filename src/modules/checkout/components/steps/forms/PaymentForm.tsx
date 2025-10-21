@@ -75,7 +75,7 @@ export function PaymentForm({ onSubmit, defaultValues }: Props) {
         <div className="flex justify-center">
           <Button
             type="submit"
-            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-xl font-bold"
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-lg font-bold"
           >
             Confirmar Pago
           </Button>

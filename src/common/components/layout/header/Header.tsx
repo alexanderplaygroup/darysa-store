@@ -1,6 +1,7 @@
 'use client';
 import { useCloseOnScroll } from '@/common/hooks/useCloseOnScroll';
 import { useScrolled } from '@/common/hooks/useScrolled';
+import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
 import { Heart, MapPin, Search, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ export const Header = () => {
   const isScrolled = useScrolled(0); // 👈 mucho más limpio
   // 👇 Cerrar mega menú al hacer scroll
   useCloseOnScroll('megaMenu');
+  const { openUI } = useUIStore(); // <-- Aquí traemos la función para abrir
 
   return (
     <header
@@ -46,12 +48,18 @@ export const Header = () => {
               </Badge>
               <Heart className="size-6" />
             </div>
-            <div className="relative">
+            <button
+              type="button"
+              className="relative cursor-pointer"
+              onClick={() => openUI('cart')}
+              aria-label="Abrir carrito de compras"
+            >
               <Badge className="bg-darysa-green-500 absolute -top-[9px] -right-3 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
                 2
               </Badge>
               <ShoppingCart className="size-6" />
-            </div>
+            </button>
+
             <Link href="/login">
               <User className="size-6" />
             </Link>

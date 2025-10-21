@@ -133,10 +133,10 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn('text-destructive flex items-center gap-2 text-sm', className)}
+      className={cn('text-destructive flex items-center gap-1.5 text-sm', className)}
       {...props}
     >
-      <AlertCircle className="h-4 w-4" />
+      <AlertCircle className="size-3.5" />
 
       {body}
     </p>

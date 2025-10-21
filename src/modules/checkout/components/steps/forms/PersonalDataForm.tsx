@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const personalDataSchema = z.object({
-  email: z.email('Correo inválido'),
+  email: z.email('Correo requerido'),
   name: z.string().min(1, 'Nombre requerido'),
   lastName: z.string().min(1, 'Apellido requerido'),
   documentType: z.string().min(1, 'Seleccione un tipo de documento'),
@@ -267,17 +267,20 @@ export function PersonalDataForm({ onSubmit, defaultValues }: Props) {
           control={form.control}
           name="termsAccepted"
           render={({ field }) => (
-            <FormItem className="flex items-center gap-2">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
-                />
-              </FormControl>
-              <FormLabel className="text-darysa-gris-950">
-                Mensaje de Términos y Condiciones
-              </FormLabel>
+            <FormItem className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
+                  />
+                </FormControl>
+                <FormLabel className="text-darysa-gris-950 leading-none">
+                  Mensaje de Términos y Condiciones.
+                </FormLabel>
+              </div>
+
               <FormMessage />
             </FormItem>
           )}
@@ -287,17 +290,19 @@ export function PersonalDataForm({ onSubmit, defaultValues }: Props) {
           control={form.control}
           name="dataAuthorization"
           render={({ field }) => (
-            <FormItem className="flex items-center gap-2">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
-                />
-              </FormControl>
-              <FormLabel className="text-darysa-gris-950">
-                Mensaje de Autorización de Datos Personales
-              </FormLabel>
+            <FormItem className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="data-[state=checked]:bg-darysa-verde-oscuro border-darysa-green-500 data-[state=checked]:border-darysa-green-500 size-4.5 bg-white data-[state=checked]:text-white"
+                  />
+                </FormControl>
+                <FormLabel className="text-darysa-gris-950 leading-none">
+                  Mensaje de Autorización de Datos Personales.
+                </FormLabel>
+              </div>
               <FormMessage />
             </FormItem>
           )}
@@ -306,7 +311,7 @@ export function PersonalDataForm({ onSubmit, defaultValues }: Props) {
         <div className="flex w-full items-center justify-center">
           <Button
             type="submit"
-            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-xl font-bold"
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/90 mt-2 h-11 w-full max-w-[150px] rounded-lg font-bold"
           >
             Ir a entrega
           </Button>

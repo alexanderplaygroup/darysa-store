@@ -32,9 +32,9 @@ export function CheckoutAccordionSection({
       <AccordionTrigger
         showIcon={!showCompletedView}
         iconClassName="group-data-[state=open]:text-darysa-green-500 size-6" // 👈 aquí tus clases personalizadas
-        className="group-data-[state=open]:text-darysa-green-500 items-center px-6 font-bold text-white hover:no-underline"
+        className="group-data-[state=open]:text-darysa-green-500 items-center px-6 text-white hover:no-underline"
       >
-        <div className="flex items-center gap-6 text-xl">
+        <div className="flex items-center gap-6 text-xl font-bold">
           <span className="group-data-[state=open]:bg-darysa-green-500 text-darysa-green-500 flex size-9 items-center justify-center rounded-full border bg-white text-xl font-bold group-data-[state=open]:text-white">
             {showCompletedView ? <CheckCircle className="size-5" /> : id}
           </span>

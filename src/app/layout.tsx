@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Footer } from '@/common/components/layout/Footer';
 import { Header } from '@/common/components/layout/header/Header';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
+import { SidebarCart } from '@/modules/cart/components/SidebarCart';
 import '@common/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="flex-1">{children}</main>
+        <SidebarCart />
         <Footer />
       </body>
     </html>
