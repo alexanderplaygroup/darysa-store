@@ -17,7 +17,7 @@ import { BenefitItems } from './type';
 
 const CarouselBrands = dynamic(() => import('./components/CarouselBrands'), {
   ssr: false,
-  loading: () => <Skeleton className="aspect-[16/3] h-[136px] w-full rounded-xl" />,
+  loading: () => <Skeleton className="aspect-16/3 h-[136px] w-full rounded-xl" />,
 });
 
 export const HomeView = () => {
@@ -37,7 +37,7 @@ export const HomeView = () => {
         <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
           Marcas Aliadas
         </Heading>
-        <div className="aspect-[16/3] h-[136px] w-full">
+        <div className="aspect-16/3 h-[136px] w-full">
           <CarouselBrands />
         </div>
       </Container>

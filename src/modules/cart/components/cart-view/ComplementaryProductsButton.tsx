@@ -40,7 +40,7 @@ export const ComplementaryProductsButton = () => {
             data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <div className="max-w-5xl px-10 pb-8">
+        <div className="w-full overflow-hidden px-10 pb-8">
           <CarouselProductosInModal />
         </div>
       </DialogContent>
