@@ -71,7 +71,7 @@ export default function AddressForm() {
                 </FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className="!h-11 w-full">
+                    <SelectTrigger className="h-11! w-full">
                       <SelectValue placeholder="Selecciona" />
                     </SelectTrigger>
                     <SelectContent>
@@ -95,7 +95,7 @@ export default function AddressForm() {
                 </FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className="!h-11 w-full">
+                    <SelectTrigger className="h-11! w-full">
                       <SelectValue placeholder="Selecciona" />
                     </SelectTrigger>
                     <SelectContent>
@@ -118,7 +118,7 @@ export default function AddressForm() {
                 </FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className="!h-11 w-full">
+                    <SelectTrigger className="h-11! w-full">
                       <SelectValue placeholder="Selecciona" />
                     </SelectTrigger>
                     <SelectContent>

@@ -38,7 +38,7 @@ const CheckoutView = () => {
 
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 h-[1px]" />
+      <Container className="bg-darysa-gris-800/20 h-px" />
 
       {/* Header y Breadcrumb */}
       <Container className="mb-5 space-y-4">

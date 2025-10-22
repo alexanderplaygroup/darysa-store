@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Footer } from '@/common/components/layout/Footer';
 import { Header } from '@/common/components/layout/header/Header';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
-import { SidebarCart } from '@/modules/cart/components/SidebarCart';
+import { SidebarCart } from '@/modules/cart/components/cart-sidebar/SidebarCart';
 import '@common/styles/globals.css';
 
 export const metadata: Metadata = {
