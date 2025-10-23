@@ -2,10 +2,12 @@
 import { UserAvatar } from '@/common/components/custom-ui/UserAvatar';
 import { Heart, LogOut, ShoppingCart, TicketPercent, Truck, User } from 'lucide-react';
 // import { usePathname } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 import { ActiveLink } from './ActiveLink';
 
 export const SidebarDashboard = () => {
   // const pathname = usePathname();
+
   const links = [
     {
       name: 'Mis Pedidos',
@@ -35,6 +37,12 @@ export const SidebarDashboard = () => {
       // isActive: pathname.includes('/account/dashboard/products'),
     },
   ];
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    window.location.href = '/';
+  };
+
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
@@ -45,7 +53,10 @@ export const SidebarDashboard = () => {
         {links.map((link) => {
           return <ActiveLink key={link.name} {...link} />;
         })}
-        <button className="text-darysa-gris-950 flex h-10 w-full items-center gap-4 rounded-md px-6 text-sm font-semibold transition-colors duration-300 ease-in-out">
+        <button
+          onClick={handleLogout}
+          className="text-darysa-gris-950 flex h-10 w-full items-center gap-4 rounded-md px-6 text-sm font-semibold transition-colors duration-300 ease-in-out"
+        >
           <LogOut size={24} strokeWidth={2} /> Cerrar Sesión
         </button>
       </div>

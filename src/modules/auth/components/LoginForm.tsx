@@ -3,11 +3,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { Heading } from '@/common/components/custom-ui/Heading';
+import { showCustomToast } from '@/common/components/custom-ui/ShowCustomToast';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Form,
@@ -18,15 +20,21 @@ import {
   FormMessage,
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { Login } from '../actions/login';
 
 // Esquema de validación con Zod
-const loginSchema = z.object({
+export const loginSchema = z.object({
   email: z.email('Ingrese un email válido'),
   password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
 });
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [isPending, startTransition] = useTransition(); // hook de transición
+  const router = useRouter();
+  const { update } = useSession();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -41,7 +49,27 @@ export function LoginForm() {
   };
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
-    console.log('Login attempt:', values);
+    startTransition(async () => {
+      const result = await Login(values);
+
+      if (result.error) {
+        // console.error('Error en login:', result.error);
+        showCustomToast({
+          variant: 'error',
+          title: 'Error al iniciar sesión',
+          message: result.error || 'Ocurrió un problema al iniciar sesión.',
+        });
+      } else {
+        showCustomToast({
+          variant: 'login',
+          title: '¡Bienvenido! ',
+          message: result.success,
+        });
+        await update(); // 🔹 actualiza la sesión en cliente
+        router.push('/');
+        router.refresh();
+      }
+    });
   };
 
   return (
@@ -71,6 +99,7 @@ export function LoginForm() {
                     type="email"
                     placeholder="Escribe Aquí"
                     className="placeholder:text-darysa-gris-medio-alt-2 h-12 rounded-sm text-base"
+                    disabled={isPending}
                   />
                 </FormControl>
                 <FormMessage />
@@ -94,6 +123,7 @@ export function LoginForm() {
                       type={showPassword ? 'text' : 'password'}
                       placeholder="Contraseña"
                       className="placeholder:text-darysa-gris-medio-alt-2 h-12 pr-12 text-base"
+                      disabled={isPending}
                     />
                     <button
                       type="button"
@@ -121,12 +151,14 @@ export function LoginForm() {
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button
+            <ButtonWithSpinner
               type="submit"
+              isLoading={isPending}
+              loadingText="Ingresando..."
               className="bg-darysa-gris-oscuro h-12 flex-1 rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
             >
               Ingresar
-            </Button>
+            </ButtonWithSpinner>
             <Button
               type="button"
               variant="outline"

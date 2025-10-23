@@ -12,7 +12,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
 export const LoginView = () => {
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 mb-0 h-[1px]"></Container>
+      <Container className="bg-darysa-gris-800/20 mb-0 h-px"></Container>
       <Container className="mt-8">
         <div className="mb-8 space-y-4">
           <AppBreadcrumb items={breadcrumbItems} />
@@ -23,7 +23,7 @@ export const LoginView = () => {
         <div className="grid w-full grid-cols-1 items-stretch justify-between gap-28 lg:grid-cols-2">
           <LoginForm />
 
-          <div className="relative ml-auto aspect-[4/3] w-full">
+          <div className="relative ml-auto aspect-4/3 w-full">
             <AppImage
               src="/home/bannerHome.png"
               alt="Pantalla de inicio de sesión"

@@ -13,7 +13,7 @@ export function UserAvatar({ name, image, size = 'md' }: UserAvatarProps) {
   const initials = getInitials(name);
 
   const sizes = {
-    sm: 'h-8 w-8 text-sm',
+    sm: 'h-7 w-7 text-xs',
     md: 'h-10 w-10 text-base',
     lg: 'h-14 w-14 text-lg',
   };
