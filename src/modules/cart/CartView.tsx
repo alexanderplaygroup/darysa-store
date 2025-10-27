@@ -1,9 +1,12 @@
 import { AppBreadcrumb, BreadcrumbItemType } from '@/common/components/custom-ui/AppBreadcrumb';
 import { Container } from '@/common/components/custom-ui/Container';
+import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
+import CarouselBestSellers from './components/CarouselBestSellers';
 import { CartItem } from './components/cart-view/CartItem';
 import { ComplementaryProductsButton } from './components/cart-view/ComplementaryProductsButton';
 import { CouponInput } from './components/cart-view/Couponinput';
 import { CartSummary } from './components/cart-view/SummaryCart';
+import { promoBanner } from './data';
 
 const breadcrumbItems: BreadcrumbItemType[] = [
   { label: 'Inicio', href: '/' },
@@ -48,6 +51,13 @@ const CartView = () => {
             <CartSummary />
           </div>
         </div>
+      </Container>
+
+      <Container size="full" className="relative">
+        <PromotionalBanner banner={promoBanner} />
+      </Container>
+      <Container className="space-y-8">
+        <CarouselBestSellers />
       </Container>
     </>
   );

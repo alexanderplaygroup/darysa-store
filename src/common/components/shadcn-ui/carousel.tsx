@@ -7,6 +7,7 @@ import * as React from 'react';
 
 import { Button } from '@/common/components/shadcn-ui/button';
 import { cn } from '@/lib/utils';
+import { AppImage } from '../custom-ui/AppImage';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -200,7 +201,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <ArrowLeft className="size-6" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -230,7 +231,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <ArrowRight className="size-6" />
       <span className="sr-only">Next slide</span>
     </Button>
   );
@@ -286,6 +287,75 @@ function CarouselDots({
   );
 }
 
+function CarouselThumbnails({
+  images,
+  className,
+  opts,
+  ...props
+}: React.ComponentProps<'div'> & {
+  images: string[];
+  opts?: CarouselOptions;
+}) {
+  const { api: mainApi, selectedIndex } = useCarousel();
+  const [thumbsRef, thumbsApi] = useEmblaCarousel({
+    ...opts,
+  });
+
+  React.useEffect(() => {
+    if (!thumbsApi) return;
+    thumbsApi.scrollTo(selectedIndex);
+  }, [selectedIndex, thumbsApi]);
+
+  const scrollTo = React.useCallback(
+    (index: number) => {
+      mainApi?.scrollTo(index);
+    },
+    [mainApi]
+  );
+  if (!mainApi || !images?.length) return null;
+
+  // const scrollTo = (index: number) => mainApi.scrollTo(index);
+
+  return (
+    <div
+      ref={thumbsRef}
+      className={cn('overflow-hidden px-[0.5px]', className)}
+      data-slot="carousel-thumbnails"
+      {...props}
+    >
+      <div className="-ml-6 flex">
+        {images.map((src, index) => {
+          const isActive = selectedIndex === index;
+
+          return (
+            <div
+              role="group"
+              aria-roledescription="slide"
+              data-slot="carousel-item"
+              key={index}
+              className="min-w-0 shrink-0 grow-0 basis-full pl-6 sm:basis-1/4"
+            >
+              <button
+                aria-label={`Ir al slide ${index + 1}`}
+                aria-current={isActive}
+                onClick={() => scrollTo(index)}
+                className={cn(
+                  'size-full overflow-hidden rounded-xl border transition-all',
+                  isActive ? 'border-darysa-green-500' : 'border-darysa-gris-800/20'
+                )}
+              >
+                <div className="relative aspect-square size-full">
+                  <AppImage src={src} alt={`Thumbnail ${index + 1}`} fill sizes="147px" />
+                </div>
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export {
   Carousel,
   CarouselContent,
@@ -293,5 +363,6 @@ export {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselThumbnails,
   type CarouselApi,
 };

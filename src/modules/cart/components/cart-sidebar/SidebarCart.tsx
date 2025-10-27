@@ -1,5 +1,6 @@
 'use client';
 import { ExpressTruckIcon } from '@/common/components/icons/ExpressTruckIcon';
+import { Button } from '@/common/components/shadcn-ui/button';
 import { ScrollArea } from '@/common/components/shadcn-ui/scroll-area';
 import { useUIStore } from '@/common/store/useUIStore';
 import {
@@ -11,6 +12,7 @@ import {
   SheetTitle,
 } from '@shadcnui/sheet';
 import { ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
 import { ProductItemCart } from './ProductItemCart';
 
 export function SidebarCart() {
@@ -112,9 +114,15 @@ export function SidebarCart() {
             </div>
           </div>
 
-          <button className="bg-darysa-green-500 mx-auto w-full max-w-[224px] rounded-sm py-2.5 font-bold text-white">
-            Ir a pagar
-          </button>
+          <Button
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/80 mx-auto w-full max-w-56 rounded-sm py-2.5 font-bold text-white"
+            asChild
+          >
+            <Link href="/carrito" onClick={() => closeUI('cart')}>
+              Ir a pagar
+            </Link>
+          </Button>
+
           {/* <SheetClose asChild>
             <Button variant="outline">Close</Button>
           </SheetClose> */}

@@ -1,5 +1,5 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
-import clsx from 'clsx'; // para combinar clases fácilmente
+import { cn } from '@/lib/utils';
 
 export interface BannerPromotional {
   mobile: string;
@@ -18,7 +18,7 @@ export const PromotionalBanner = ({ banner, className }: PromotionalBannerProps)
   }
 
   const ImageContent = (
-    <picture className={clsx('relative block aspect-[16/2] w-full', className)}>
+    <picture className={cn('relative block aspect-16/2 w-full', className)}>
       <source media="(max-width: 768px)" srcSet={banner.mobile} />
       <AppImage src={banner.desktop} alt="Promotional Image" fill sizes="100vw" />
     </picture>

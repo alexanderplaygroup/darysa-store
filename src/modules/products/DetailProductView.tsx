@@ -1,0 +1,48 @@
+import { AppBreadcrumb, BreadcrumbItemType } from '@/common/components/custom-ui/AppBreadcrumb';
+import { Container } from '@/common/components/custom-ui/Container';
+import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
+import CarouselRelatedProducts from './components/CarouselRelatedProducts';
+import ProductDetailsPanel from './components/ProductDetailsPanel';
+import { ProductDetailsTabs } from './components/ProductDetailTabs';
+import { ProductImageCarousel } from './components/ProductImageCarousel';
+import { promoBanner } from './data';
+
+const breadcrumbItems: BreadcrumbItemType[] = [
+  { label: 'Home', href: '/' },
+  { label: 'Producto', isCurrent: true },
+];
+export default function DetailProductView() {
+  const images = [
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+    '/product/productoRosado.png',
+  ];
+
+  return (
+    <>
+      <Container className="bg-darysa-gris-800/20 h-px" />
+      <Container className="mb-7">
+        <AppBreadcrumb items={breadcrumbItems} />
+      </Container>
+      <Container className="mb-16 grid grid-cols-2 items-start gap-16">
+        <ProductImageCarousel images={images} />
+        <ProductDetailsPanel />
+      </Container>
+      <Container className="mb-16">
+        <ProductDetailsTabs />
+      </Container>
+
+      <Container size="full" className="relative mb-16">
+        <PromotionalBanner banner={promoBanner} />
+      </Container>
+      <Container className="space-y-8">
+        <CarouselRelatedProducts />
+      </Container>
+    </>
+  );
+}
