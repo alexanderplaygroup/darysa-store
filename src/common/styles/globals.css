@@ -10,11 +10,11 @@
   --font-mono: var(--font-geist-mono);
   --font-barlow: var(--font-barlow);
   --font-inter: var(--font-inter);
-  --color-darysa-gris-oscuro: #3d3d3b;
-  --color-darysa-gris-oscuro-alt: #787878;
-  --color-darysa-gris-250: #b6b6b6; /* un gris claro antes del gris-300 */
+  --color-darysa-gris-100: #f8f8f8;
+  --color-darysa-gris-250: #b6b6b6;
   --color-darysa-gris-300: #c5c5c5;
   --color-darysa-gris-350: #c4c4c4;
+  --color-darysa-gris-350-alt: #d6d6d6;
   --color-darysa-gris-400: #959595;
   --color-darysa-gris-450: #7d7d7d;
   --color-darysa-gris-500: #696969;
@@ -23,24 +23,20 @@
   --color-darysa-gris-650: #505050;
   --color-darysa-gris-700: #474b57;
   --color-darysa-gris-750: #848484;
+  --color-darysa-gris-750-alt: #8e8e93;
   --color-darysa-gris-800: #3d3d3b;
   --color-darysa-gris-900: #3c3c3c;
   --color-darysa-gris-950: #303030;
+  --color-darysa-gris-1000: #2a2a2a;
+  --color-darysa-gris-1050: #363636;
+  --color-darysa-gray-500: #a2a6b0;
+  --color-darysa-gray-600: #96a2be;
   --color-darysa-red-400: #ce0e2d;
   --color-darysa-yellow-400: #ffcc00;
-  --color-darysa-gris-oscuro-alt-2: #696969;
-  --color-darysa-gris-oscuro-alt-3: #878787;
-  --color-darysa-gris-claro: #c5c5c5;
-  --color-darysa-gris-claro-alt: #d6d6d6;
-  --color-darysa-gris-medio: #5c5c5c;
-  --color-darysa-gris-medio-alt: #3c3c3c;
-  --color-darysa-gris-medio-alt-2: #8e8e93;
-  --color-darysa-gris-medio-alt-3: #81859c;
   --color-darysa-amarillo: #ffcc00;
   --color-darysa-verde: #6fb74d;
   --color-darysa-verde-oscuro: #44ac34;
   --color-darysa-green-500: #44ac34;
-
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);

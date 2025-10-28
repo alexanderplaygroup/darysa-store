@@ -15,7 +15,7 @@ import { ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import { ProductItemCart } from './ProductItemCart';
 
-export function SidebarCart() {
+export default function SidebarCart() {
   const { open, openUI, closeUI } = useUIStore();
   const isOpen = open.cart;
   return (

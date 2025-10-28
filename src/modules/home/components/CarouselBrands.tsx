@@ -65,7 +65,7 @@ export default function CarouselBrands() {
               'h-2.5 w-2.5 rounded-full transition-all duration-400',
               isActive
                 ? 'bg-darysa-amarillo w-[34px]'
-                : 'bg-darysa-gris-claro-alt hover:bg-darysa-gris-claro cursor-pointer'
+                : 'bg-darysa-gris-350-alt hover:bg-darysa-gris-300 cursor-pointer'
             )}
           >
             {/* Puedes incluso mostrar mini-previews del grupo */}

@@ -18,8 +18,8 @@ interface BlogCardProps {
 
 export function BlogCard({ imageUrl, category, title, author, date }: BlogCardProps) {
   return (
-    <div className="border-darysa-gris-claro-alt/60 overflow-hidden rounded-lg border transition-shadow hover:shadow-lg">
-      <div className="relative h-[240px] w-full">
+    <div className="border-darysa-gris-350-alt/60 overflow-hidden rounded-lg border transition-shadow hover:shadow-lg">
+      <div className="relative h-60 w-full">
         <AppImage
           src={imageUrl}
           alt={title}
@@ -44,13 +44,13 @@ export function BlogCard({ imageUrl, category, title, author, date }: BlogCardPr
           <Heading
             as="h4"
             variant="cardTitle"
-            className="text-darysa-gris-oscuro line-clamp-2 min-h-[50px]"
+            className="text-darysa-gris-800 line-clamp-2 min-h-[50px]"
           >
             {' '}
             {title}
           </Heading>
         </div>
-        <Separator className="bg-darysa-gris-claro-alt/60 mb-4.5" />
+        <Separator className="bg-darysa-gris-350-alt/60 mb-4.5" />
 
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10">
@@ -58,10 +58,10 @@ export function BlogCard({ imageUrl, category, title, author, date }: BlogCardPr
             <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <Text variant="body" className="text-darysa-gris-oscuro font-semibold">
+            <Text variant="body" className="text-darysa-gris-800 font-semibold">
               {author.name}
             </Text>
-            <Text variant="small" className="text-darysa-gris-medio-alt-2/60 text-sm">
+            <Text variant="small" className="text-darysa-gray-600 font-barlow text-sm">
               {date}
             </Text>
           </div>

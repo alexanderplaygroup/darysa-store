@@ -27,27 +27,27 @@ const InformationContact = () => {
       </div>
       <dl className="flex flex-col justify-between gap-6 md:flex-row">
         <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-oscuro md:text-2xl">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
             Oficina Central
           </Heading>
-          <Text as="dd" variant="small" className="text-darysa-gris-oscuro">
+          <Text as="dd" variant="small" className="text-darysa-gris-800">
             Granja 1 - Alt. Km.30 Antigua Panamericana Sur, Lurín. Lima-Perú
           </Text>
         </div>
         <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-oscuro md:text-2xl">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
             Horario de Atención
           </Heading>
-          <Text as="dd" variant="small" className="text-darysa-gris-oscuro">
+          <Text as="dd" variant="small" className="text-darysa-gris-800">
             L-V: 8:00 am - 5:00 pm S: 8:00 am - 12:00 pm
           </Text>
         </div>
         <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-oscuro md:text-2xl">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
             Correo{' '}
           </Heading>
 
-          <Text as="dd" variant="small" className="text-darysa-gris-oscuro">
+          <Text as="dd" variant="small" className="text-darysa-gris-800">
             webmaster@daryza.com / comprahogar@daryza.com
           </Text>
         </div>

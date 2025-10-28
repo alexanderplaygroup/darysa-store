@@ -218,7 +218,7 @@ export function ServiceClientForm() {
             type="submit"
             isLoading={isPending}
             loadingText="Enviando..."
-            className="bg-darysa-gris-oscuro h-12 w-full max-w-[250px] rounded-lg text-base text-white"
+            className="bg-darysa-gris-800 h-12 w-full max-w-[250px] rounded-lg text-base text-white"
           >
             Enviar Información
           </ButtonWithSpinner>

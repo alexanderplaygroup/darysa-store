@@ -91,7 +91,7 @@ export function JoinTeamModalForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-darysa-gris-oscuro h-16 w-full text-xl font-bold text-white hover:bg-gray-900">
+        <Button className="bg-darysa-gris-800 h-16 w-full text-xl font-bold text-white hover:bg-gray-900">
           Postular
         </Button>
       </DialogTrigger>
@@ -288,7 +288,7 @@ export function JoinTeamModalForm() {
                     type="submit"
                     isLoading={isPending}
                     loadingText="Enviando..."
-                    className="bg-darysa-gris-oscuro mx-auto h-12 w-full max-w-[250px] rounded-lg text-base text-white"
+                    className="bg-darysa-gris-800 mx-auto h-12 w-full max-w-[250px] rounded-lg text-base text-white"
                   >
                     Enviar Información
                   </ButtonWithSpinner>

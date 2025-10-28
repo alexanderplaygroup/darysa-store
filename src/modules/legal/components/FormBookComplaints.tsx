@@ -459,7 +459,7 @@ export const FormBookComplaints: React.FC<DataProps> = ({ data }) => {
             type="submit"
             isLoading={isSubmitting}
             loadingText="Enviando..."
-            className="bg-darysa-gris-oscuro h-10 w-full max-w-[150px] rounded-lg text-base text-white"
+            className="bg-darysa-gris-800 h-10 w-full max-w-[150px] rounded-lg text-base text-white"
           >
             Enviar
           </ButtonWithSpinner>

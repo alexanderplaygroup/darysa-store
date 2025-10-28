@@ -4,10 +4,11 @@ import { useScrolled } from '@/common/hooks/useScrolled';
 import { useUserSession } from '@/common/hooks/useUserSession';
 import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
-import { Heart, MapPin, Search, ShoppingCart } from 'lucide-react';
+import { Heart, MapPin, Menu, Search, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
+import { SearchCustomIcon } from '../../icons/SearchIcon';
 import { Badge } from '../../shadcn-ui/badge';
 import { Input } from '../../shadcn-ui/input';
 import { MegaMenu } from './MegaMenu';
@@ -29,17 +30,27 @@ export const Header = () => {
     <header
       className={cn(
         'sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
-        isScrolled && 'shadow-sm'
+        isScrolled && 'drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)]'
       )}
     >
-      <Container className="mb-0 space-y-2 py-3.5">
-        <div className="flex w-full items-center justify-between py-0">
-          {/* Logo */}
-          <Link href="/">
-            <AppImage src="/logo-light.svg" alt="Darysa" width={150} height={30} priority />
-          </Link>
+      <Container className="mb-0 space-y-2 px-0 pt-3.5 lg:py-3.5">
+        <div className="flex w-full items-center justify-between px-6 py-0 2xl:px-0">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <button
+              type="button"
+              className="relative flex size-10 w-fit cursor-pointer items-center justify-center lg:hidden"
+              onClick={() => openUI('mobileMenu')}
+              aria-label="Abrir carrito de compras"
+            >
+              <Menu />
+            </button>
+            {/* Logo */}
+            <Link href="/" className="flex items-center outline-none">
+              <AppImage src="/logo-light.svg" alt="Darysa" width={150} height={30} priority />
+            </Link>
+          </div>
 
-          <div className="hidden w-full max-w-[652px] items-center gap-2 xl:flex">
+          <div className="hidden w-full items-center gap-2 lg:flex lg:max-w-[400px] xl:max-w-[652px]">
             <Input
               placeholder="Buscar"
               className="h-10 w-full rounded-md border-none bg-[#0000000A] p-4 focus-visible:ring-0"
@@ -49,7 +60,11 @@ export const Header = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-4.5 min-[450px]:gap-7 lg:gap-10">
+            <div className="relative flex size-10 w-fit items-center justify-center lg:hidden">
+              {' '}
+              <SearchCustomIcon className="text-darysa-green-500 size-6" />
+            </div>
             <div className="relative flex size-10 w-fit items-center justify-center">
               <Badge className="bg-darysa-green-500 absolute -top-[2.5px] -right-3 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
                 3
@@ -67,71 +82,77 @@ export const Header = () => {
               </Badge>
               <ShoppingCart className="size-6" />
             </button>
-            <UserMenu isLoading={isLoading} isAuthenticated={isAuthenticated} user={user} />
+            <div className="hidden lg:block">
+              <UserMenu isLoading={isLoading} isAuthenticated={isAuthenticated} user={user} />
+            </div>
           </div>
         </div>
-        <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-10">
-            <MegaMenu />
+        <div className="bg-darysa-gris-100 lg:bg-transparent">
+          <div className="flex w-full items-center px-6 lg:justify-between 2xl:px-0">
+            <div className="flex h-10 items-center gap-10">
+              <div className="hidden lg:block">
+                <MegaMenu />
+              </div>
 
-            <nav aria-label="Main navigation">
-              <ul className="hidden items-center gap-10 lg:flex">
-                <li>
-                  <Link
-                    href="#"
-                    className={cn(
-                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
-                      'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
-                      'hover:after:left-0 hover:after:w-full'
-                    )}
-                  >
-                    Nosotros
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className={cn(
-                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
-                      'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
-                      'hover:after:left-0 hover:after:w-full'
-                    )}
-                  >
-                    Distribuidores
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blog"
-                    className={cn(
-                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
-                      'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
-                      'hover:after:left-0 hover:after:w-full'
-                    )}
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contacto"
-                    className={cn(
-                      'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
-                      'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
-                      'hover:after:left-0 hover:after:w-full'
-                    )}
-                  >
-                    Contacto
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+              <nav aria-label="Main navigation">
+                <ul className="hidden items-center gap-10 lg:flex">
+                  <li>
+                    <Link
+                      href="#"
+                      className={cn(
+                        'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                        'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
+                        'hover:after:left-0 hover:after:w-full'
+                      )}
+                    >
+                      Nosotros
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={cn(
+                        'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                        'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
+                        'hover:after:left-0 hover:after:w-full'
+                      )}
+                    >
+                      Distribuidores
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blog"
+                      className={cn(
+                        'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                        'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
+                        'hover:after:left-0 hover:after:w-full'
+                      )}
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contacto"
+                      className={cn(
+                        'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
+                        'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
+                        'hover:after:left-0 hover:after:w-full'
+                      )}
+                    >
+                      Contacto
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <p className="text-darysa-gris-800-alt flex items-center gap-1.5 text-xs font-normal lg:text-sm">
+              <MapPin className="size-4 text-black" />
+              Dirección de usuario a registrarse
+            </p>
           </div>
-
-          <p className="text-darysa-gris-oscuro-alt hidden items-center gap-1.5 text-sm font-normal sm:flex">
-            <MapPin className="size-4 text-black" />
-            Dirección de usuario a registrarse
-          </p>
         </div>
       </Container>
     </header>

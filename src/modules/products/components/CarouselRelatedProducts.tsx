@@ -42,7 +42,7 @@ export default function CarouselRelatedProducts() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+        <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Productos Relacionados
         </Heading>
 
@@ -53,7 +53,7 @@ export default function CarouselRelatedProducts() {
             disabled={!canPrev}
             className={cn(
               'text-darysa-verde-oscuro transition-colors duration-200',
-              canPrev ? 'cursor-pointer' : 'text-darysa-gris-medio-alt-2 opacity-50'
+              canPrev ? 'cursor-pointer' : 'text-darysa-gris-350-alt opacity-50'
             )}
             onMouseEnter={() => autoplayRef.current.stop()}
             onMouseLeave={() => autoplayRef.current.play()}
@@ -68,7 +68,7 @@ export default function CarouselRelatedProducts() {
             disabled={!canNext}
             className={cn(
               'text-darysa-verde-oscuro transition-colors duration-200',
-              canNext ? 'cursor-pointer' : 'text-darysa-gris-medio-alt-2 opacity-50'
+              canNext ? 'cursor-pointer' : 'text-darysa-gris-350-alt opacity-50'
             )}
             onMouseEnter={() => autoplayRef.current.stop()}
             onMouseLeave={() => autoplayRef.current.play()}
@@ -121,7 +121,7 @@ export default function CarouselRelatedProducts() {
                 'h-2.5 w-2.5 rounded-full transition-all duration-400',
                 isActive
                   ? 'bg-darysa-verde-oscuro w-[34px]'
-                  : 'bg-darysa-gris-claro-alt hover:bg-darysa-gris-claro cursor-pointer'
+                  : 'bg-darysa-gris-350-alt hover:bg-darysa-gris-300 cursor-pointer'
               )}
             >
               {/* Puedes incluso mostrar mini-previews del grupo */}

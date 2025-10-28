@@ -67,7 +67,7 @@ export default function ProductDetailsPanel() {
           </span>
         )}
         {discountLabel && (
-          <span className="text-darysa-gris-oscuro text-2xl line-through">
+          <span className="text-darysa-gris-800 text-2xl line-through">
             {parseSoles(product.price)}
           </span>
         )}

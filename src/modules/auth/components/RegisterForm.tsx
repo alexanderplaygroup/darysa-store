@@ -53,8 +53,8 @@ export function RegisterForm() {
   };
 
   return (
-    <div className="border-darysa-gris-claro-alt/60 rounded-xl border bg-white p-8 shadow-lg md:px-12 md:py-10">
-      <h2 className="text-darysa-gris-medio-alt mb-8 text-xl font-semibold">
+    <div className="border-darysa-gris-350-alt/60 rounded-xl border bg-white p-8 shadow-lg md:px-12 md:py-10">
+      <h2 className="text-darysa-gris-550 mb-8 text-xl font-semibold">
         Registrarme con e-mail y contraseña
       </h2>
 
@@ -66,14 +66,14 @@ export function RegisterForm() {
             name="fullName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-darysa-gris-medio-alt font-semibold">
+                <FormLabel className="text-darysa-gris-550 font-semibold">
                   Nombre Completo <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     placeholder="Escribe tu nombre completo"
-                    className="placeholder:text-darysa-gris-medio-alt-2 h-12 rounded-sm text-base"
+                    className="placeholder:text-darysa-gris-350-alt h-12 rounded-sm text-base"
                   />
                 </FormControl>
                 <FormMessage />
@@ -87,7 +87,7 @@ export function RegisterForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-darysa-gris-medio-alt font-semibold">
+                <FormLabel className="text-darysa-gris-550 font-semibold">
                   Email <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
@@ -95,7 +95,7 @@ export function RegisterForm() {
                     {...field}
                     type="email"
                     placeholder="Escribe tu correo"
-                    className="placeholder:text-darysa-gris-medio-alt-2 h-12 rounded-sm text-base"
+                    className="placeholder:text-darysa-gris-350-alt h-12 rounded-sm text-base"
                   />
                 </FormControl>
                 <FormMessage />
@@ -109,7 +109,7 @@ export function RegisterForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-darysa-gris-medio-alt font-semibold">
+                <FormLabel className="text-darysa-gris-550 font-semibold">
                   Contraseña <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
@@ -118,7 +118,7 @@ export function RegisterForm() {
                       {...field}
                       type={showPassword ? 'text' : 'password'}
                       placeholder="Contraseña"
-                      className="placeholder:text-darysa-gris-medio-alt-2 h-12 pr-12 text-base"
+                      className="placeholder:text-darysa-gris-350-alt h-12 pr-12 text-base"
                     />
                     <button
                       type="button"
@@ -141,7 +141,7 @@ export function RegisterForm() {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-darysa-gris-medio-alt font-semibold">
+                <FormLabel className="text-darysa-gris-550 font-semibold">
                   Repetir Contraseña <span className="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
@@ -150,7 +150,7 @@ export function RegisterForm() {
                       {...field}
                       type={showConfirmPassword ? 'text' : 'password'}
                       placeholder="Repite tu contraseña"
-                      className="placeholder:text-darysa-gris-medio-alt-2 h-12 pr-12 text-base"
+                      className="placeholder:text-darysa-gris-350-alt h-12 pr-12 text-base"
                     />
                     <button
                       type="button"
@@ -175,7 +175,7 @@ export function RegisterForm() {
           <div className="mb-6.5">
             <Link
               href="/recuperar-contrasena"
-              className="text-darysa-gris-medio-alt-2 hover:text-foreground text-sm hover:underline"
+              className="text-darysa-gris-750-alt hover:text-foreground text-sm hover:underline"
             >
               Olvidaste tu contraseña?
             </Link>
@@ -184,7 +184,7 @@ export function RegisterForm() {
           {/* Botón principal */}
           <Button
             type="submit"
-            className="bg-darysa-gris-oscuro h-12 w-full rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
+            className="bg-darysa-gris-800 h-12 w-full rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
           >
             Registrarme
           </Button>
@@ -201,7 +201,7 @@ export function RegisterForm() {
         type="button"
         variant="outline"
         onClick={handleGoogleSignIn}
-        className="border-darysa-gris-oscuro h-14 w-full rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
+        className="border-darysa-gris-800 h-14 w-full rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
       >
         <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24">
           <path
@@ -228,7 +228,7 @@ export function RegisterForm() {
       <Button
         type="button"
         variant="outline"
-        className="border-darysa-gris-oscuro mt-3 h-14 w-full rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
+        className="border-darysa-gris-800 mt-3 h-14 w-full rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
         asChild
       >
         <Link href="/login" className="flex items-center gap-2.5">

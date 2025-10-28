@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 
+import { ClientWrapper } from '@/common/components/layout/ClientWrapper';
 import { Footer } from '@/common/components/layout/Footer';
 import { Header } from '@/common/components/layout/header/Header';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
-import { SidebarCart } from '@/modules/cart/components/cart-sidebar/SidebarCart';
 import { auth } from '@auth';
 import '@common/styles/globals.css';
 import { SessionProvider } from 'next-auth/react';
-import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -29,18 +28,9 @@ export default async function RootLayout({
         >
           <Header />
           <main className="flex-1">{children}</main>
-          <SidebarCart />
           <Footer />
-          <Toaster
-            richColors
-            closeButton
-            toastOptions={{
-              classNames: {
-                // 🔹 Asegura que el toast se centre horizontalmente y use su propio ancho
-                toast: 'flex items-center justify-center min-[601px]:w-full! ',
-              },
-            }}
-          />
+
+          <ClientWrapper />
         </body>
       </html>
     </SessionProvider>

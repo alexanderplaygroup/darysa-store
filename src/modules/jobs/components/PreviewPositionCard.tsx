@@ -41,7 +41,7 @@ export function PreviewPositionCard({
         </Heading>
         <Text
           variant="body"
-          className="text-darysa-gris-oscuro min-h-[3rem] leading-tight tracking-normal"
+          className="text-darysa-gris-800 min-h-[3rem] leading-tight tracking-normal"
         >
           {description}
         </Text>
@@ -51,7 +51,7 @@ export function PreviewPositionCard({
       <Link
         href={path}
         className={cn(
-          'bg-darysa-gris-oscuro inline-flex items-center justify-center rounded-lg px-14 py-2 font-bold text-white',
+          'bg-darysa-gris-800 inline-flex items-center justify-center rounded-lg px-14 py-2 font-bold text-white',
           'transition-colors duration-200 hover:bg-zinc-700',
           'focus-visible:ring-darysa-verde-oscuro focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none'
         )}

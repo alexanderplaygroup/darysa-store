@@ -17,7 +17,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </Heading>
       </div>
 
-      <div className="bg-darysa-gris-oscuro-alt-2 flex items-center justify-center gap-6 rounded-sm border p-6">
+      <div className="bg-darysa-gris-500 flex items-center justify-center gap-6 rounded-sm border p-6">
         <div className="text-start text-4xl text-white">{items.second.icon}</div>
         <Heading as="h5" className="leading-none text-white lg:text-2xl">
           {items.second.title}{' '}
@@ -31,7 +31,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </Heading>
       </div>
 
-      <div className="bg-darysa-gris-oscuro-alt-2 flex items-center justify-center gap-6 rounded-sm border p-6">
+      <div className="bg-darysa-gris-500 flex items-center justify-center gap-6 rounded-sm border p-6">
         <div className="text-start text-4xl text-white">{items.fourth.icon}</div>
         <Heading as="h5" className="leading-none text-white lg:text-2xl">
           {items.fourth.title}{' '}

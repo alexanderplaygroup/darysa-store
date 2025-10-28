@@ -39,7 +39,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-darysa-gris-oscuro">
+    <footer className="bg-darysa-gris-800">
       <Container className="mb-0 pb-6">
         <div className="my-14 grid grid-cols-[0.7fr_1.3fr]">
           {/* Logo and Contact */}
@@ -54,7 +54,7 @@ export const Footer = () => {
               />
             </Link>
 
-            <dl className="text-darysa-gris-claro space-y-2.5 text-sm">
+            <dl className="text-darysa-gris-300 space-y-2.5 text-sm">
               <dt className="sr-only">Teléfono:</dt>
               <dd className="flex items-center gap-2">
                 <PhoneCall className="size-5" />
@@ -72,13 +72,13 @@ export const Footer = () => {
               <h3 id="office-info" className="mb-3.5 text-base font-bold text-white">
                 Oficina Central
               </h3>
-              <address className="text-darysa-gris-claro mb-4 space-y-0.5 text-sm not-italic">
+              <address className="text-darysa-gris-300 mb-4 space-y-0.5 text-sm not-italic">
                 <p>Granja 1 - Alt Km. 30</p>
                 <p>Antigua Panamericana Sur, Lurín</p>
               </address>
 
               <p className="mb-2.5 text-base font-semibold text-white">Horario de Atención</p>
-              <dl className="text-darysa-gris-claro space-y-0.5 text-sm">
+              <dl className="text-darysa-gris-300 space-y-0.5 text-sm">
                 <div className="flex items-center gap-2">
                   <dt>Lunes-Viernes:</dt>
                   <dd>8:00 AM – 5:15 PM</dd>
@@ -99,7 +99,7 @@ export const Footer = () => {
                     <li key={linkIndex} className="w-full">
                       <Link
                         href={link.href}
-                        className="text-darysa-gris-claro w-full text-end text-sm transition-colors hover:text-white"
+                        className="text-darysa-gris-300 w-full text-end text-sm transition-colors hover:text-white"
                       >
                         {link.name}
                       </Link>
@@ -135,7 +135,7 @@ export const Footer = () => {
             <YouTubeIcon size={30} className="text-white" />
           </div>
           <div className="flex items-center justify-between">
-            <div className="text-darysa-gris-claro text-sm font-semibold">
+            <div className="text-darysa-gris-300 text-sm font-semibold">
               © 2012-2024. Daryza S.A.C RUC 20144109458 Todos los derechos reservados
             </div>
 

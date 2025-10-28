@@ -85,10 +85,10 @@ const BlogDetailView = () => {
               <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
-              <Text variant="body" className="text-darysa-gris-oscuro font-semibold">
+              <Text variant="body" className="text-darysa-gris-800 font-semibold">
                 {author.name}
               </Text>
-              <Text variant="small" className="text-darysa-gris-medio-alt-2/60 text-sm">
+              <Text variant="small" className="text-darysa-gris-350-alt/60 text-sm">
                 {author.role}
               </Text>
             </div>

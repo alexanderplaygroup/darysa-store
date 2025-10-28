@@ -34,7 +34,7 @@ export const HomeView = () => {
       </Container>
 
       <Container className="space-y-8">
-        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+        <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Marcas Aliadas
         </Heading>
         <div className="aspect-16/3 h-[136px] w-full">
@@ -43,7 +43,7 @@ export const HomeView = () => {
       </Container>
 
       <Container className="space-y-8">
-        <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro">
+        <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Los más vendidos
         </Heading>
         <div className="grid grid-cols-1 gap-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

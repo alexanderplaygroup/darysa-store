@@ -77,7 +77,7 @@ export default function CarouselBlogs() {
 
   return (
     <>
-      <Heading as="h3" variant="heading" className="text-darysa-gris-oscuro-alt-3">
+      <Heading as="h3" variant="heading" className="text-darysa-gris-800-alt-3">
         Nuestro Blog
       </Heading>
 
@@ -110,10 +110,10 @@ export default function CarouselBlogs() {
               key={index}
               onClick={goTo}
               className={cn(
-                'border-darysa-gris-oscuro flex h-[36px] w-[48px] items-center justify-center rounded-xs border bg-transparent font-bold text-white transition-all duration-400',
+                'border-darysa-gris-800 flex h-9 w-12 items-center justify-center rounded-xs border bg-transparent font-bold text-white transition-all duration-400',
                 isActive
-                  ? 'bg-darysa-gris-oscuro'
-                  : 'hover:bg-darysa-gris-claro/40 text-darysa-gris-oscuro cursor-pointer'
+                  ? 'bg-darysa-gris-800'
+                  : 'hover:bg-darysa-gris-300/40 text-darysa-gris-800 cursor-pointer'
               )}
             >
               {/* Puedes incluso mostrar mini-previews del grupo */}

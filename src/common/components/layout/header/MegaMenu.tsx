@@ -57,7 +57,7 @@ export function MegaMenu() {
       onOpenChange={(isOpen) => (isOpen ? openUI('megaMenu') : closeUI('megaMenu'))}
     >
       <PopoverTrigger asChild>
-        <Button className="bg-darysa-gris-oscuro hover:bg-darysa-gris-oscuro flex h-10 cursor-pointer items-center gap-2.5 rounded-md !px-4 text-sm">
+        <Button className="bg-darysa-gris-800 hover:bg-darysa-gris-800 flex h-10 cursor-pointer items-center gap-2.5 rounded-md px-4! text-sm">
           <Menu className="size-5" />
           Todas las Categorías
         </Button>
@@ -69,7 +69,7 @@ export function MegaMenu() {
         side="bottom"
         sideOffset={14}
         className={cn(
-          'w-screen max-w-7xl overflow-hidden rounded-t-none rounded-br-sm rounded-bl-sm border-none bg-white p-0 shadow-lg'
+          'w-screen rounded-t-none rounded-br-sm rounded-bl-sm border-none bg-white p-0 shadow-lg 2xl:max-w-[1366px]'
         )}
       >
         <div className="flex h-[500px] overflow-hidden">
@@ -135,7 +135,7 @@ export function MegaMenu() {
                   <h4
                     className={cn(
                       'text-darysa-green-500 relative mb-3.5 w-fit cursor-pointer font-medium transition-colors',
-                      'after:bg-darysa-green-500 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:transition-all after:duration-300',
+                      'after:bg-darysa-green-500 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
                       'hover:after:left-0 hover:after:w-full'
                     )}
                   >

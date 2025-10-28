@@ -73,7 +73,7 @@ export const JobDetailView = ({
 
         {/* Sidebar */}
         <aside className="space-y-8">
-          <div className="border-darysa-gris-claro-alt/60 space-y-6 rounded-lg border px-8 py-6">
+          <div className="border-darysa-gris-350-alt/60 space-y-6 rounded-lg border px-8 py-6">
             <div>
               <Text
                 as="h3"

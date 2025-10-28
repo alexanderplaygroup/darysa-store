@@ -3,7 +3,7 @@ import { Search } from 'lucide-react';
 
 const SearchBlog = () => {
   return (
-    <div className="border-darysa-gris-claro-alt/60 flex flex-1 items-center rounded-lg border bg-white p-6">
+    <div className="border-darysa-gris-350-alt/60 flex flex-1 items-center rounded-lg border bg-white p-6">
       <Input
         type="text"
         placeholder="Buscar por palabra clave"

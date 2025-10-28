@@ -68,7 +68,7 @@ export const ProductsView = () => {
           </Button>
 
           <Select>
-            <SelectTrigger className="!border-darysa-gris-claro-alt/50 !text-darysa-gris-medio-alt-3/80 !h-14 w-[250px] px-4.5 font-semibold">
+            <SelectTrigger className="!border-darysa-gris-350-alt/50 !text-darysa-gris-550-3/80 !h-14 w-[250px] px-4.5 font-semibold">
               <SelectValue placeholder="Ordenar por" />
             </SelectTrigger>
             <SelectContent>
@@ -81,13 +81,13 @@ export const ProductsView = () => {
           <div className="relative grid grid-cols-4 gap-14">
             {/* Sidebar */}
             {/* {isOpen && (
-              <div className="bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
+              <div className="bg-darysa-gris-800 border-darysa-gris-350-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
                 <FiltersSection />
               </div>
             )} */}
             <aside
               className={cn(
-                'bg-darysa-gris-oscuro border-darysa-gris-claro-alt/50 z-10 row-span-full rounded-lg pb-8 text-white shadow-lg transition-all duration-300 ease-in-out',
+                'bg-darysa-gris-800 border-darysa-gris-350-alt/50 z-10 row-span-full rounded-lg pb-8 text-white shadow-lg transition-all duration-300 ease-in-out',
                 isOpen
                   ? 'visible col-span-1 translate-x-0 opacity-100'
                   : 'sr-only w-0 -translate-x-4 opacity-0'
