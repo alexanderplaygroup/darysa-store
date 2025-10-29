@@ -18,7 +18,7 @@ export const PromotionalBanner = ({ banner, className }: PromotionalBannerProps)
   }
 
   const ImageContent = (
-    <picture className={cn('relative block aspect-16/2 w-full', className)}>
+    <picture className={cn('relative block aspect-16/2 h-[150px] w-full md:h-[250px]', className)}>
       <source media="(max-width: 768px)" srcSet={banner.mobile} />
       <AppImage src={banner.desktop} alt="Promotional Image" fill sizes="100vw" />
     </picture>

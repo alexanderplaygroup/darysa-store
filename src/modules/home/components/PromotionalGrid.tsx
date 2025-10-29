@@ -15,7 +15,7 @@ interface PromotionalGridProps {
 
 export const PromotionalGrid = ({ items }: PromotionalGridProps) => {
   return (
-    <div className="grid grid-cols-4 gap-5">
+    <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
       {/* Columna izquierda */}
       <div className="col-span-2 grid grid-cols-2 gap-5">
         {items.slice(0, 4).map((item) => (

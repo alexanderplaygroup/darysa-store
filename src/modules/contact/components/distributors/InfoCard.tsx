@@ -20,11 +20,11 @@ export function InfoCard({ icon: Icon, title, description, className }: InfoCard
     >
       <div className="flex flex-col items-center justify-between gap-4">
         <Icon className="h-[100px] w-[100px]" />
-        <Heading as="h4" variant="subheading" className="!leading-none md:!text-2xl">
+        <Heading as="h4" variant="subheading" className="leading-none! md:text-2xl!">
           {title}
         </Heading>
       </div>
-      <Text variant="small" className="break-words">
+      <Text variant="small" className="wrap-break-word">
         {description}
       </Text>
     </div>

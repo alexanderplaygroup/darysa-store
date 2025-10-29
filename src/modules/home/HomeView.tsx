@@ -21,10 +21,10 @@ import { BenefitItems } from './type';
 
 export const HomeView = () => {
   const benefitsData: BenefitItems = {
-    first: { title: 'Hasta 5 años de garantía', icon: <Shield className="size-8 lg:size-15" /> },
-    second: { title: 'Envíos a Todo el perú', icon: <Truck className="size-8 lg:size-15" /> },
-    third: { title: 'Atención las 24 horas', icon: <CreditCard className="size-8 lg:size-15" /> },
-    fourth: { title: 'Pagos 100% seguros', icon: <Headset className="size-8 lg:size-15" /> },
+    first: { title: 'Hasta 5 años de garantía', icon: <Shield className="size-8 lg:size-10" /> },
+    second: { title: 'Envíos a Todo el perú', icon: <Truck className="size-8 lg:size-10" /> },
+    third: { title: 'Atención las 24 horas', icon: <CreditCard className="size-8 lg:size-10" /> },
+    fourth: { title: 'Pagos 100% seguros', icon: <Headset className="size-8 lg:size-10" /> },
   };
   return (
     <>
