@@ -113,7 +113,7 @@ export const Header = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/distribuidores"
                       className={cn(
                         'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
                         'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
