@@ -48,7 +48,7 @@ export const ProductCard = ({
           <span className="font-barlow text-xs font-semibold">Mejor Descuento</span>
         </div>
 
-        <div className="space-y-2 px-4.5 pb-4.5">
+        <div className="space-y-2 px-3.5 pb-3.5 sm:px-4.5 sm:pb-4.5">
           {/* Product Name */}
           <Heading as="h4" variant="cardTitle" className="text-darysa-gris-800 line-clamp-1">
             {name}

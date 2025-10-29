@@ -119,7 +119,7 @@ export default function Footermobile() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-2.5">
-        <p className="text-darysa-gris-750">Métodos de Pago Seguro</p>
+        <p className="text-darysa-gris-750 text-sm">Métodos de Pago Seguro</p>
         <div className="mb-7 flex items-center justify-center gap-2">
           {paymentMethods.map((pay, idx) => (
             <div key={idx} className="relative flex h-8 w-[50px] items-center justify-center">

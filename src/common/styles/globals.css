@@ -151,3 +151,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.headerCustomize {
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 50;
+}

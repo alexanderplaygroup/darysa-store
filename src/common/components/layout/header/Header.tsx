@@ -29,7 +29,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
+        'headerCustomize sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
         isScrolled && 'drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)]'
       )}
     >
