@@ -8,7 +8,7 @@ import {
 } from '@shadcnui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { useEffect, useRef, useState } from 'react';
-import { ClickableImageSlide, ImageSlide, VideoSlide } from './CarouselItemCustom';
+import { ImageSlide, VideoSlide } from './CarouselItemCustom';
 
 export function Banner() {
   const autoplayRef = useRef(Autoplay({ delay: 4000, playOnInit: false }));
@@ -54,20 +54,29 @@ export function Banner() {
         align: 'start',
         loop: true,
       }}
-      className="relative h-full w-full"
+      className="relative w-full"
       setApi={setApi}
       onMouseEnter={() => autoplayRef.current.stop()}
       onMouseLeave={() => autoplayRef.current.play()}
     >
-      <CarouselContent className="ml-0 h-full w-full">
+      <CarouselContent className="ml-0 max-h-[500px] w-full md:max-h-[550px]">
         <CarouselItem className="pl-0">
           <VideoSlide src="/home/videoHome.mp4" onFullscreenChange={handleFullscreenChange} />
         </CarouselItem>
         <CarouselItem className="pl-0">
-          <ImageSlide src="/home/bannerHome.png" alt="Banner 1" />
+          <ImageSlide
+            srcDesktop="/home/banner-desktop.webp"
+            srcMobile="/home/banner-mobile.webp"
+            alt="Promoción de limpieza industrial"
+            link="https://daryza.com/promocion"
+          />
         </CarouselItem>
         <CarouselItem className="pl-0">
-          <ClickableImageSlide src="/home/bannerHome.png" alt="Banner 2" href="/productos" />
+          <ImageSlide
+            srcDesktop="/home/bannerHome.png"
+            srcMobile="/home/banner-mobile-2.jpg"
+            alt="Banner institucional"
+          />
         </CarouselItem>
       </CarouselContent>
 

@@ -109,17 +109,17 @@ const BlogDetailView = () => {
             </div>
           </div>
         </div>
-        <div className="relative aspect-[626/831] overflow-hidden rounded-lg">
+        <div className="relative aspect-626/831 overflow-hidden rounded-lg">
           <AppImage src="" alt="" fill sizes="626px" />
         </div>
       </Container>
 
       <Container>
         <div className="mb-14 grid grid-cols-2 gap-12">
-          <div className="relative aspect-[614/426] overflow-hidden rounded-lg">
+          <div className="relative aspect-614/426 overflow-hidden rounded-lg">
             <AppImage src="" alt="" fill sizes="614px" />{' '}
           </div>
-          <div className="relative aspect-[614/426] overflow-hidden rounded-lg">
+          <div className="relative aspect-614/426 overflow-hidden rounded-lg">
             <AppImage src="" alt="" fill sizes="614px" />{' '}
           </div>
         </div>

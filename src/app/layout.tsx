@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
 import { ClientWrapper } from '@/common/components/layout/ClientWrapper';
-import { Footer } from '@/common/components/layout/Footer';
+import { Footer } from '@/common/components/layout/footer/Footer';
+import Footermobile from '@/common/components/layout/footer/Footermobile';
 import { Header } from '@/common/components/layout/header/Header';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
 import { auth } from '@auth';
@@ -29,7 +30,7 @@ export default async function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
-
+          <Footermobile />
           <ClientWrapper />
         </body>
       </html>

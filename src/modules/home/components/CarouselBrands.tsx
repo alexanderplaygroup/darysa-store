@@ -1,14 +1,14 @@
 'use client';
+import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
 import { Carousel, CarouselContent, CarouselDots, CarouselItem } from '@shadcnui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
 import { useRef } from 'react';
 
 export default function CarouselBrands() {
   const autoplayRef = useRef(Autoplay({ delay: 5000, playOnInit: true }));
-  const groupSize = useResponsiveItemsPerView({ xl: 6, lg: 5, md: 4, sm: 3, base: 2 });
+  const groupSize = useResponsiveItemsPerView({ xl: 7, lg: 6, md: 5, sm: 4, base: 3 });
 
   const images = [
     '/home/brands/b1.png',
@@ -34,7 +34,7 @@ export default function CarouselBrands() {
         loop: true,
         slidesToScroll: groupSize,
       }}
-      className="w-full space-y-10"
+      className="w-full space-y-6"
       onMouseEnter={() => autoplayRef.current.stop()}
       onMouseLeave={() => autoplayRef.current.play()}
     >
@@ -42,14 +42,14 @@ export default function CarouselBrands() {
         {images.map((src, index) => (
           <CarouselItem
             key={index}
-            className="basis-1/2 pl-6 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
+            className="flex basis-1/3 items-center justify-center pl-6 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/7"
           >
-            <Image
+            <AppImage
               src={src}
               alt={`Banner ${index + 1}`}
-              width={150}
-              height={60}
-              className="mx-auto h-auto w-auto object-cover"
+              width={120}
+              height={112}
+              className="flex h-28 w-[120px] items-center"
             />
           </CarouselItem>
         ))}

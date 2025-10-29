@@ -1,29 +1,36 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
+import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 
-type ImageSlideProps = {
-  src: string;
+export interface ImageSlideProps {
+  srcDesktop: string;
+  srcMobile?: string;
   alt: string;
-  height?: number;
-};
-
-export function ImageSlide({ src, alt, height = 500 }: ImageSlideProps) {
-  return (
-    <div className="relative w-full" style={{ height }}>
-      <AppImage src={src} alt={alt} fill sizes="100vw" className="object-center" />
-    </div>
-  );
+  link?: string;
+  className?: string;
 }
 
-type ClickableImageSlideProps = ImageSlideProps & {
-  href: string;
-};
+export function ImageSlide({ srcDesktop, srcMobile, alt, link, className }: ImageSlideProps) {
+  if (!srcDesktop) return null;
 
-export function ClickableImageSlide({ src, alt, href, height = 500 }: ClickableImageSlideProps) {
-  return (
-    <a href={href} className="relative block w-full" style={{ height }} target="_blank">
-      <AppImage src={src} alt={alt} fill sizes="100vw" className="object-center" />
+  const ImageContent = (
+    <picture
+      className={cn(
+        'relative block aspect-square h-full w-full overflow-hidden md:aspect-16/4',
+        className
+      )}
+    >
+      {srcMobile && <source media="(max-width: 768px)" srcSet={srcMobile} />}
+      <AppImage src={srcDesktop} alt={alt} fill sizes="100vw" className="object-center" />
+    </picture>
+  );
+
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full w-full">
+      {ImageContent}
     </a>
+  ) : (
+    ImageContent
   );
 }
 
@@ -37,7 +44,6 @@ type VideoSlideProps = {
 
 export function VideoSlide({
   src,
-  height = 500,
   loop = true,
   muted = true,
   onFullscreenChange,
@@ -82,7 +88,7 @@ export function VideoSlide({
   };
 
   return (
-    <div className="relative w-full cursor-pointer" style={{ height }} onClick={handleClick}>
+    <div className="relative h-full w-full cursor-pointer" onClick={handleClick}>
       <video
         ref={videoRef}
         src={src}

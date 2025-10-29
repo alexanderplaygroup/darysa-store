@@ -86,15 +86,15 @@ export default function CarouselPacks() {
           loop: false,
           slidesToScroll: groupSize,
         }}
-        className="w-full space-y-10"
+        className="w-full space-y-8 lg:space-y-10"
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-14">
+        <CarouselContent className="-ml-2.5 lg:-ml-14">
           {products.map((product, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2 pl-14 sm:basis-1/3 md:basis-1/4 lg:basis-1/4 xl:basis-1/4"
+              className="basis-1/2 pl-2.5 sm:basis-1/3 md:basis-1/3 lg:basis-1/4 lg:pl-14 xl:basis-1/4"
             >
               <ProductCard
                 key={product.id}

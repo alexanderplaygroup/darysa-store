@@ -20,7 +20,7 @@ export default function SidebarCart() {
   const isOpen = open.cart;
   return (
     <Sheet open={isOpen} onOpenChange={(val) => (val ? openUI('cart') : closeUI('cart'))}>
-      <SheetContent className="gap-0 border-l-0 sm:max-w-[520px]">
+      <SheetContent className="w-full gap-0 border-l-0 sm:max-w-[520px]">
         <SheetHeader className="flex h-20 flex-row items-center p-0">
           <div className="bg-darysa-gris-950 mr-4 h-full w-2.5 flex-none"></div>
           <SheetTitle className="mr-2">

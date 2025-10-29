@@ -5,7 +5,7 @@ import { ElementType } from 'react';
 const containerVariants = cva('w-full mb-10', {
   variants: {
     size: {
-      container: 'max-w-[1366px] px-6 2xl:px-0 mx-auto',
+      container: 'max-w-[1366px] px-2.5 2xl:px-0 mx-auto',
       full: 'max-w-screen',
     },
   },

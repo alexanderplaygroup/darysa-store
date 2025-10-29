@@ -1,12 +1,12 @@
 import { Mail, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
-import { AppImage } from '../custom-ui/AppImage';
-import { Container } from '../custom-ui/Container';
-import { FacebookIcon } from '../icons/FacebookIcon';
-import { InstagramIcon } from '../icons/InstagramIcon';
-import { LinkedInIcon } from '../icons/LinkedInIcon';
-import { TikTokIcon } from '../icons/TikTokIcon';
-import { YouTubeIcon } from '../icons/YouTubeIcon';
+import { AppImage } from '../../custom-ui/AppImage';
+import { Container } from '../../custom-ui/Container';
+import { FacebookIcon } from '../../icons/FacebookIcon';
+import { InstagramIcon } from '../../icons/InstagramIcon';
+import { LinkedInIcon } from '../../icons/LinkedInIcon';
+import { TikTokIcon } from '../../icons/TikTokIcon';
+import { YouTubeIcon } from '../../icons/YouTubeIcon';
 
 export const Footer = () => {
   const footerSections = [
@@ -39,11 +39,11 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-darysa-gris-800">
+    <footer className="bg-darysa-gris-800 hidden md:block">
       <Container className="mb-0 pb-6">
-        <div className="my-14 grid grid-cols-[0.7fr_1.3fr]">
+        <div className="my-14 grid grid-cols-1 gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:gap-10 xl:grid-cols-[0.7fr_1.3fr] xl:gap-0">
           {/* Logo and Contact */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8 lg:gap-10">
             <Link href="/" className="w-fit">
               <AppImage
                 src="/logo-dark.svg"
@@ -65,9 +65,16 @@ export const Footer = () => {
                 <Mail className="size-5" /> webmaster@daryza.com
               </dd>
             </dl>
+            <div className="flex w-full items-center justify-start gap-6 xl:hidden xl:w-fit">
+              <FacebookIcon size={30} className="text-white" />
+              <LinkedInIcon size={28} className="text-white" />
+              <InstagramIcon size={30} className="text-white" />
+              <TikTokIcon size={30} className="text-white" />
+              <YouTubeIcon size={30} className="text-white" />
+            </div>
           </div>
 
-          <div className="flex w-full items-start justify-between gap-10">
+          <div className="flex w-full items-start gap-12 lg:justify-between lg:gap-5 xl:gap-10">
             <section aria-labelledby="office-info">
               <h3 id="office-info" className="mb-3.5 text-base font-bold text-white">
                 Oficina Central
@@ -112,44 +119,25 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="grid grid-cols-[0.7fr_1.3fr] border-t border-white/10 pt-6">
-          {/* <div className="flex w-fit items-center gap-6">
-            {socialIcons.map((icon, idx) => (
-              <div key={idx} className="h-[32px] min-w-[32px]">
-                <AppImage
-                  key={idx}
-                  src={icon.src}
-                  alt={icon.alt}
-                  className="w-auto rounded-sm object-contain"
-                  width={32}
-                  height={32}
-                />
-              </div>
-            ))}
-          </div> */}
-          <div className="flex w-fit items-center gap-6">
+        <div className="grid grid-cols-1 gap-6 border-t border-white/10 pt-6 xl:grid-cols-[0.7fr_1.3fr] xl:gap-0">
+          <div className="hidden w-full items-center justify-center gap-6 xl:flex xl:w-fit">
             <FacebookIcon size={30} className="text-white" />
             <LinkedInIcon size={28} className="text-white" />
             <InstagramIcon size={30} className="text-white" />
             <TikTokIcon size={30} className="text-white" />
             <YouTubeIcon size={30} className="text-white" />
           </div>
+
           <div className="flex items-center justify-between">
-            <div className="text-darysa-gris-300 text-sm font-semibold">
+            <div className="text-darysa-gris-300 text-xs font-semibold lg:text-sm">
               © 2012-2024. Daryza S.A.C RUC 20144109458 Todos los derechos reservados
             </div>
 
             {/* Payment Methods */}
             <div className="flex w-fit items-center justify-end gap-2">
               {paymentMethods.map((pay, idx) => (
-                <div key={idx} className="h-[30px] min-w-[45px]">
-                  <AppImage
-                    src={pay.src}
-                    alt={pay.alt}
-                    className="w-auto rounded-sm object-contain"
-                    width={50}
-                    height={30}
-                  />
+                <div key={idx} className="relative flex h-8 w-[50px] items-center justify-center">
+                  <AppImage src={pay.src} alt={pay.alt} fill className="object-contain" />
                 </div>
               ))}
             </div>

@@ -40,7 +40,7 @@ export const ProductCard = ({
       <div className="relative space-y-3.5">
         <div
           className={cn(
-            'bg-darysa-gris-800 flex w-fit items-center gap-2.5 rounded-r-md px-3 py-2 text-white',
+            'bg-darysa-gris-800 flex w-fit items-center gap-2.5 rounded-r-md px-3 py-1.5 text-white sm:py-2',
             !hasDiscount && 'invisible'
           )}
         >
@@ -72,7 +72,7 @@ export const ProductCard = ({
                   -{discount}%
                 </span>
               </div>
-              <div className="text-darysa-gris-800 font-inter text-2xl leading-none font-black">
+              <div className="text-darysa-gris-800 font-inter text-xl leading-none font-black sm:text-2xl">
                 {parseSoles(discountedPrice)}
               </div>
             </div>
@@ -81,11 +81,11 @@ export const ProductCard = ({
             {onAddToCart && (
               <Button
                 size="icon"
-                className="bg-darysa-verde-oscuro size-12 rounded-sm text-white hover:bg-green-700"
+                className="bg-darysa-verde-oscuro size-9 rounded-sm text-white hover:bg-green-700 sm:size-12"
                 aria-label="Agregar al carrito"
                 onClick={onAddToCart}
               >
-                <ShoppingCart className="size-7" />
+                <ShoppingCart className="size-5.5 sm:size-7" />
               </Button>
             )}
           </div>

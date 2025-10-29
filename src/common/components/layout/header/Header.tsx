@@ -34,18 +34,21 @@ export const Header = () => {
       )}
     >
       <Container className="mb-0 space-y-2 px-0 pt-3.5 lg:py-3.5">
-        <div className="flex w-full items-center justify-between px-6 py-0 2xl:px-0">
-          <div className="flex items-center gap-3 sm:gap-6">
+        <div className="flex w-full items-center justify-between px-2.5 py-0 2xl:px-0">
+          <div className="flex items-center gap-4.5 sm:gap-6">
             <button
               type="button"
               className="relative flex size-10 w-fit cursor-pointer items-center justify-center lg:hidden"
               onClick={() => openUI('mobileMenu')}
               aria-label="Abrir carrito de compras"
             >
-              <Menu />
+              <Menu className="size-6.5" />
             </button>
             {/* Logo */}
-            <Link href="/" className="flex items-center outline-none">
+            <Link
+              href="/"
+              className="flex max-w-[130px] items-center outline-none sm:max-w-[150px]"
+            >
               <AppImage src="/logo-light.svg" alt="Darysa" width={150} height={30} priority />
             </Link>
           </div>
@@ -60,10 +63,10 @@ export const Header = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-4.5 min-[450px]:gap-7 lg:gap-10">
+          <div className="mr-2 flex items-center gap-4.5 min-[450px]:gap-7 lg:mr-0 lg:gap-10">
             <div className="relative flex size-10 w-fit items-center justify-center lg:hidden">
               {' '}
-              <SearchCustomIcon className="text-darysa-green-500 size-6" />
+              <SearchCustomIcon className="size-6" strokeWidth={1.5} />
             </div>
             <div className="relative flex size-10 w-fit items-center justify-center">
               <Badge className="bg-darysa-green-500 absolute -top-[2.5px] -right-3 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
@@ -88,7 +91,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="bg-darysa-gris-100 lg:bg-transparent">
-          <div className="flex w-full items-center px-6 lg:justify-between 2xl:px-0">
+          <div className="flex w-full items-center px-2.5 lg:justify-between 2xl:px-0">
             <div className="flex h-10 items-center gap-10">
               <div className="hidden lg:block">
                 <MegaMenu />
