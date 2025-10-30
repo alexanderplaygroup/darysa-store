@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "name": "Sucursal Lima - Sede Central",
+    "address": "Av. Javier Prado Este 1234, San Isidro, Lima",
+    "phone": "+51 1 555-0101",
+    "coords": { "lat": -12.0925, "lng": -77.0365 }
+  },
+  {
+    "id": 2,
+    "name": "Sucursal Arequipa",
+    "address": "Calle Mercaderes 456, Arequipa",
+    "phone": "+51 54 222-333",
+    "coords": { "lat": -16.3989, "lng": -71.5369 }
+  },
+  {
+    "id": 3,
+    "name": "Sucursal Cusco",
+    "address": "Av. El Sol 789, Cusco",
+    "phone": "+51 84 555-777",
+    "coords": { "lat": -13.5171, "lng": -71.978 },
+    "note": "Cerca de la Plaza de Armas"
+  },
+  {
+    "id": 4,
+    "name": "Sucursal Trujillo",
+    "address": "Jr. Pizarro 321, Trujillo",
+    "phone": "+51 44 333-222",
+    "coords": { "lat": -8.1117, "lng": -79.0288 }
+  },
+  {
+    "id": 5,
+    "name": "Sucursal Piura",
+    "address": "Av. Grau 1010, Piura",
+    "phone": "+51 73 777-999",
+    "coords": { "lat": -5.1945, "lng": -80.6328 }
+  },
+  {
+    "id": 6,
+    "name": "Sucursal Iquitos",
+    "address": "Jr. Próspero 123, Iquitos",
+    "phone": "+51 65 222-111",
+    "coords": { "lat": -3.7491, "lng": -73.2538 }
+  }
+]

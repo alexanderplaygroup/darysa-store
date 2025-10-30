@@ -1,65 +1,63 @@
 'use client';
 
 import { Container } from '@/common/components/custom-ui/Container';
-import dynamic from 'next/dynamic';
-
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
-// ⚠️ Importar dinámicamente porque react-leaflet depende del objeto `window`
-const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), {
-  ssr: false,
-});
-const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), {
-  ssr: false,
-});
-const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
-const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import { FitBounds } from './FitBounds';
+import { DistributorMarker } from './components/DistributorMarker';
+import LocationSearchPanel from './components/LocationSearchPanel';
+import distributors from './data/distributors.json';
+import { useDefaultLeafletIcon } from './hooks/useDefaultLeafletIcon';
+import { useMapConfig } from './hooks/useMapConfig';
 
-// 🧭 Coordenadas iniciales
-const position: [number, number] = [51.505, -0.09];
+const MapContainer = dynamic(() => import('react-leaflet').then((m) => m.MapContainer), {
+  ssr: false,
+});
+const TileLayer = dynamic(() => import('react-leaflet').then((m) => m.TileLayer), { ssr: false });
 
 const DistributorsView = () => {
-  useEffect(() => {
-    // ✅ Importar leaflet solo cuando window ya existe (en cliente)
-    import('leaflet').then((L) => {
-      const DefaultIcon = L.icon({
-        iconUrl: '/distributors/marker-icon.svg',
-        // shadowUrl: '/marker-shadow.png', // opcional
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-      });
-      L.Marker.prototype.options.icon = DefaultIcon;
-    });
-  }, []);
+  useDefaultLeafletIcon();
+  const { mapRef, markersRef, selectedId, setSelectedId } = useMapConfig({ zoomOnSelect: 13 });
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
-    <>
-      {/* Línea separadora superior */}
-      <Container className="bg-darysa-gris-800/20 h-px" />
+    <Container size="full" className="relative mb-0">
+      <div className="pointer-events-none absolute top-20 left-1/2 z-20 w-full max-w-[1366px] -translate-x-1/2">
+        <LocationSearchPanel
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSelectLocation={setSelectedId}
+        />
+      </div>
 
-      <Container className="space-y-6 py-10">
-        <h2 className="mb-4 text-center text-2xl font-semibold">Nuestras Sucursales</h2>
+      <div className="relative z-0 h-screen w-full overflow-hidden">
+        <MapContainer
+          ref={mapRef}
+          center={[-9.19, -75.0152]}
+          zoom={6}
+          scrollWheelZoom={false}
+          zoomControl={false}
+          className="h-full w-full"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-        <div className="h-[500px] w-full overflow-hidden rounded-xl shadow-md">
-          <MapContainer
-            center={position}
-            zoom={13}
-            scrollWheelZoom={false}
-            className="h-full w-full"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          <FitBounds distributors={distributors} />
+
+          {distributors.map((d) => (
+            <DistributorMarker
+              key={d.id}
+              distributor={d}
+              markersRef={markersRef}
+              onSelect={setSelectedId}
             />
-
-            <Marker position={position}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-          </MapContainer>
-        </div>
-      </Container>
-    </>
+          ))}
+        </MapContainer>
+      </div>
+    </Container>
   );
 };
 
