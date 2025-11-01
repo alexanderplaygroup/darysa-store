@@ -30,7 +30,7 @@ export default function LocationSearchCommand({ onSelectLocation }: LocationSear
           onClick={() => setOpen(true)}
           className="text-darysa-gris-800 group pointer-events-auto cursor-default rounded-lg px-4 py-8.5 hover:bg-white"
         >
-          <span className="border-darysa-green-500 group-hover:bg-darysa-green-500/15 text-darysa-gris-800/60 flex w-full items-center gap-2.5 rounded-lg border-2 bg-white px-4 py-2 font-semibold">
+          <span className="border-darysa-green-500 group-hover:bg-darysa-green-500/10 text-darysa-gris-800/60 flex w-full items-center gap-2.5 rounded-lg border-2 bg-white px-4 py-2 font-semibold">
             <Search className="text-darysa-green-500 h-4 w-4" strokeWidth={2.5} />
             Buscar por ciudad o distrito...
           </span>
