@@ -3,10 +3,9 @@
 import { Container } from '@/common/components/custom-ui/Container';
 import 'leaflet/dist/leaflet.css';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 import { FitBounds } from './FitBounds';
 import { DistributorMarker } from './components/DistributorMarker';
-import LocationSearchPanel from './components/LocationSearchPanel';
+import LocationSearchCommand from './components/LocationSearchCommand';
 import distributors from './data/distributors.json';
 import { useDefaultLeafletIcon } from './hooks/useDefaultLeafletIcon';
 import { useMapConfig } from './hooks/useMapConfig';
@@ -19,16 +18,11 @@ const TileLayer = dynamic(() => import('react-leaflet').then((m) => m.TileLayer)
 const DistributorsView = () => {
   useDefaultLeafletIcon();
   const { mapRef, markersRef, selectedId, setSelectedId } = useMapConfig({ zoomOnSelect: 13 });
-  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <Container size="full" className="relative mb-0">
       <div className="pointer-events-none absolute top-20 left-1/2 z-20 w-full max-w-[1366px] -translate-x-1/2">
-        <LocationSearchPanel
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onSelectLocation={setSelectedId}
-        />
+        <LocationSearchCommand onSelectLocation={setSelectedId} />
       </div>
 
       <div className="relative z-0 h-screen w-full overflow-hidden">

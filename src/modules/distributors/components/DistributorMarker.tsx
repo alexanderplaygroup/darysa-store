@@ -2,7 +2,7 @@
 'use client';
 
 import type { Marker as LeafletMarker } from 'leaflet';
-import { MapPin } from 'lucide-react';
+import { MapIcon, MapPin, Navigation } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Distributor } from '../interface';
 
@@ -29,30 +29,41 @@ export const DistributorMarker = ({ distributor, onSelect, markersRef }: Props) 
     <Tooltip direction="top" offset={[0, -50]} opacity={1}>
       <strong>{distributor.name}</strong>
     </Tooltip>
-    <Popup offset={[0, -35]}>
-      <strong>
-        <MapPin className="mb-3 h-8 w-8 text-neutral-300" />
-        {distributor.name}
-      </strong>
-      <br />
-      {distributor.address} <br />
-      <a
-        href={`https://www.google.com/maps?q=${distributor.coords.lat},${distributor.coords.lng}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 underline"
-      >
-        Ver en Google Maps
-      </a>
-      <br />
-      <a
-        href={`https://waze.com/ul?ll=${distributor.coords.lat},${distributor.coords.lng}&navigate=yes`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-indigo-600 underline"
-      >
-        Ir con Waze
-      </a>
+    <Popup offset={[0, -35]} closeButton={false}>
+      <div className="flex w-full items-center gap-2.5 py-1">
+        <div className="w-fit">
+          <MapPin className="text-darysa-green-500 size-9" />
+        </div>
+        <div className="flex w-full flex-col items-center justify-start gap-1.5">
+          <span className="text-darysa-gris-800 w-full text-sm leading-tight font-semibold">
+            {distributor.name}
+          </span>
+          <span className="text-darysa-gris-800 w-full text-xs leading-tight">
+            {distributor.address}
+          </span>
+          <div className="flex w-full items-center justify-start gap-4 text-xs">
+            <a
+              href={`https://www.google.com/maps?q=${distributor.coords.lat},${distributor.coords.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-blue-600 hover:underline hover:underline-offset-4"
+            >
+              <MapIcon size={14} />
+              Ir en Google Maps
+            </a>
+
+            <a
+              href={`https://waze.com/ul?ll=${distributor.coords.lat},${distributor.coords.lng}&navigate=yes`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-blue-600 hover:underline hover:underline-offset-4"
+            >
+              <Navigation size={14} />
+              Ir con Waze
+            </a>
+          </div>
+        </div>
+      </div>
     </Popup>
   </Marker>
 );
