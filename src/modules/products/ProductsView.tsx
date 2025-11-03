@@ -31,19 +31,16 @@ export const ProductsView = () => {
   return (
     <>
       <Container size="full" className="relative mb-9">
-        <PromotionalBanner
-          className="aspect-[16/4] h-[250px] lg:aspect-[16/2]"
-          banner={promoBanner}
-        />
+        <PromotionalBanner className="aspect-16/4 h-[250px] lg:aspect-16/2" banner={promoBanner} />
       </Container>
       <Container size="full" className="relative">
         <Container className="mb-9 flex items-center justify-between gap-4">
           <Button
             variant="outline"
             className={cn(
-              'hover:bg-darysa-verde-oscuro h-14 gap-3 rounded-lg !px-4.5 text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white',
+              'hover:bg-darysa-verde-oscuro h-14 gap-3 rounded-lg px-4.5! text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white',
               isOpen
-                ? '!bg-darysa-verde-oscuro border-darysa-verde-oscuro !text-white'
+                ? 'bg-darysa-verde-oscuro! border-darysa-verde-oscuro text-white!'
                 : 'text-darysa-verde-oscuro border-darysa-verde-oscuro bg-transparent'
             )}
             onClick={toggleSidebar}
@@ -68,7 +65,7 @@ export const ProductsView = () => {
           </Button>
 
           <Select>
-            <SelectTrigger className="!border-darysa-gris-350-alt/50 !text-darysa-gris-550-3/80 !h-14 w-[250px] px-4.5 font-semibold">
+            <SelectTrigger className="border-darysa-gris-350-alt/50! text-darysa-gris-550-3/80! h-14! w-[250px] px-4.5 font-semibold">
               <SelectValue placeholder="Ordenar por" />
             </SelectTrigger>
             <SelectContent>

@@ -105,21 +105,28 @@ export default function CarouselBlogs() {
 
         <CarouselDots
           className="mx-auto w-fit flex-wrap gap-2.5 md:flex-row md:gap-10"
-          renderDot={(index, isActive, goTo) => (
-            <div
-              key={index}
-              onClick={goTo}
-              className={cn(
-                'border-darysa-gris-800 flex h-9 w-12 items-center justify-center rounded-xs border bg-transparent font-bold text-white transition-all duration-400',
-                isActive
-                  ? 'bg-darysa-gris-800'
-                  : 'hover:bg-darysa-gris-300/40 text-darysa-gris-800 cursor-pointer'
-              )}
-            >
-              {/* Puedes incluso mostrar mini-previews del grupo */}
-              <span>{index + 1}</span>
-            </div>
-          )}
+          renderDot={(index, isActive, goTo) => {
+            const total = blogPosts.length; // o slides.length
+            if (total > 4 && index === 2) {
+              return <span key="dots-ellipsis">...</span>;
+            }
+            if (total > 4 && index > 2 && index < total - 1) return null;
+
+            return (
+              <div
+                key={index}
+                onClick={goTo}
+                className={cn(
+                  'border-darysa-gris-800 flex h-9 w-12 items-center justify-center rounded-xs border bg-transparent font-bold text-white transition-all duration-400',
+                  isActive
+                    ? 'bg-darysa-gris-800'
+                    : 'hover:bg-darysa-gris-300/40 text-darysa-gris-800 cursor-pointer'
+                )}
+              >
+                <span>{index + 1}</span>
+              </div>
+            );
+          }}
         />
       </Carousel>
     </>

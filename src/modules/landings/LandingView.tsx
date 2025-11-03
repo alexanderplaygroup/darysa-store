@@ -4,10 +4,9 @@ import { Heading } from '@/common/components/custom-ui/Heading';
 import { HeroBanner } from '@/common/components/custom-ui/HeroBanner';
 import { Text } from '@/common/components/custom-ui/Text';
 import { Button } from '@/common/components/shadcn-ui/button';
-import { AboutForm } from './components/AboutForm';
-import { HistoryTimeline } from './components/HistoryTimeline';
+import { BrandForm } from './components/BrandForm';
+import BrandProducts from './components/BrandProducts';
 import Purpose from './components/Purpose';
-import SustainabilityBioProducts from './components/SustainabilityBioProducts';
 const aboutBanner = {
   desktop: '/about/heroBanner.png',
   mobile: '/about/heroBanner.png',
@@ -15,35 +14,7 @@ const aboutBanner = {
   link: '/productos',
 };
 
-export const AboutView = () => {
-  const timelineData = [
-    {
-      year: '2015',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada a justo, interdum condimentum massa ultrices tempor semper ridiculus facilisis diam phasellus, gravida venenatis nisl lacinia scelerisque mattis cum hac curabitur. Dignissim neque varius ullamcorper nec vel luctus, magnis ornare condimentum justo inceptos facilisis, integer sodales facilisi fusce pellentesque. ',
-    },
-    {
-      year: '2017',
-      description:
-        'Logramos nuestro primer contrato importante con una cadena de retail nacional, desarrollando una plataforma de ecommerce personalizada.',
-    },
-    {
-      year: '2019',
-      description:
-        'Abrimos nuestras primeras oficinas fuera del país y ampliamos nuestro equipo de desarrollo y soporte técnico para atender a clientes globales.',
-    },
-    {
-      year: '2021',
-      description:
-        'Lanzamos nuestro primer producto SaaS enfocado en la automatización de procesos logísticos, integrando IA y análisis predictivo.',
-    },
-    {
-      year: '2024',
-      description:
-        'Nos consolidamos como un referente en soluciones digitales integrales, ayudando a cientos de empresas a mejorar su presencia online y eficiencia operativa.',
-    },
-  ];
-
+export const LandingView = () => {
   return (
     <>
       <Container size="full">
@@ -62,10 +33,8 @@ export const AboutView = () => {
         />
         <div className="flex flex-col items-start justify-between">
           <div>
-            <Text className="text-darysa-gris-800 text-xl! font-semibold">
-              Soluciones de Higiene para tu hogar
-            </Text>
-            <Heading variant="heading">Sobre Nosotros</Heading>
+            <Text className="text-darysa-gris-800 text-xl! font-semibold">Subtítulo</Text>
+            <Heading variant="heading">Sobre la marca</Heading>
             <Text variant="small" className="text-darysa-gris-800 leading-loose">
               Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada a justo, interdum
               condimentum massa ultrices tempor semper ridiculus facilisis diam phasellus, gravida
@@ -79,24 +48,18 @@ export const AboutView = () => {
           </Button>
         </div>
       </Container>
-      <Container>
-        <HistoryTimeline
-          items={timelineData}
-          title="Nuestra Historia"
-          subtitle="Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada a justo, interdum condimentum massa ultrices tempor semper ridiculus facilisis diam phasellus, gravida venenatis nisl lacinia scelerisque."
-        />
-      </Container>
+
       <Container>
         <Purpose />
       </Container>
       <Container>
-        <SustainabilityBioProducts />
+        <BrandProducts />
       </Container>
       <Container className="mb-16 grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>
-        <AboutForm />
+        <BrandForm />
       </Container>
     </>
   );

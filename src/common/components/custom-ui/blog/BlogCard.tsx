@@ -44,9 +44,8 @@ export function BlogCard({ imageUrl, category, title, author, date }: BlogCardPr
           <Heading
             as="h4"
             variant="cardTitle"
-            className="text-darysa-gris-800 line-clamp-2 min-h-[50px]"
+            className="text-darysa-gris-800 line-clamp-2 min-h-10 lg:min-h-[50px]"
           >
-            {' '}
             {title}
           </Heading>
         </div>
