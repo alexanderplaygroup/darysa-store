@@ -1,14 +1,20 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Upload } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { Heading } from '@/common/components/custom-ui/Heading';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/common/components/shadcn-ui/select';
+import { Textarea } from '@/common/components/shadcn-ui/textarea';
 import { cn } from '@/lib/utils';
-import { Checkbox } from '@shadcnui/checkbox';
 import {
   Form,
   FormControl,
@@ -19,7 +25,7 @@ import {
   FormMessage,
 } from '@shadcnui/form';
 import { Input } from '@shadcnui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@shadcnui/select';
+import { Upload } from 'lucide-react';
 import { useTransition } from 'react';
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
@@ -31,16 +37,16 @@ const ACCEPTED_FILE_TYPES = [
 ];
 
 const formSchema = z.object({
-  firstName: z.string().min(2, 'El nombre es obligatorio'),
+  fullName: z.string().min(2, 'El nombre es obligatorio'),
   lastName: z.string().min(2, 'El apellido es obligatorio'),
   email: z.email('Correo inválido'),
   phone: z.string().min(6, 'Número inválido'),
-  area: z.string().nonempty('Selecciona un área'),
-  position: z.string().nonempty('Selecciona un puesto'),
-  location: z.string().nonempty('Selecciona una ubicación'),
-  employmentStatus: z.string().nonempty('Selecciona una situación laboral'),
-  acceptedPolicy: z.boolean().refine((v) => v === true, 'Debes aceptar la política'),
-  cv: z
+  contact_reason: z.string().nonempty('Selecciona un área'),
+  purchase_document: z.string().nonempty('Selecciona un área'),
+  rucOrDni: z.string().nonempty('Este campo es obligatorio'),
+  purchaseDate: z.string().nonempty('Este campo es obligatorio'),
+  comments: z.string().optional(), // Comentarios opcional
+  file: z
     .instanceof(File)
     .optional()
     .refine((file) => !file || file.size <= MAX_FILE_SIZE, 'El archivo debe pesar menos de 8 MB')
@@ -56,19 +62,19 @@ const formSchema = z.object({
 type JobApplicationValues = z.infer<typeof formSchema>;
 
 const DEFAULT_VALUES: JobApplicationValues = {
-  firstName: '',
+  fullName: '',
   lastName: '',
   email: '',
   phone: '',
-  area: '',
-  position: '',
-  location: '',
-  employmentStatus: '',
-  acceptedPolicy: true,
-  cv: undefined,
+  rucOrDni: '',
+  purchaseDate: '',
+  comments: '',
+  file: undefined,
+  contact_reason: '',
+  purchase_document: '',
 };
 
-export function JobApplicationForm() {
+export function HelpCenterForm() {
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<JobApplicationValues>({
@@ -78,17 +84,17 @@ export function JobApplicationForm() {
 
   const handleSubmit = (values: JobApplicationValues) => {
     startTransition(async () => {
-      // Simula una petición async con await
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // 2 segundos de espera
+      // Simula petición async
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log('Form submitted:', values);
-      form.reset(DEFAULT_VALUES);
+      form.reset();
     });
   };
 
   return (
-    <div>
-      <Heading as="h1" variant="subheading" className="mb-8">
-        Sé parte de un <span className="font-black">Gran Equipo</span>
+    <div className="space-y-7">
+      <Heading as="h1" variant="subheading">
+        Centro de <span className="font-black">ayuda</span>
       </Heading>
 
       <Form {...form}>
@@ -97,38 +103,39 @@ export function JobApplicationForm() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <FormField
               control={form.control}
-              name="firstName"
+              name="fullName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Nombre Completo
+                    Nombre Completo <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Agregar Aquí"
                       {...field}
-                      className="h-10"
                       disabled={isPending}
+                      placeholder="Nombre Completo"
+                      className="h-10"
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="lastName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Apellido Completo
+                    Apellido Completo <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Agregar Aquí"
                       {...field}
-                      className="h-10"
                       disabled={isPending}
+                      placeholder="Apellido Completo"
+                      className="h-10"
                     />
                   </FormControl>
                   <FormMessage />
@@ -145,15 +152,15 @@ export function JobApplicationForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Correo Electrónico
+                    Correo Electrónico <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input
-                      type="email"
-                      placeholder="Agregar Aquí"
                       {...field}
-                      className="h-10"
+                      type="email"
                       disabled={isPending}
+                      placeholder="Correo Electrónico"
+                      className="h-10"
                     />
                   </FormControl>
                   <FormMessage />
@@ -165,14 +172,16 @@ export function JobApplicationForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-darysa-gris-700 font-semibold">Teléfono</FormLabel>
+                  <FormLabel className="text-darysa-gris-700 font-semibold">
+                    Teléfono de Contacto <span className="text-destructive">*</span>
+                  </FormLabel>
                   <FormControl>
                     <Input
-                      type="tel"
-                      placeholder="Agregar Aquí"
                       {...field}
-                      className="h-10"
+                      type="tel"
                       disabled={isPending}
+                      placeholder="Teléfono"
+                      className="h-10"
                     />
                   </FormControl>
                   <FormMessage />
@@ -181,78 +190,14 @@ export function JobApplicationForm() {
             />
           </div>
 
-          {/* Área y Puesto */}
-          <FormField
-            control={form.control}
-            name="area"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-darysa-gris-700 font-semibold">
-                  Área a Postular
-                </FormLabel>
-                <Select
-                  value={field.value || ''} // <--- aquí
-                  onValueChange={field.onChange}
-                  disabled={isPending}
-                >
-                  <FormControl>
-                    <SelectTrigger className="h-10! w-full">
-                      <SelectValue placeholder="Selecciona" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="ventas">Ventas</SelectItem>
-                    <SelectItem value="marketing">Marketing</SelectItem>
-                    <SelectItem value="tecnologia">Tecnología</SelectItem>
-                    <SelectItem value="recursos-humanos">Recursos Humanos</SelectItem>
-                    <SelectItem value="finanzas">Finanzas</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="position"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-darysa-gris-700 font-semibold">
-                  Puesto a Postular
-                </FormLabel>
-                <Select
-                  value={field.value || ''} // <--- aquí
-                  onValueChange={field.onChange}
-                  disabled={isPending}
-                >
-                  <FormControl>
-                    <SelectTrigger className="h-10! w-full">
-                      <SelectValue placeholder="Selecciona" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="junior">Junior</SelectItem>
-                    <SelectItem value="semi-senior">Semi Senior</SelectItem>
-                    <SelectItem value="senior">Senior</SelectItem>
-                    <SelectItem value="gerente">Gerente</SelectItem>
-                    <SelectItem value="director">Director</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Ubicación y Situación */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <FormField
               control={form.control}
-              name="location"
+              name="contact_reason"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Lugar a Postular
+                    Motivo de la consulta
                   </FormLabel>
                   <Select
                     value={field.value || ''} // <--- aquí
@@ -265,24 +210,29 @@ export function JobApplicationForm() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="remoto">Remoto</SelectItem>
-                      <SelectItem value="oficina-central">Oficina Central</SelectItem>
-                      <SelectItem value="sucursal-norte">Sucursal Norte</SelectItem>
-                      <SelectItem value="sucursal-sur">Sucursal Sur</SelectItem>
+                      <SelectItem value="soporte-compra">
+                        Desea soporte para comprar en la web
+                      </SelectItem>
+                      <SelectItem value="estado-pedido">
+                        Quiero conocer el estado de mi pedido
+                      </SelectItem>
+                      <SelectItem value="problema-pedido">
+                        Tuve un problema con mi pedido
+                      </SelectItem>
+                      <SelectItem value="otro">Otro</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
-              name="employmentStatus"
+              name="purchase_document"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Situación actual laboral
+                    Documento de compra
                   </FormLabel>
                   <Select
                     value={field.value || ''} // <--- aquí
@@ -295,10 +245,8 @@ export function JobApplicationForm() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="empleado">Empleado</SelectItem>
-                      <SelectItem value="desempleado">Desempleado</SelectItem>
-                      <SelectItem value="estudiante">Estudiante</SelectItem>
-                      <SelectItem value="freelance">Freelance</SelectItem>
+                      <SelectItem value="boleta">Boleta</SelectItem>
+                      <SelectItem value="factura">Factura </SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -307,14 +255,76 @@ export function JobApplicationForm() {
             />
           </div>
 
-          {/* CV Upload */}
+          {/*  RUC/DNI */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="rucOrDni"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darysa-gris-700 font-semibold">
+                    Número de RUC / DNI <span className="text-destructive">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="RUC / DNI"
+                      className="h-10"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* Razón Social / Nombre Completo */}
+            <FormField
+              control={form.control}
+              name="purchaseDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darysa-gris-700 font-semibold">
+                    Fecha de compra<span className="text-destructive">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="Agregar aquí"
+                      className="h-10"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <FormField
             control={form.control}
-            name="cv"
+            name="comments"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-darysa-gris-700 font-semibold">Comentarios</FormLabel>
+                <FormControl>
+                  <Textarea
+                    {...field}
+                    disabled={isPending}
+                    placeholder="Escribe aquí tus comentarios"
+                    className="h-32"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="file"
             render={({ field }) => (
               <FormItem>
                 <FormLabel htmlFor="cv" className="text-darysa-gris-700 font-semibold">
-                  Adjuntar CV
+                  Adjuntar un Archivo{' '}
                 </FormLabel>
                 <FormControl>
                   <div className="relative h-10 w-full max-w-[300px]">
@@ -336,7 +346,7 @@ export function JobApplicationForm() {
                       )}
                     >
                       <Upload className="text-darysa-amarillo mr-2 h-5 w-5" />
-                      <span className="text-darysa-amarillo text-sm">Subir Archivo</span>
+                      <span className="text-darysa-amarillo text-sm">Adjuntar un Archivo</span>
                     </label>
                   </div>
                 </FormControl>
@@ -347,28 +357,6 @@ export function JobApplicationForm() {
               </FormItem>
             )}
           />
-
-          {/* Checkbox */}
-          <FormField
-            control={form.control}
-            name="acceptedPolicy"
-            render={({ field }) => (
-              <FormItem className="flex items-center gap-3.5 py-2">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    disabled={isPending}
-                  />
-                </FormControl>
-                <FormLabel className="text-sm leading-relaxed text-gray-700">
-                  Acepto haber leído la Política de Privacidad Web.
-                </FormLabel>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           {/* Submit */}
           <ButtonWithSpinner
             type="submit"

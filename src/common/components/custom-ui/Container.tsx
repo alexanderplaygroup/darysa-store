@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { ElementType } from 'react';
+import { cva } from 'class-variance-authority';
 
 const containerVariants = cva('w-full mb-10', {
   variants: {
@@ -14,13 +13,11 @@ const containerVariants = cva('w-full mb-10', {
   },
 });
 
-interface ContainerProps
-  extends React.HTMLAttributes<HTMLElement>,
-    VariantProps<typeof containerVariants> {
-  as?: ElementType;
+interface ContainerProps extends React.HTMLAttributes<HTMLElement> {
+  as?: keyof HTMLElementTagNameMap;
+  size?: 'container' | 'full';
 }
 
-export function Container({ className, size, as: tag = 'div', ...props }: ContainerProps) {
-  const Tag = tag;
+export function Container({ as: Tag = 'div', size, className, ...props }: ContainerProps) {
   return <Tag className={cn(containerVariants({ size }), className)} {...props} />;
 }

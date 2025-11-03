@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { ImageOff } from 'lucide-react';
 import Image, { ImageProps } from 'next/image';
 import { useState } from 'react';
 import { Skeleton } from '../shadcn-ui/skeleton';
@@ -25,11 +26,11 @@ export function AppImage({
     return (
       <div
         className={cn(
-          'bg-accent flex h-full w-full items-center justify-center rounded-lg text-center text-sm text-gray-500',
+          'bg-accent text-darysa-gris-300 flex h-full w-full items-center justify-center rounded-lg text-center text-sm',
           className
         )}
       >
-        Imagen no disponible
+        <ImageOff />
       </div>
     );
   }

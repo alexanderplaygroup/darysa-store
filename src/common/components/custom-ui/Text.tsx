@@ -15,28 +15,20 @@ const textVariants = cva('text-black', {
   },
   defaultVariants: {
     variant: 'body',
-    tone: 'default',
   },
 });
 
 interface TextProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
-  as?: React.ElementType;
+  as?: keyof HTMLElementTagNameMap;
 }
 
 /**
  * 🧱 Componente de texto escalable y responsive.
  * Sirve como base tipográfica para párrafos, descripciones o etiquetas.
  */
-export const Text = ({
-  as: Tag = 'p',
-  children,
-  variant,
-  tone,
-  className,
-  ...props
-}: TextProps) => {
+export const Text = ({ as: Tag = 'p', children, variant, className, ...props }: TextProps) => {
   return (
-    <Tag className={cn(textVariants({ variant, tone }), className)} {...props}>
+    <Tag className={cn(textVariants({ variant }), className)} {...props}>
       {children}
     </Tag>
   );

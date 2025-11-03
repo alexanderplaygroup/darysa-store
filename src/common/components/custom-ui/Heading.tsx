@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { ElementType, HTMLAttributes } from 'react';
+import { cva } from 'class-variance-authority';
 
 const headingVariants = cva(
   'text-darysa-green-500  ', // estilos base
@@ -19,8 +18,9 @@ const headingVariants = cva(
   }
 );
 
-interface HeadingProps extends HTMLAttributes<HTMLElement>, VariantProps<typeof headingVariants> {
-  as?: ElementType;
+interface HeadingProps extends React.HTMLAttributes<HTMLElement> {
+  as?: keyof HTMLElementTagNameMap;
+  variant?: 'display' | 'heading' | 'subheading' | 'cardTitle';
 }
 
 /**

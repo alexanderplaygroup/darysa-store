@@ -65,7 +65,6 @@ export const Header = () => {
 
           <div className="mr-2 flex items-center gap-4.5 min-[450px]:gap-7 lg:mr-0 lg:gap-10">
             <div className="relative flex size-10 w-fit items-center justify-center lg:hidden">
-              {' '}
               <SearchCustomIcon className="size-6" strokeWidth={1.5} />
             </div>
             <div className="relative flex size-10 w-fit items-center justify-center">
@@ -101,7 +100,7 @@ export const Header = () => {
                 <ul className="hidden items-center gap-10 lg:flex">
                   <li>
                     <Link
-                      href="#"
+                      href="/nosotros"
                       className={cn(
                         'text-darysa-gris-550 relative mb-2.5 w-fit cursor-pointer text-sm font-medium transition-colors',
                         'after:bg-darysa-gris-550 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',

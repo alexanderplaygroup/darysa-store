@@ -13,7 +13,7 @@ const ContactView = () => {
         { text: 'Deseo soporte para comprar en la página web.' },
         { text: 'Quiero conocer el status de mi pedido web.' },
       ],
-      link: '#',
+      link: '/contacto/centro-de-ayuda',
     },
     {
       image: '/contact/previewContactoDetail.png',
