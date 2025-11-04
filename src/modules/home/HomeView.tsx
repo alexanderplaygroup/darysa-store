@@ -32,7 +32,7 @@ export const HomeView = () => {
         <Banner />
       </Container>
 
-      <Container className="space-y-8">
+      <Container className="w-full space-y-8">
         <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Marcas Aliadas
         </Heading>
@@ -45,7 +45,7 @@ export const HomeView = () => {
         <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Los más vendidos
         </Heading>
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 sm:gap-14 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4 xl:gap-14">
           {products.map((product) => (
             <ProductCard
               key={product.id}

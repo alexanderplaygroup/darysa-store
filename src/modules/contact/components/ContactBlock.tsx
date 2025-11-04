@@ -26,7 +26,7 @@ export const ContactBlock = ({
   buttonText = 'Realizar Consulta',
 }: ContactBlockProps) => {
   return (
-    <div className="flex w-full items-center gap-9">
+    <div className="flex w-full flex-col gap-9 lg:flex-row lg:items-center">
       <div className="relative h-full min-h-[282px] w-full max-w-[265px] overflow-hidden rounded-lg">
         <AppImage src={image} alt={title} fill sizes="265px" />
       </div>

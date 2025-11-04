@@ -1,4 +1,5 @@
 'use client';
+import { Heading } from '@/common/components/custom-ui/Heading';
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
 import { useResponsiveItemsPerView } from '@/common/hooks/useResponsiveItemsPerView';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,9 @@ export default function CarouselProducts() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <h3 className="text-darysa-gris-800 text-4xl font-bold">Productos en el Blog</h3>
+        <Heading as="h3" variant="heading" className="text-darysa-gris-800">
+          Productos en el Blog
+        </Heading>
 
         <div className="flex gap-6">
           <button
@@ -87,11 +90,11 @@ export default function CarouselProducts() {
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-14">
+        <CarouselContent className="-ml-2.5 lg:-ml-4 xl:-ml-14">
           {products.map((product, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2 pl-14 sm:basis-1/3 md:basis-1/4 lg:basis-1/4 xl:basis-1/4"
+              className="basis-1/2 pl-2.5 sm:basis-1/3 md:basis-1/3 lg:basis-1/4 lg:pl-4 xl:basis-1/4 xl:pl-14"
             >
               <ProductCard
                 key={product.id}

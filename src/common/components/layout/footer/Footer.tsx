@@ -13,7 +13,7 @@ export const Footer = () => {
     {
       title: 'Información',
       links: [
-        { name: 'Acerca de Nosotros', href: '#mentions' },
+        { name: 'Acerca de Nosotros', href: '/nosotros' },
         { name: 'Términos y Condiciones', href: '/terminos-y-condiciones' },
         { name: 'Trabaja con Nosotros', href: '/trabajos' },
         { name: 'Mi Cuenta', href: '#cookies' },

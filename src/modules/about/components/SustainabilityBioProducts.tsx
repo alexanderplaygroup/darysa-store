@@ -56,51 +56,51 @@ const SustainabilityBioProducts = () => {
           venenatis nisl lacinia scelerisque.
         </Text>
       </div>
-      <div className="mb-16 grid grid-cols-5 gap-28">
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+      <div className="mb-16 flex w-full flex-wrap items-start justify-center gap-10 lg:gap-20">
+        <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
           </div>
-          <Heading as="h6" variant="cardTitle" className="md:text-2xl">
+          <Heading as="h6" variant="cardTitle" className="md:text-xl">
             Pasión
           </Heading>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
           </div>
-          <Heading as="h6" variant="cardTitle" className="md:text-2xl">
+          <Heading as="h6" variant="cardTitle" className="md:text-xl">
             Pasión
           </Heading>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
           </div>
-          <Heading as="h6" variant="cardTitle" className="md:text-2xl">
+          <Heading as="h6" variant="cardTitle" className="md:text-xl">
             Pasión
           </Heading>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
           </div>
-          <Heading as="h6" variant="cardTitle" className="md:text-2xl">
+          <Heading as="h6" variant="cardTitle" className="md:text-xl">
             Pasión
           </Heading>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
           </div>
-          <Heading as="h6" variant="cardTitle" className="md:text-2xl">
+          <Heading as="h6" variant="cardTitle" className="md:text-xl">
             Pasión
           </Heading>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4 xl:gap-10">
         {products.map((product) => (
           <ProductCard
             key={product.id}

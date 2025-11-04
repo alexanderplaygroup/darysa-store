@@ -17,7 +17,7 @@ const TileLayer = dynamic(() => import('react-leaflet').then((m) => m.TileLayer)
 
 const DistributorsView = () => {
   useDefaultLeafletIcon();
-  const { mapRef, markersRef, selectedId, setSelectedId } = useMapConfig({ zoomOnSelect: 13 });
+  const { mapRef, markersRef, setSelectedId } = useMapConfig({ zoomOnSelect: 13 });
 
   return (
     <Container size="full" className="relative mb-0">
@@ -25,14 +25,14 @@ const DistributorsView = () => {
         <LocationSearchCommand onSelectLocation={setSelectedId} />
       </div>
 
-      <div className="relative z-0 h-screen w-full overflow-hidden">
+      <div className="relative z-0 h-full w-full overflow-hidden">
         <MapContainer
           ref={mapRef}
           center={[-9.19, -75.0152]}
           zoom={6}
           scrollWheelZoom={false}
           zoomControl={false}
-          className="h-full w-full"
+          className="h-[calc(100dvh-102px)] w-full lg:h-[calc(100dvh-116px)]"
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'

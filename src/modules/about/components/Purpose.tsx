@@ -15,8 +15,8 @@ const Purpose = () => {
           venenatis nisl lacinia scelerisque.{' '}
         </Text>
       </div>
-      <div className="flex w-full items-center justify-center gap-15">
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+      <div className="flex w-full flex-wrap items-center justify-center gap-8 lg:gap-15">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>
@@ -25,7 +25,7 @@ const Purpose = () => {
           </Heading>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>
@@ -33,7 +33,7 @@ const Purpose = () => {
             Integridad
           </Heading>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>

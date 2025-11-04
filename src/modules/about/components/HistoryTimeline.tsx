@@ -3,7 +3,7 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { Text } from '@/common/components/custom-ui/Text';
-import { ScrollArea } from '@/common/components/shadcn-ui/scroll-area';
+import { ScrollArea, ScrollBar } from '@/common/components/shadcn-ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shadcnui/tabs';
 import { useState } from 'react';
 
@@ -42,20 +42,12 @@ export function HistoryTimeline({
       <Tabs
         value={selectedYear}
         onValueChange={setSelectedYear}
-        className="grid flex-none grid-cols-[0.4fr_1.6fr] items-stretch justify-start gap-10"
+        className="grid flex-none grid-cols-1 items-stretch justify-start gap-4 lg:grid-cols-[0.4fr_1.6fr] lg:gap-2"
       >
         {/* Year selector */}
 
-        <ScrollArea className="relative h-[340px] w-full pr-4">
-          {/* <div
-            className="pointer-events-none absolute right-0 bottom-0 left-0 h-4"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.3)', // fondo blanco semitransparente
-              boxShadow: '0 -8px 12px -2px rgba(255,255,255,0.3)', // sombra blanca sincronizada
-            }}
-          /> */}
-
-          <TabsList className="flex h-fit w-full flex-col gap-5 bg-transparent p-0">
+        <ScrollArea className="relative w-full pb-5 lg:h-[340px] lg:pr-4">
+          <TabsList className="flex h-fit w-full flex-row gap-5 bg-transparent p-0 lg:flex-col">
             {items.map((item) => (
               <TabsTrigger
                 key={item.year}
@@ -67,16 +59,23 @@ export function HistoryTimeline({
               </TabsTrigger>
             ))}
           </TabsList>
+          {/* Scroll horizontal en móvil */}
+          <ScrollBar orientation="horizontal" className="lg:hidden" />
+          {/* Scroll vertical en escritorio */}
+          <ScrollBar orientation="vertical" className="hidden lg:flex" />
         </ScrollArea>
 
         {/* Timeline content */}
         {items.map((item) => (
           <TabsContent key={item.year} value={item.year}>
-            <div className="grid grid-cols-[0.5fr_1.5fr] items-center gap-10">
-              <div className="relative aspect-3/4 h-full w-full">
+            <div className="grid w-full grid-cols-1 items-center gap-6 lg:grid-cols-[0.5fr_1.5fr] lg:gap-6">
+              <div className="relative mx-auto aspect-3/4 w-full max-w-[300px]">
                 <AppImage src="" alt="" fill sizes="300px" />
               </div>
-              <Text variant="small" className="text-darysa-gris-800 leading-loose">
+              <Text
+                variant="small"
+                className="text-darysa-gris-800 max-w-[600px] text-center leading-loose max-lg:mx-auto lg:max-w-full lg:text-start"
+              >
                 {item.description}
               </Text>
             </div>

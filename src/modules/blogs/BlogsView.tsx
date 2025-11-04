@@ -5,6 +5,7 @@ import { HeroBanner } from '@/common/components/custom-ui/HeroBanner';
 import { Text } from '@/common/components/custom-ui/Text';
 import { Button } from '@/common/components/shadcn-ui/button';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import CarouselProducts from './components/CarouselProducts';
 import SearchBlog from './components/Search';
 
@@ -12,7 +13,6 @@ const BlogsView = () => {
   const aboutBanner = {
     desktop: '/about/heroBanner.png',
     mobile: '/about/heroBanner.png',
-    title: 'Soluciones Industriales Darysa',
     link: '/productos',
   };
 
@@ -53,29 +53,32 @@ const BlogsView = () => {
 
   return (
     <>
-      <Container size="full" className="relative mb-24">
+      <Container size="full" className="relative lg:mb-24">
         <HeroBanner banner={aboutBanner} />
-        <Container className="absolute inset-x-0 -bottom-[90px] max-w-[787px] overflow-hidden rounded-lg bg-white shadow-lg">
+        <Container className="absolute inset-x-0 -bottom-[90px] hidden max-w-[787px] px-0! lg:block">
           <SearchBlog />
         </Container>
+      </Container>
+      <Container className="block max-w-full lg:hidden lg:max-w-[787px]">
+        <SearchBlog />
       </Container>
       <Container className="space-y-14">
         {blogs.map((item, index) => {
           const isEven = index % 2 === 1; // filas alternas
 
           return (
-            <div key={item.id} className="grid grid-cols-2 items-center gap-6">
+            <div key={item.id} className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
               {/* Texto */}
               <div
                 className={cn(
-                  'max-w-[600px] space-y-4',
-                  isEven && 'order-2 ml-auto' // alterna orden del texto
+                  'space-y-4 lg:max-w-[600px]',
+                  isEven && 'lg:order-2 lg:ml-auto' // alterna orden del texto
                 )}
               >
                 <Heading
                   as="h3"
                   variant="subheading"
-                  className="leading-tight font-bold tracking-normal"
+                  className="leading-tight font-bold tracking-normal text-balance"
                 >
                   {item.title}
                 </Heading>
@@ -94,12 +97,16 @@ const BlogsView = () => {
                 <Text variant="small" className="text-justify leading-loose tracking-wider">
                   {item.description}
                 </Text>
+
+                <Button variant="darizaPrimary" asChild>
+                  <Link href="/blog/asda"> Leer mas</Link>
+                </Button>
               </div>
 
               {/* Imagen */}
               <div
                 className={cn(
-                  'relative aspect-[29/24] overflow-hidden rounded-lg',
+                  'relative aspect-29/24 overflow-hidden rounded-lg',
                   isEven && 'order-1' // alterna orden de la imagen
                 )}
               >
@@ -110,17 +117,22 @@ const BlogsView = () => {
         })}
 
         <div className="flex w-full items-center justify-center">
-          <Button>Ver más</Button>
+          <Button
+            variant="darizaPrimary"
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/90"
+          >
+            Ver más
+          </Button>
         </div>
       </Container>
-      <Container className="grid w-full grid-cols-3 gap-6">
-        <div className="relative aspect-[203/269] w-full overflow-hidden rounded-lg">
+      <Container className="grid w-full grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4 xl:gap-6">
+        <div className="relative aspect-203/269 w-full overflow-hidden rounded-lg">
           <AppImage src="/blog/blog1.png" alt="Blog 1" fill sizes="406px" />
         </div>
-        <div className="relative aspect-[203/269] w-full overflow-hidden rounded-lg">
+        <div className="relative aspect-203/269 w-full overflow-hidden rounded-lg">
           <AppImage src="/blog/blog1.png" alt="Blog 1" fill sizes="406px" />
         </div>
-        <div className="relative aspect-[203/269] w-full overflow-hidden rounded-lg">
+        <div className="relative aspect-203/269 w-full overflow-hidden rounded-lg">
           <AppImage src="/blog/blog1.png" alt="Blog 1" fill sizes="406px" />
         </div>
       </Container>

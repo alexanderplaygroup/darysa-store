@@ -1,6 +1,7 @@
 'use client';
 
 import { getInitials } from '@/lib/getInitials';
+import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@shadcnui/avatar';
 
 type UserAvatarProps = {
@@ -20,7 +21,10 @@ export function UserAvatar({ name, image, size = 'md' }: UserAvatarProps) {
 
   return (
     <Avatar
-      className={`${sizes[size]} border-darysa-green-500 text-darysa-green-500 border font-medium`}
+      className={cn(
+        'text-darysa-green-500 border-darysa-green-500 border font-medium',
+        sizes[size]
+      )}
     >
       {image ? (
         <AvatarImage src={image} alt={name} />

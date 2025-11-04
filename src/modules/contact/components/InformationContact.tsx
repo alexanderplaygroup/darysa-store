@@ -8,12 +8,12 @@ import { YouTubeIcon } from '@/common/components/icons/YouTubeIcon';
 
 const InformationContact = () => {
   return (
-    <div className="space-y-6 px-10 py-8">
-      <div className="flex items-center justify-between">
+    <div className="space-y-7.5 overflow-hidden rounded-lg bg-white shadow-lg lg:space-y-4 lg:p-8">
+      <div className="flex flex-col gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
         <Heading
           as="h1"
-          variant="heading"
-          className="text-darysa-verde-oscuro font-black md:text-3xl"
+          variant="subheading"
+          className="text-darysa-verde-oscuro font-black md:text-2xl"
         >
           Información de Contacto
         </Heading>
@@ -25,25 +25,25 @@ const InformationContact = () => {
           <YouTubeIcon size={30} className="text-darysa-verde-oscuro" />
         </div>
       </div>
-      <dl className="flex flex-col justify-between gap-6 md:flex-row">
-        <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
+      <dl className="grid grid-cols-1 items-center justify-between gap-6 lg:grid-cols-[auto_auto_auto]">
+        <div className="space-y-1">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-lg">
             Oficina Central
           </Heading>
           <Text as="dd" variant="small" className="text-darysa-gris-800">
             Granja 1 - Alt. Km.30 Antigua Panamericana Sur, Lurín. Lima-Perú
           </Text>
         </div>
-        <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
+        <div className="space-y-1">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-lg">
             Horario de Atención
           </Heading>
           <Text as="dd" variant="small" className="text-darysa-gris-800">
             L-V: 8:00 am - 5:00 pm S: 8:00 am - 12:00 pm
           </Text>
         </div>
-        <div className="space-0.5">
-          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-2xl">
+        <div className="space-y-1">
+          <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-lg">
             Correo{' '}
           </Heading>
 

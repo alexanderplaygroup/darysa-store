@@ -15,7 +15,7 @@ export const HeroBanner = ({ banner }: HeroBannerProps) => {
   const { desktop, mobile, title, link } = banner;
 
   const Content = (
-    <div className="relative aspect-16/4 w-full md:aspect-16/4">
+    <div className="relative aspect-16/5 max-h-[420px] w-full md:aspect-16/4 lg:aspect-16/4">
       <picture className="relative block h-full w-full">
         {/* Imagen para pantallas grandes */}
         <source srcSet={desktop} media="(min-width: 768px)" />

@@ -21,7 +21,7 @@ export const ProductCard = ({
   const discountedPrice = getDiscountedPrice(price, discount);
   const hasDiscount = formatDiscount(discount);
   return (
-    <div className="border-darysa-gris-350-alt/60 w-full max-w-full overflow-hidden rounded-lg border shadow-sm transition-shadow hover:shadow-md">
+    <div className="border-darysa-gris-350-alt/60 w-full max-w-full overflow-hidden rounded-lg border">
       {/* Product Image Section */}
       <div className="relative flex aspect-square w-full max-w-full items-center justify-center">
         <AppImage src={image} alt={name} fill sizes="300px" />

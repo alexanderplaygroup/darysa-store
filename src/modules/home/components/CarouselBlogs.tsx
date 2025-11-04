@@ -92,11 +92,11 @@ export default function CarouselBlogs() {
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-2.5 lg:-ml-14">
+        <CarouselContent className="-ml-2.5 lg:-ml-4 xl:-ml-14">
           {blogPosts.map((post, index) => (
             <CarouselItem
               key={index}
-              className="basis-full pl-2.5 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 lg:pl-14 xl:basis-1/3"
+              className="basis-full pl-2.5 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 lg:pl-4 xl:basis-1/3 xl:pl-14"
             >
               <BlogCard key={index} {...post} />
             </CarouselItem>
@@ -104,7 +104,7 @@ export default function CarouselBlogs() {
         </CarouselContent>
 
         <CarouselDots
-          className="mx-auto w-fit flex-wrap gap-2.5 md:flex-row md:gap-10"
+          className="mx-auto w-fit flex-wrap gap-2.5 md:flex-row md:gap-4.5 lg:gap-6 xl:gap-10"
           renderDot={(index, isActive, goTo) => {
             const total = blogPosts.length; // o slides.length
             if (total > 4 && index === 2) {
