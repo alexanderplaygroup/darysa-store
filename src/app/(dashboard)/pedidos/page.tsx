@@ -1,6 +1,12 @@
 import { Package } from 'lucide-react';
+// Simula un delay de 2 segundos en el servidor
+async function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-export default function page() {
+export default async function page() {
+  // await delay(10000);
+
   return (
     <>
       <div className="space-y-6">

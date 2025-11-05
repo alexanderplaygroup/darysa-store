@@ -49,13 +49,13 @@ export const SidebarDashboard = () => {
         <UserAvatar name="María López" size="lg" />
         <span className="text-darysa-gris-400 text-sm font-bold">María López</span>
       </div>
-      <div className="flex w-full max-w-[200px] flex-col gap-4">
+      <div className="flex w-full flex-wrap gap-4 lg:max-w-[200px] lg:flex-col">
         {links.map((link) => {
           return <ActiveLink key={link.name} {...link} />;
         })}
         <button
           onClick={handleLogout}
-          className="text-darysa-gris-950 flex h-10 w-full items-center gap-4 rounded-md px-6 text-sm font-semibold transition-colors duration-300 ease-in-out"
+          className="text-darysa-gris-950 hover:bg-darysa-green-500/10 flex h-10 items-center gap-4 rounded-md px-6 text-sm font-semibold transition-colors duration-300 ease-in-out lg:w-full"
         >
           <LogOut size={24} strokeWidth={2} /> Cerrar Sesión
         </button>

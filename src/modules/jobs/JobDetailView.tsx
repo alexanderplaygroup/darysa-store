@@ -31,7 +31,7 @@ export const JobDetailView = ({
           {title}
         </Heading>
       </Container>
-      <Container className="grid grid-cols-1 gap-20 md:grid-cols-[1.2fr_0.8fr]">
+      <Container className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
         {/* Información Principal */}
         <article className="space-y-6">
           <Text variant="body" className="text-darysa-gris-500">

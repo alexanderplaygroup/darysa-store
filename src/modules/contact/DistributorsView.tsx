@@ -42,13 +42,13 @@ const DistributorsView = () => {
       <Container size="full" className="relative">
         <HeroBanner banner={aboutBanner} />
       </Container>
-      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
-        <div className="relative h-full w-full overflow-hidden rounded-lg">
+      <Container className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch xl:gap-10">
+        <div className="relative hidden aspect-3/4 w-full overflow-hidden rounded-lg lg:block">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>
         <DistributorsForm />
       </Container>
-      <Container className="grid grid-cols-4 gap-12">
+      <Container className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4 xl:gap-12">
         {INFO_CARDS_DATA.map((item, index) => (
           <InfoCard
             key={index}

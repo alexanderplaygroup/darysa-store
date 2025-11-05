@@ -24,11 +24,11 @@ export default function CarouselProductosInModal() {
       onMouseEnter={() => autoplayRef.current.stop()}
       onMouseLeave={() => autoplayRef.current.play()}
     >
-      <CarouselContent className="-ml-8">
+      <CarouselContent className="-ml-2.5 lg:-ml-4 xl:-ml-14">
         {products.map((product, index) => (
           <CarouselItem
             key={index}
-            className="basis-1/2 pl-8 sm:basis-1/3 md:basis-1/3 lg:basis-1/3 xl:basis-1/3"
+            className="basis-1/2 pl-2.5 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 lg:pl-4 xl:pl-14"
           >
             <ProductCard
               key={product.id}

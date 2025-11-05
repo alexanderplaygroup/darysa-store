@@ -1,6 +1,7 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { Text } from '@/common/components/custom-ui/Text';
+import { Button } from '@/common/components/shadcn-ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -41,24 +42,18 @@ export function PreviewPositionCard({
         </Heading>
         <Text
           variant="body"
-          className="text-darysa-gris-800 min-h-[3rem] leading-tight tracking-normal"
+          className="text-darysa-gris-800 leading-tight tracking-normal lg:min-h-12"
         >
           {description}
         </Text>
       </div>
 
       {/* Enlace (botón visual) */}
-      <Link
-        href={path}
-        className={cn(
-          'bg-darysa-gris-800 inline-flex items-center justify-center rounded-lg px-14 py-2 font-bold text-white',
-          'transition-colors duration-200 hover:bg-zinc-700',
-          'focus-visible:ring-darysa-verde-oscuro focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none'
-        )}
-        aria-label={`Ver más sobre ${title}`}
-      >
-        Postular Ahora
-      </Link>
+      <Button variant="darizaPrimary" className="px-14!" asChild>
+        <Link href={path} aria-label={`Ver más sobre ${title}`}>
+          Postular Ahora
+        </Link>
+      </Button>
     </article>
   );
 }

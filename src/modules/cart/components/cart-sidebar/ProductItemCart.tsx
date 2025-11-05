@@ -56,7 +56,7 @@ export const ProductItemCart: FC<ProductItemCartProps> = ({
   return (
     <div className="border-darysa-gris-800/20 flex gap-4 border-b px-6 py-6">
       {/* Imagen del producto */}
-      <div className="relative aspect-square w-[110px] overflow-hidden rounded-lg border">
+      <div className="relative aspect-square w-[85px] overflow-hidden rounded-lg border min-[420px]:w-[110px]">
         <AppImage
           src={product.image || '/images/product-item.png'}
           alt={product.name}

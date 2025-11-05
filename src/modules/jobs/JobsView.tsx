@@ -1,5 +1,6 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Container } from '@/common/components/custom-ui/Container';
+import { Button } from '@/common/components/shadcn-ui/button';
 import { JobApplicationForm } from './components/JobApplicationForm';
 import { PreviewPositionCard } from './components/PreviewPositionCard';
 import { SearchBar } from './components/SearchBar';
@@ -51,24 +52,31 @@ export const JobsView = () => {
   ];
   return (
     <div className="relative w-full">
-      <Container className="absolute inset-x-0 -top-[100px]">
+      <Container className="absolute inset-x-0 -top-[85px] hidden lg:block">
         <SearchBar />
       </Container>
-      <Container>
-        <div className="mb-14 grid grid-cols-1 gap-x-44 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+      <Container className="block lg:hidden">
+        <SearchBar />
+      </Container>
+      <Container className="mb-20">
+        <div className="mb-20 grid grid-cols-1 gap-x-20 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-28 lg:pt-10 xl:gap-x-44">
           {previewPositions.map((position, index) => (
             <PreviewPositionCard key={index} {...position} />
           ))}
         </div>
 
-        <div className="w-full">
-          <button className="bg-darysa-verde-oscuro mx-auto flex h-12 w-full max-w-[320px] items-center justify-center rounded-lg font-bold text-white">
+        <div className="flex w-full items-center justify-center">
+          <Button
+            variant="darizaPrimary"
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/90"
+          >
             Ver Más Ofertas
-          </button>
+          </Button>
         </div>
       </Container>
-      <Container className="grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
-        <div className="relative h-full w-full overflow-hidden rounded-lg">
+
+      <Container className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch xl:gap-10">
+        <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>
         <JobApplicationForm />

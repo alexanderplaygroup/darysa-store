@@ -104,7 +104,7 @@ export const AboutView = () => {
         <SustainabilityBioProducts />
       </Container>
       <Container className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch xl:gap-10">
-        <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg bg-amber-600">
+        <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>
         <AboutForm />

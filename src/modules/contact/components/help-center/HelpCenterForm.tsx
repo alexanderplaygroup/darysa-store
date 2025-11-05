@@ -93,7 +93,7 @@ export function HelpCenterForm() {
 
   return (
     <div className="space-y-7">
-      <Heading as="h1" variant="subheading">
+      <Heading as="h1" variant="subheading" className="text-2xl">
         Centro de <span className="font-black">ayuda</span>
       </Heading>
 
@@ -113,7 +113,7 @@ export function HelpCenterForm() {
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="Nombre Completo"
+                      placeholder="Nombre Completo "
                       className="h-10"
                     />
                   </FormControl>

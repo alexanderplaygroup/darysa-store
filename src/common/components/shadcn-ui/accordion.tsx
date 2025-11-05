@@ -49,7 +49,7 @@ function AccordionTrigger({
         {showIcon && (
           <ChevronDownIcon
             className={cn(
-              'pointer-events-none size-4 shrink-0 translate-y-0.5 text-white transition-transform duration-200',
+              'data-[state=close]:text-darysa-green-500 pointer-events-none size-4 shrink-0 translate-y-0.5 text-white transition-transform duration-200',
               iconClassName // 👈 aplicamos clases personalizadas
             )}
           />

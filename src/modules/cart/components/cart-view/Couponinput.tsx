@@ -11,7 +11,7 @@ export function CouponInput() {
       </Button>
       <Input
         placeholder="Escribe aquí"
-        className="placeholder:text-darysa-gris-300 flex-1 border-none pl-0 text-center placeholder:font-semibold focus-visible:ring-0"
+        className="placeholder:text-darysa-gris-300 h-full flex-1 border-none pl-0 text-center shadow-none placeholder:font-semibold focus-visible:ring-0"
       />
     </div>
   );

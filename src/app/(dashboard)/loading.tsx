@@ -11,7 +11,7 @@ export default function Loading() {
           </div>
         </div>
 
-        <p className="text-muted-foreground animate-pulse text-sm">Cargando...</p>
+        <p className="text-darysa-gris-800 animate-pulse text-sm">Cargando...</p>
       </div>
     </div>
   );

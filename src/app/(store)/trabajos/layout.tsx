@@ -9,7 +9,6 @@ export default function JobsLayout({
   const aboutBanner = {
     desktop: '/about/heroBanner.png',
     mobile: '/about/heroBanner.png',
-    title: 'Soluciones Industriales Darysa',
     link: '/productos',
   };
   return (

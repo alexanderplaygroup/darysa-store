@@ -59,8 +59,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
       >
         {/* Categorías */}
         <AccordionItem className="border-0" value="category">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <ShoppingBag className="h-5 w-5" />
               Categorías
             </div>
@@ -82,8 +82,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
 
         {/* Subcategorías */}
         <AccordionItem className="border-0" value="subcategory">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <Tag className="h-5 w-5" />
               Subcategorías
             </div>
@@ -105,8 +105,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
 
         {/* Colores */}
         <AccordionItem className="border-0" value="colors">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <Palette className="h-5 w-5" />
               Colores
             </div>
@@ -128,8 +128,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
 
         {/* Tamaños */}
         <AccordionItem className="border-0" value="sizes">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <Ruler className="h-5 w-5" />
               Tamaño
             </div>
@@ -151,8 +151,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
 
         {/* Ofertas */}
         <AccordionItem className="border-0" value="in_promotion">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <Percent className="size-5" /> Ofertas
             </div>
           </AccordionTrigger>
@@ -169,8 +169,8 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
 
         {/* Rango de precios */}
         <AccordionItem className="border-0" value="price_range">
-          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
-            <div className="ml-8 flex items-center gap-3">
+          <AccordionTrigger className="focus-visible:text-brand-black rounded-l-none rounded-r-none px-8 hover:no-underline focus-visible:ring-0 data-[state=open]:bg-black/40 data-[state=open]:text-white">
+            <div className="flex items-center gap-3">
               <CircleDollarSign className="h-5 w-5" />
               Rango de precios
             </div>

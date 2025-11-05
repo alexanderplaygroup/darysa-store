@@ -323,7 +323,7 @@ function CarouselThumbnails({
       data-slot="carousel-thumbnails"
       {...props}
     >
-      <div className="-ml-6 flex">
+      <div className="-ml-2.5 flex sm:-ml-6">
         {images.map((src, index) => {
           const isActive = selectedIndex === index;
 
@@ -333,7 +333,7 @@ function CarouselThumbnails({
               aria-roledescription="slide"
               data-slot="carousel-item"
               key={index}
-              className="min-w-0 shrink-0 grow-0 basis-full pl-6 sm:basis-1/4"
+              className="min-w-0 shrink-0 grow-0 basis-1/4 pl-2.5 sm:pl-6"
             >
               <button
                 aria-label={`Ir al slide ${index + 1}`}

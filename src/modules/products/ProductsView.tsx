@@ -75,7 +75,7 @@ export const ProductsView = () => {
           </Select>
         </Container>
         <Container className="mb-0">
-          <div className="relative grid grid-cols-4 gap-14">
+          <div className="relative grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4">
             {/* Sidebar */}
             {/* {isOpen && (
               <div className="bg-darysa-gris-800 border-darysa-gris-350-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
@@ -97,7 +97,10 @@ export const ProductsView = () => {
             <div
               className={cn(
                 'grid gap-14',
-                isOpen ? 'col-span-3 col-start-2 grid-cols-3' : 'col-span-4 grid-cols-4'
+                // responsive grid adaptando columnas
+                isOpen
+                  ? 'col-span-1 grid-cols-1 sm:col-span-2 sm:grid-cols-2 lg:col-span-3 lg:grid-cols-3'
+                  : 'col-span-1 grid-cols-1 sm:col-span-2 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-4'
               )}
             >
               {products.map((product) => (

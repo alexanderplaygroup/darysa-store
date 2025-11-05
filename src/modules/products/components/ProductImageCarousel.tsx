@@ -16,7 +16,7 @@ type ProductImageCarouselProps = {
 
 export function ProductImageCarousel({ images }: ProductImageCarouselProps) {
   return (
-    <Carousel opts={{ loop: true }} className="w-full space-y-6">
+    <Carousel opts={{ loop: true }} className="w-full space-y-2.5 sm:space-y-6">
       <div className="relative">
         {/* Slides principales */}
         <CarouselContent className="-ml-6">

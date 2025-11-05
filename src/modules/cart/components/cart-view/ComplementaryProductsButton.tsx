@@ -26,7 +26,7 @@ export const ComplementaryProductsButton = () => {
       </DialogTrigger>
       <DialogContent
         showCloseButton={false}
-        className="gap-7! rounded-lg border-none p-0 sm:max-w-5xl"
+        className="gap-4! rounded-lg border-none p-0 sm:max-w-xl sm:gap-7! md:max-w-3xl lg:max-w-5xl"
       >
         <DialogClose className="bg-darysa-green-500 absolute -top-4.5 -right-4.5 z-20 flex size-11 cursor-pointer items-center justify-center rounded-full text-white drop-shadow-lg">
           <X strokeWidth={3.5} className="size-6" />
@@ -40,7 +40,7 @@ export const ComplementaryProductsButton = () => {
             data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <div className="w-full overflow-hidden px-10 pb-8">
+        <div className="w-full overflow-hidden px-4 pb-4 sm:px-10 sm:pb-8">
           <CarouselProductosInModal />
         </div>
       </DialogContent>

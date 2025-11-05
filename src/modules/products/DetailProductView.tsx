@@ -2,6 +2,7 @@ import { AppBreadcrumb, BreadcrumbItemType } from '@/common/components/custom-ui
 import { Container } from '@/common/components/custom-ui/Container';
 import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
 import CarouselRelatedProducts from './components/CarouselRelatedProducts';
+import { ProductDetailsAccordion } from './components/ProductDetailsAccordion';
 import ProductDetailsPanel from './components/ProductDetailsPanel';
 import { ProductDetailsTabs } from './components/ProductDetailTabs';
 import { ProductImageCarousel } from './components/ProductImageCarousel';
@@ -29,12 +30,16 @@ export default function DetailProductView() {
       <Container className="mb-7">
         <AppBreadcrumb items={breadcrumbItems} />
       </Container>
-      <Container className="mb-16 grid grid-cols-2 items-start gap-16">
+      <Container className="mb-16 grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
         <ProductImageCarousel images={images} />
         <ProductDetailsPanel />
       </Container>
       <Container className="mb-16">
-        <ProductDetailsTabs />
+        <ProductDetailsAccordion />
+
+        <div className="hidden md:block">
+          <ProductDetailsTabs />
+        </div>
       </Container>
 
       <Container size="full" className="relative mb-16">

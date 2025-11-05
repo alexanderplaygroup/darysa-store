@@ -21,10 +21,10 @@ export default function DashboardLayout({
           Perfil de Usuario
         </Heading>
       </Container>
-      <Container className="flex w-full items-start gap-24">
-        <div className="grid grid-cols-[1fr_auto] gap-24">
+      <Container className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[auto_1fr] xl:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] lg:gap-10 xl:gap-24">
           <SidebarDashboard />
-          <Separator orientation="vertical" className="bg-darysa-gris-800" />
+          <Separator orientation="vertical" className="bg-darysa-gris-800 hidden lg:block" />
         </div>
         <div className="flex-1">{children}</div>
       </Container>

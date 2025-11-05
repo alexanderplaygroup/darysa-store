@@ -4,9 +4,9 @@ import { EditCircleIcon } from '@/common/components/icons/EditCircleIcon';
 import { Button } from '@/common/components/shadcn-ui/button';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 
-export function CartItem() {
+export function CartItemDesktop() {
   return (
-    <div className="border-darysa-gris-800/20 grid grid-cols-[1fr_100px_150px_100px_50px] items-center border-b py-7">
+    <div className="hidden py-7 md:grid md:grid-cols-[1fr_100px_150px_100px_50px] md:items-center">
       {/* Producto */}
       <div className="flex items-center gap-4">
         <div className="relative aspect-square w-20 overflow-hidden rounded-md border">
@@ -21,7 +21,7 @@ export function CartItem() {
       {/* Precio */}
       <span className="text-start font-medium text-gray-700">S/100</span>
 
-      {/* Controles de cantidad */}
+      {/* Controles cantidad */}
       <div className="flex items-center justify-start gap-1">
         <Button variant="default" size="icon" className="size-7.5 rounded">
           <MinusIcon strokeWidth={4} />

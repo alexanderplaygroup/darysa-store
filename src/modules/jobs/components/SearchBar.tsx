@@ -15,9 +15,9 @@ export function SearchBar() {
   };
 
   return (
-    <div className="border-darysa-gris-350-alt/60 flex w-full items-center gap-4 rounded-lg border bg-white p-4">
+    <div className="border-darysa-gris-350-alt/60 flex w-full flex-col items-center gap-4 rounded-lg border bg-white p-4 md:flex-row">
       {/* Buscar por palabra clave */}
-      <div className="border-darysa-gris-350-alt/60 flex flex-1 items-center rounded-lg border bg-white">
+      <div className="border-darysa-gris-350-alt/60 flex w-full flex-1 items-center rounded-lg border bg-white">
         <Input
           type="text"
           placeholder="Buscar por palabra clave"
@@ -31,7 +31,7 @@ export function SearchBar() {
       </div>
 
       {/* Buscar por ubicación */}
-      <div className="border-darysa-gris-350-alt/60 flex flex-1 items-center rounded-lg border bg-white">
+      <div className="border-darysa-gris-350-alt/60 flex w-full flex-1 items-center rounded-lg border bg-white">
         <Input
           type="text"
           placeholder="Buscar por ubicación"
@@ -47,7 +47,7 @@ export function SearchBar() {
       {/* Botón Buscar Oferta */}
       <Button
         onClick={handleSearch}
-        className="bg-darysa-gris-800 hover:bg-darysa-gris-800 h-12 w-full max-w-[289px] rounded-lg px-8 text-white"
+        className="bg-darysa-gris-800 hover:bg-darysa-gris-800 h-12 w-full rounded-lg px-8 text-white md:w-fit lg:max-w-[289px]"
       >
         Buscar Oferta
       </Button>

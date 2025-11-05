@@ -5,6 +5,7 @@ import * as React from 'react';
 
 import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { Button } from '../../shadcn-ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '../../shadcn-ui/popover';
 
@@ -132,15 +133,19 @@ export function MegaMenu() {
             <div className="grid grid-cols-2 gap-6 pt-6 md:grid-cols-3 lg:grid-cols-4">
               {selected.subcategories.map((sub, i) => (
                 <div key={i}>
-                  <h4
-                    className={cn(
-                      'text-darysa-green-500 relative mb-3.5 w-fit cursor-pointer font-medium transition-colors',
-                      'after:bg-darysa-green-500 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
-                      'hover:after:left-0 hover:after:w-full'
-                    )}
-                  >
-                    {sub}
-                  </h4>
+                  <div className="mb-3.5">
+                    <Link
+                      href="/productos"
+                      onClick={() => closeUI('megaMenu')}
+                      className={cn(
+                        'text-darysa-green-500 relative w-fit cursor-pointer font-medium transition-colors',
+                        'after:bg-darysa-green-500 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:transition-all after:duration-300',
+                        'hover:after:left-0 hover:after:w-full'
+                      )}
+                    >
+                      {sub}
+                    </Link>
+                  </div>
                   <ul className="space-y-1.5 text-sm text-gray-600">
                     {[
                       'Producto Premium',
@@ -148,12 +153,15 @@ export function MegaMenu() {
                       'Producto Local',
                       'Producto Especial',
                     ].map((item, index) => (
-                      <li
-                        key={index}
-                        className="group hover:text-darysa-green-500 flex -translate-x-5 cursor-pointer items-center gap-1 transition-all duration-300 ease-in-out"
-                      >
-                        <ChevronRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                        <span>{item}</span>
+                      <li key={index}>
+                        <Link
+                          href="/productos"
+                          onClick={() => closeUI('megaMenu')}
+                          className="group hover:text-darysa-green-500 flex -translate-x-5 cursor-pointer items-center gap-1 transition-all duration-300 ease-in-out"
+                        >
+                          <ChevronRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                          <span>{item}</span>
+                        </Link>
                       </li>
                     ))}
                   </ul>
