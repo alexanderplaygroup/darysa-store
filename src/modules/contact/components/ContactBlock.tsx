@@ -26,13 +26,13 @@ export const ContactBlock = ({
   buttonText = 'Realizar Consulta',
 }: ContactBlockProps) => {
   return (
-    <div className="flex w-full flex-col gap-9 lg:flex-row lg:items-center">
-      <div className="relative h-full min-h-[282px] w-full max-w-[265px] overflow-hidden rounded-lg">
+    <div className="grid w-full grid-cols-1 grid-rows-[auto_1fr] justify-start gap-6 lg:gap-9 xl:grid-cols-[0.9fr_1.1fr] xl:grid-rows-1 xl:items-center">
+      <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg xl:aspect-4/3">
         <AppImage src={image} alt={title} fill sizes="265px" />
       </div>
 
-      <div className="w-full space-y-6">
-        <Heading as="h3" variant="subheading" className="leading-none">
+      <div className="w-full space-y-4 lg:space-y-6">
+        <Heading as="h3" variant="subheading" className="leading-none md:text-[26px]">
           {title} <span className="font-black">{highlight}</span>
         </Heading>
 
@@ -44,7 +44,7 @@ export const ContactBlock = ({
           ))}
         </ul>
 
-        <Button asChild className="h-12 w-full max-w-[254px] text-center">
+        <Button variant="darizaPrimary" asChild className="w-full max-w-[254px] text-center">
           <Link href={link}>{buttonText}</Link>
         </Button>
       </div>

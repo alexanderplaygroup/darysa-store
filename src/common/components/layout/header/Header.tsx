@@ -33,8 +33,8 @@ export const Header = () => {
         isScrolled && 'drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)]'
       )}
     >
-      <Container className="mb-0 space-y-2 pt-3.5 lg:py-3.5">
-        <div className="flex w-full items-center justify-between py-0">
+      <Container className="mb-0 space-y-2 px-0! pt-3.5 lg:py-3.5">
+        <div className="flex w-full items-center justify-between px-2.5 py-0 lg:px-4 2xl:px-0">
           <div className="flex items-center gap-4.5 sm:gap-6">
             <button
               type="button"
@@ -89,7 +89,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className="bg-darysa-gris-100 lg:bg-transparent">
+        <div className="bg-darysa-gris-100 px-2.5 lg:bg-transparent lg:px-4 2xl:px-0">
           <div className="flex w-full items-center lg:justify-between">
             <div className="flex h-10 items-center gap-10">
               <div className="hidden lg:block">

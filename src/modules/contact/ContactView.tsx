@@ -57,7 +57,7 @@ const ContactView = () => {
       <Container className="block overflow-hidden rounded-lg bg-white lg:hidden">
         <InformationContact />
       </Container>
-      <Container className="grid grid-cols-2 gap-11">
+      <Container className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:gap-9">
         {contactBlocks.map((block) => (
           <ContactBlock key={block.title} {...block} />
         ))}

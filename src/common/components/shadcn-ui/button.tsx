@@ -17,11 +17,10 @@ const buttonVariants = cva(
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
-        darizaPrimary:
-          'bg-darysa-gris-800 hover:bg-darysa-gris-650 font-bold text-white rounded-lg',
+        darizaPrimary: 'bg-darysa-gris-800 hover:bg-darysa-gris-650 font-bold text-white ',
       },
       size: {
-        default: 'h-12  has-[>svg]:px-3 px-20 lg:px-28 ',
+        default: 'h-12  has-[>svg]:px-3 px-20 lg:px-28 rounded-md',
         sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
         lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
         icon: 'size-9',

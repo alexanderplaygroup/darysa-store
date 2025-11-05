@@ -26,6 +26,7 @@ export default function LocationSearchCommand({ onSelectLocation }: LocationSear
     <>
       <div className="flex w-full items-center justify-center lg:mx-2.5! lg:justify-start xl:mx-0">
         <Button
+          size="lg"
           variant="outline"
           onClick={() => setOpen(true)}
           className="text-darysa-gris-800 group pointer-events-auto cursor-default rounded-lg px-4 py-8.5 hover:bg-white"
