@@ -88,7 +88,7 @@ export function VideoSlide({
   };
 
   return (
-    <div className="relative h-full w-full cursor-pointer" onClick={handleClick}>
+    <div className="relative h-full w-full cursor-pointer">
       <video
         ref={videoRef}
         src={src}
@@ -101,7 +101,10 @@ export function VideoSlide({
 
       {/* Overlay hasta que el user haga clic */}
       {!isFullscreen && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-black/40"
+          onClick={handleClick}
+        >
           <svg
             width="120"
             height="120"

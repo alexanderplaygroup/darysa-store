@@ -14,11 +14,6 @@ import { PromotionalModal } from './components/PromotionalModal';
 import { products, promoBanner, promoItems } from './data';
 import { BenefitItems } from './type';
 
-// const CarouselBrands = dynamic(() => import('./components/CarouselBrands'), {
-//   ssr: false,
-//   loading: () => <Skeleton className="aspect-16/3 h-[136px] w-full rounded-xl" />,
-// });
-
 export const HomeView = () => {
   const benefitsData: BenefitItems = {
     first: { title: 'Hasta 5 años de garantía', icon: <Shield className="size-8 lg:size-10" /> },
