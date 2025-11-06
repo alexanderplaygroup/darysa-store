@@ -48,18 +48,18 @@ export default function ProductDetailsPanel() {
       <Heading
         as="h1"
         variant="subheading"
-        className="text-darysa-gris-800 mb-4 font-bold text-balance"
+        className="text-darysa-gris-800 mb-2.5 font-bold text-balance lg:mb-4"
       >
         Jabón Líquido de Manos Caricías Frutales Daryza x 3.8 L
       </Heading>
 
       {/* SKU */}
-      <Text variant="small" className="text-darysa-green-500 mb-10 font-medium">
+      <Text variant="small" className="text-darysa-green-500 mb-6 font-medium lg:mb-10">
         SKU: 0000000
       </Text>
 
       {/* Precios */}
-      <div className="mb-13 flex items-center gap-6">
+      <div className="mb-8 flex items-center gap-6 lg:mb-13">
         <span className="text-4xl font-bold text-green-600">{parseSoles(discountedPrice)}</span>
         {discountLabel && (
           <span className="inline-block rounded-full bg-yellow-400 px-3.5 py-1 text-base font-semibold text-white">
@@ -75,13 +75,13 @@ export default function ProductDetailsPanel() {
 
       {/* Selector de colores */}
       <div className="mb-8">
-        <p className="text-darysa-gris-800 mb-6 text-xl font-medium">Colores</p>
+        <p className="text-darysa-gris-800 mb-4 text-xl font-medium lg:mb-6">Colores</p>
         <div className="flex gap-10">
           {colors.map((color) => (
             <button
               key={color.id}
               onClick={() => setSelectedColor(color.id)}
-              className={`h-8 w-8 rounded-full transition-all ${
+              className={`size-6 rounded-full transition-all lg:size-8 ${
                 selectedColor === color.id
                   ? 'ring-2 ring-gray-400 ring-offset-2'
                   : 'hover:ring-2 hover:ring-gray-300 hover:ring-offset-2'
@@ -95,38 +95,38 @@ export default function ProductDetailsPanel() {
 
       {/* Selector de cantidad */}
       <div className="mb-8">
-        <p className="text-darysa-gris-800 mb-6 text-xl font-medium">Cantidad</p>
+        <p className="text-darysa-gris-800 mb-4 text-xl font-medium lg:mb-6">Cantidad</p>
         {/* Controles de cantidad */}
         <div className="flex max-w-[360px] items-center justify-between">
           <div className="flex items-center gap-4">
             <Button
               variant="default"
               size="icon"
-              className="bg-darysa-green-500 hover:bg-darysa-green-500 size-14 rounded"
+              className="bg-darysa-green-500 hover:bg-darysa-green-500 size-10 rounded lg:size-14"
             >
               <MinusIcon strokeWidth={4} />
             </Button>
 
-            <span className="border-darysa-green-500 text-darysa-green-500 flex size-14 items-center justify-center rounded border px-10 text-center text-sm font-bold lg:text-lg">
+            <span className="border-darysa-green-500 text-darysa-green-500 flex size-10 items-center justify-center rounded border px-10 text-center text-sm font-bold lg:size-14 lg:text-lg">
               1
             </span>
 
             <Button
               variant="default"
               size="icon"
-              className="hover:bg-darysa-green-500 bg-darysa-green-500 mr-6 size-14 rounded"
+              className="hover:bg-darysa-green-500 bg-darysa-green-500 mr-6 size-10 rounded lg:size-14"
             >
               <PlusIcon strokeWidth={4} />
             </Button>
           </div>
-          <span className="text-darysa-green-500 border-darysa-green-500 flex size-14 items-center justify-center rounded-full border">
+          <span className="text-darysa-green-500 border-darysa-green-500 flex size-10 items-center justify-center rounded-full border lg:size-14">
             <Heart />
           </span>
         </div>
       </div>
 
       {/* Botones de acción */}
-      <div className="mb-8 max-w-[360px] space-y-7">
+      <div className="mb-8 max-w-[360px] space-y-4 lg:space-y-7">
         <button
           onClick={handleAddToCart}
           className="border-darysa-green-500 text-darysa-green-500 flex h-12 w-full items-center justify-center gap-4 rounded-lg border bg-white py-3 leading-none font-bold transition-colors hover:bg-green-50"

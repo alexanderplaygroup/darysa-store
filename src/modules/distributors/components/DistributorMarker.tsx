@@ -1,4 +1,3 @@
-// src/modules/distributors/components/DistributorMarker.tsx
 'use client';
 
 import type { Marker as LeafletMarker } from 'leaflet';
@@ -6,7 +5,6 @@ import { MapIcon, MapPin, Navigation } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Distributor } from '../interface';
 
-// ✅ Import dinámico para evitar errores con SSR en Next.js
 const Marker = dynamic(() => import('react-leaflet').then((m) => m.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then((m) => m.Popup), { ssr: false });
 const Tooltip = dynamic(() => import('react-leaflet').then((m) => m.Tooltip), { ssr: false });
@@ -26,7 +24,13 @@ export const DistributorMarker = ({ distributor, onSelect, markersRef }: Props) 
     }}
     eventHandlers={{ click: () => onSelect(distributor.id) }}
   >
-    <Tooltip direction="top" offset={[0, -50]} opacity={1}>
+    <Tooltip
+      direction="top"
+      offset={[0, -50]}
+      opacity={1}
+      permanent
+      className="text-darysa-gris-800! rounded-lg!"
+    >
       <strong>{distributor.name}</strong>
     </Tooltip>
     <Popup offset={[0, -35]} closeButton={false}>

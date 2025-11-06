@@ -8,7 +8,7 @@ import { Slider } from '@shadcnui/slider';
 
 import { Label } from '@shadcnui/label';
 import { CircleDollarSign, Palette, Percent, Ruler, ShoppingBag, Tag, X } from 'lucide-react';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 interface FiltersAccordionProps {
   className?: string;
@@ -44,10 +44,10 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
   ];
 
   return (
-    <Fragment>
-      <div className="bg-darysa-verde-oscuro flex items-center justify-between rounded-t-lg border-b border-black/20 px-6 py-4">
+    <div className="bg-darysa-gris-800 border-darysa-gris-350-alt/50 h-full pb-8 text-white shadow-lg lg:rounded-lg">
+      <div className="bg-darysa-verde-oscuro flex items-center justify-between border-b border-black/20 px-6 py-4 lg:rounded-t-lg">
         <h2 className="text-lg font-semibold text-white">Filtros</h2>
-        <button className="flex items-center gap-2 text-sm font-semibold text-white transition-colors">
+        <button className="hidden items-center gap-2 text-sm font-semibold text-white transition-colors lg:flex">
           <X className="h-4 w-4" />
           Limpiar
         </button>
@@ -188,13 +188,12 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
             />
           </AccordionContent>
         </AccordionItem>
-
-        {/* <div className="mt-10 flex justify-center">
-          <Button className="text-brand-black">Aplicar filtros</Button>
-        </div> */}
       </Accordion>
-
-      <div className="mt-10 ml-8 space-y-4.5">
+      <button className="mt-10 flex w-full items-center justify-center gap-2 text-sm font-semibold text-white transition-colors lg:hidden">
+        <X className="h-4 w-4" />
+        Limpiar
+      </button>
+      <div className="mt-10 ml-8 hidden space-y-4.5 lg:block">
         <h4>Marcas asociadas</h4>
         <div className="grid w-fit grid-cols-2 items-center justify-center gap-4">
           {images.map((src, index) => (
@@ -207,6 +206,6 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
           ))}
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };

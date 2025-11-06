@@ -58,12 +58,12 @@ const CheckoutView = () => {
       </Container>
 
       {/* Layout principal */}
-      <Container className="grid grid-cols-[1.3fr_0.7fr] gap-10">
+      <Container className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_0.7fr]">
         <Accordion
           type="multiple"
           value={openSections}
           onValueChange={setOpenSections}
-          className="space-y-4"
+          className="order-2 space-y-4 lg:order-1"
         >
           {/* Paso 1: Datos personales */}
           <CheckoutAccordionSection

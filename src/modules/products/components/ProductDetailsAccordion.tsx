@@ -51,7 +51,7 @@ export function ProductDetailsAccordion({
   const specEntries = Object.entries(specs).filter(([_, value]) => value !== undefined);
 
   return (
-    <Accordion type="single" collapsible className="w-full space-y-3 md:hidden">
+    <Accordion type="single" collapsible className="w-full space-y-3 lg:hidden">
       {/* --- Descripción --- */}
       <AccordionItem value="description" className="flex flex-col gap-3">
         <AccordionTrigger className="text-darysa-green-500 data-[state=open]:bg-darysa-green-500 border-darysa-green-500 [&[data-state=closed]>svg]:text-darysa-green-500 border px-7 py-3.5 font-semibold hover:no-underline data-[state=open]:text-white [&[data-state=open]>svg]:text-white">

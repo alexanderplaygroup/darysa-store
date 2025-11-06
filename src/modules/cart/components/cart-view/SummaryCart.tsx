@@ -1,6 +1,7 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Button } from '@/common/components/shadcn-ui/button';
 import { Separator } from '@/common/components/shadcn-ui/separator';
+import Link from 'next/link';
 
 export function CartSummary() {
   return (
@@ -30,8 +31,11 @@ export function CartSummary() {
           <span className="text-darysa-gris-950 font-semibold">S/13,068.00</span>
         </div>
 
-        <Button className="bg-darysa-green-500 hover:bg-darysa-green-600 h-12 w-full text-base text-white">
-          Finalizar pedido
+        <Button
+          className="bg-darysa-green-500 hover:bg-darysa-green-600 h-12 w-full text-base text-white"
+          asChild
+        >
+          <Link href="/checkout">Finalizar pedido</Link>
         </Button>
 
         <div className="flex items-center justify-center gap-3 pt-2">

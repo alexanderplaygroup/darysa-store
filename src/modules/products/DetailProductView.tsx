@@ -30,14 +30,14 @@ export default function DetailProductView() {
       <Container className="mb-7">
         <AppBreadcrumb items={breadcrumbItems} />
       </Container>
-      <Container className="mb-16 grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+      <Container className="grid grid-cols-1 items-start gap-8 md:gap-16 lg:mb-16 lg:grid-cols-2">
         <ProductImageCarousel images={images} />
         <ProductDetailsPanel />
       </Container>
       <Container className="mb-16">
         <ProductDetailsAccordion />
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ProductDetailsTabs />
         </div>
       </Container>

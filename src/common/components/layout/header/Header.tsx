@@ -6,6 +6,7 @@ import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
 import { Heart, MapPin, Menu, Search, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
 import { SearchCustomIcon } from '../../icons/SearchIcon';
@@ -17,7 +18,9 @@ import { UserMenu } from './UserMenu';
 export const Header = () => {
   const { user, isLoading, isAuthenticated } = useUserSession();
 
-  console.log('asdasdasdsa:', user);
+  useEffect(() => {
+    console.log('Usuario cambió:', user);
+  }, [user]);
 
   const isScrolled = useScrolled(0); // 👈 mucho más limpio
 

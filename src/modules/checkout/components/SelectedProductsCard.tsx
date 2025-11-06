@@ -5,9 +5,9 @@ import { Button } from '@shadcnui/button';
 
 export function SelectedProductsCard() {
   return (
-    <div className="sticky top-[150px] h-fit">
+    <div className="order-1 h-fit lg:sticky lg:top-[150px] lg:order-2">
       {/* Card */}
-      <aside className="border-darysa-green-500 mb-8 w-full rounded-xl border bg-white px-8 py-6 shadow-sm">
+      <aside className="border-darysa-green-500 mb-8 w-full rounded-xl border bg-white p-4.5 shadow-sm md:p-6 lg:px-8 lg:py-6">
         {/* Header */}
         <h3 className="text-darysa-green-500 text-xl font-bold">Productos Seleccionados</h3>
 

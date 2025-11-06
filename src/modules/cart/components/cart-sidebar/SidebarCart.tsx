@@ -21,7 +21,7 @@ export default function SidebarCart() {
   return (
     <Sheet open={isOpen} onOpenChange={(val) => (val ? openUI('cart') : closeUI('cart'))}>
       <SheetContent className="w-full gap-0 border-l-0 sm:max-w-[520px]">
-        <SheetHeader className="flex h-20 flex-row items-center p-0">
+        <SheetHeader className="flex min-h-20 flex-row items-center p-0">
           <div className="bg-darysa-gris-950 mr-4 h-full w-2.5 flex-none"></div>
           <SheetTitle className="mr-2">
             <ShoppingCart size={30} />
@@ -30,7 +30,7 @@ export default function SidebarCart() {
             Carrito de Compras
           </SheetDescription>
         </SheetHeader>
-        <div>
+        <div className="min-h-0 flex-1 overflow-y-auto">
           <ScrollArea className="h-full max-h-[318px] w-full">
             <div className="flex w-full flex-1 flex-col">
               <ProductItemCart
@@ -95,7 +95,7 @@ export default function SidebarCart() {
             </div>
           </ScrollArea>
 
-          <div className="pt-16 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+          <div className="pt-0 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] 2xl:pt-16">
             <div className="bg-darysa-amarillo text-darysa-gris-950 flex h-[62px] items-center justify-center gap-8 px-12 text-base font-black">
               <ExpressTruckIcon className="tex" />
               <span>Falta S/.74.50 para envió gratis</span>
@@ -122,10 +122,6 @@ export default function SidebarCart() {
               Ir a pagar
             </Link>
           </Button>
-
-          {/* <SheetClose asChild>
-            <Button variant="outline">Close</Button>
-          </SheetClose> */}
         </SheetFooter>
       </SheetContent>
     </Sheet>

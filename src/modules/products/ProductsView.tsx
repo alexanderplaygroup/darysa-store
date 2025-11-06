@@ -1,8 +1,8 @@
 'use client';
 import { Container } from '@/common/components/custom-ui/Container';
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
-import { PromoBlock } from '@/common/components/custom-ui/PromoBlock';
 import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
+import { ProductCategoriesIcon } from '@/common/components/icons/MenuCategoriesIcon';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Select,
@@ -14,18 +14,19 @@ import {
 import { cn } from '@/lib/utils';
 import { products } from '../home/data';
 import { FiltersSection } from './components/FilterSection';
+import { FilterSectionMobile } from './components/FIlterSectionMobile';
 import { promoBanner } from './data';
 import { useSidebarStore } from './store/useSidebarProducts';
-
+import styles from './styles/products.module.css';
 export const ProductsView = () => {
   const { isOpen, toggleSidebar } = useSidebarStore();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const promoItem: any = {
     id: 1,
-    src: '/product/promotionHeight.png', // Imagen de prueba
+    src: '/product/promotionHeight.png',
     alt: 'Promoción Especial',
-    link: 'https://www.example.com/promo', // opcional, si quieres que sea clickeable
+    link: 'https://www.example.com/promo',
   };
 
   return (
@@ -33,103 +34,77 @@ export const ProductsView = () => {
       <Container size="full" className="relative mb-9">
         <PromotionalBanner className="aspect-16/4 h-[250px] lg:aspect-16/2" banner={promoBanner} />
       </Container>
-      <Container size="full" className="relative">
-        <Container className="mb-9 flex items-center justify-between gap-4">
+      <Container className="relative">
+        <Container className="mb-9 flex items-center justify-between gap-4 px-0!">
           <Button
             variant="outline"
             className={cn(
-              'hover:bg-darysa-verde-oscuro h-14 gap-3 rounded-lg px-4.5! text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white',
+              'hover:bg-darysa-verde-oscuro hidden h-12 gap-3 rounded-lg px-4.5! text-base font-semibold transition-colors duration-300 ease-in-out hover:text-white lg:flex',
               isOpen
                 ? 'bg-darysa-verde-oscuro! border-darysa-verde-oscuro text-white!'
                 : 'text-darysa-verde-oscuro border-darysa-verde-oscuro bg-transparent'
             )}
             onClick={toggleSidebar}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="size-6"
-            >
-              <path d="M21 5H3" />
-              <path d="M17 12H7" />
-              <path d="M19 19H5" />
-            </svg>
+            <ProductCategoriesIcon className="size-6" />
             Categorías de Productos
           </Button>
-
+          {/* Filtros (mobile/tablet) */}
+          <div className="block lg:hidden">
+            <FilterSectionMobile />
+          </div>
           <Select>
-            <SelectTrigger className="border-darysa-gris-350-alt/50! text-darysa-gris-550-3/80! h-14! w-[250px] px-4.5 font-semibold">
+            <SelectTrigger className="border-darysa-gris-350-alt/50! text-darysa-gris-550-3/80! line-clamp-1 flex h-12! max-w-[250px] px-4.5 font-semibold max-sm:text-xs">
               <SelectValue placeholder="Ordenar por" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent align="end">
               <SelectItem value="price-high">Por: Precio de mayor a menor</SelectItem>
               <SelectItem value="price-low">Por: Precio de menor a mayor</SelectItem>
             </SelectContent>
           </Select>
         </Container>
-        <Container className="mb-0">
-          <div className="relative grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Sidebar */}
-            {/* {isOpen && (
-              <div className="bg-darysa-gris-800 border-darysa-gris-350-alt/50 z-10 col-span-1 row-span-full rounded-lg pb-8 text-white shadow-lg">
-                <FiltersSection />
-              </div>
-            )} */}
+        {/* Contenedor general (aside + productos) */}
+        <div
+          className={cn(
+            'relative grid gap-2.5 transition-all duration-300 ease-in-out lg:grid-cols-4 lg:gap-4 xl:gap-10'
+          )}
+        >
+          {/* ASIDE */}
+          {isOpen && (
             <aside
               className={cn(
-                'bg-darysa-gris-800 border-darysa-gris-350-alt/50 z-10 row-span-full rounded-lg pb-8 text-white shadow-lg transition-all duration-300 ease-in-out',
-                isOpen
-                  ? 'visible col-span-1 translate-x-0 opacity-100'
-                  : 'sr-only w-0 -translate-x-4 opacity-0'
+                'hidden lg:block',
+                isOpen ? styles.slideIn : styles.slideOut,
+                'col-span-1'
               )}
             >
               <FiltersSection />
             </aside>
+          )}
 
-            {/* Productos y PromoBlock */}
-            <div
-              className={cn(
-                'grid gap-14',
-                // responsive grid adaptando columnas
-                isOpen
-                  ? 'col-span-1 grid-cols-1 sm:col-span-2 sm:grid-cols-2 lg:col-span-3 lg:grid-cols-3'
-                  : 'col-span-1 grid-cols-1 sm:col-span-2 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-4'
-              )}
-            >
-              {products.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  image={product.image}
-                  name={product.name}
-                  sku={product.sku}
-                  brand={product.brand}
-                  price={product.price}
-                  discount={product.discount}
-                  onAddToCart={() => console.log('Add to cart:', product.name)}
-                  onToggleFavorite={() => console.log('Toggle favorite:', product.name)}
-                />
-              ))}
-
-              {promoItem && (
-                <div
-                  className={cn(
-                    'row-span-2 row-start-2 h-full w-full',
-                    isOpen ? 'col-start-3' : 'col-start-4'
-                  )}
-                >
-                  <PromoBlock item={promoItem} aspect="h-full w-full" />
-                </div>
-              )}
-            </div>
+          {/* PRODUCTOS */}
+          <div
+            className={cn(
+              'grid gap-2.5 lg:gap-4 xl:gap-10',
+              'grid-cols-2 md:grid-cols-3',
+              isOpen ? 'lg:col-span-3 lg:grid-cols-3' : 'lg:col-span-4 lg:grid-cols-4'
+            )}
+          >
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                image={product.image}
+                name={product.name}
+                sku={product.sku}
+                brand={product.brand}
+                price={product.price}
+                discount={product.discount}
+                onAddToCart={() => console.log('Add to cart:', product.name)}
+                onToggleFavorite={() => console.log('Toggle favorite:', product.name)}
+              />
+            ))}
           </div>
-        </Container>
+        </div>
       </Container>
     </>
   );

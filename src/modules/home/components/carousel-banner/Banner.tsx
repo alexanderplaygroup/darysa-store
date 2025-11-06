@@ -59,7 +59,7 @@ export function Banner() {
       onMouseEnter={() => autoplayRef.current.stop()}
       onMouseLeave={() => autoplayRef.current.play()}
     >
-      <CarouselContent className="ml-0 max-h-[500px] w-full md:max-h-[550px]">
+      <CarouselContent className="ml-0 max-h-[50vh] w-full md:max-h-[55vh] lg:aspect-32/13 2xl:max-h-[550px]">
         <CarouselItem className="pl-0">
           <VideoSlide src="/home/videoHome.mp4" onFullscreenChange={handleFullscreenChange} />
         </CarouselItem>
