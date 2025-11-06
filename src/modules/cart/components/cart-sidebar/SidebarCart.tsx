@@ -1,4 +1,5 @@
 'use client';
+
 import { ExpressTruckIcon } from '@/common/components/icons/ExpressTruckIcon';
 import { Button } from '@/common/components/shadcn-ui/button';
 import { ScrollArea } from '@/common/components/shadcn-ui/scroll-area';
@@ -18,11 +19,12 @@ import { ProductItemCart } from './ProductItemCart';
 export default function SidebarCart() {
   const { open, openUI, closeUI } = useUIStore();
   const isOpen = open.cart;
+
   return (
     <Sheet open={isOpen} onOpenChange={(val) => (val ? openUI('cart') : closeUI('cart'))}>
-      <SheetContent className="w-full gap-0 border-l-0 sm:max-w-[520px]">
-        <SheetHeader className="flex min-h-20 flex-row items-center p-0">
-          <div className="bg-darysa-gris-950 mr-4 h-full w-2.5 flex-none"></div>
+      <SheetContent className="w-full gap-0 border-0 sm:max-w-[520px]">
+        <SheetHeader className="flex min-h-20 flex-row items-center p-0 shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+          <div className="bg-darysa-gris-950 mr-4 h-full w-2.5 flex-none" />
           <SheetTitle className="mr-2">
             <ShoppingCart size={30} />
           </SheetTitle>
@@ -30,12 +32,14 @@ export default function SidebarCart() {
             Carrito de Compras
           </SheetDescription>
         </SheetHeader>
-        <div className="min-h-0 flex-1 overflow-y-auto">
-          <ScrollArea className="h-full max-h-[318px] w-full">
-            <div className="flex w-full flex-1 flex-col">
+
+        <div className="min-h-0 flex-1">
+          <ScrollArea className="h-full w-full">
+            {[1, 2].map((i) => (
               <ProductItemCart
+                key={i}
                 product={{
-                  id: '1',
+                  id: `${i}`,
                   slug: 'zapatillas-nike-air-max',
                   name: 'Zapatillas Nike Air Max 270',
                   sku: 'NK-AM270-BLK-42',
@@ -53,70 +57,37 @@ export default function SidebarCart() {
                   console.log(`Actualizar producto ${id} a cantidad ${quantity}`)
                 }
               />
-
-              <ProductItemCart
-                product={{
-                  id: '1',
-                  slug: 'zapatillas-nike-air-max',
-                  name: 'Zapatillas Nike Air Max 270',
-                  sku: 'NK-AM270-BLK-42',
-                  quantity: 2,
-                  price: 459.9,
-                  originalPrice: 529.9,
-
-                  color: 'Negro',
-                  size: '42',
-                  image: '/product/product.png',
-                }}
-                handleRemoveProduct={(id) => console.log('Eliminar producto con id:', id)}
-                handleUpdateAmount={(id, quantity) =>
-                  console.log(`Actualizar producto ${id} a cantidad ${quantity}`)
-                }
-              />
-              <ProductItemCart
-                product={{
-                  id: '1',
-                  slug: 'zapatillas-nike-air-max',
-                  name: 'Zapatillas Nike Air Max 270',
-                  sku: 'NK-AM270-BLK-42',
-                  quantity: 2,
-                  price: 459.9,
-                  originalPrice: 529.9,
-
-                  color: 'Negro',
-                  size: '42',
-                  image: '/product/product.png',
-                }}
-                handleRemoveProduct={(id) => console.log('Eliminar producto con id:', id)}
-                handleUpdateAmount={(id, quantity) =>
-                  console.log(`Actualizar producto ${id} a cantidad ${quantity}`)
-                }
-              />
-            </div>
+            ))}
           </ScrollArea>
-
-          <div className="pt-0 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] 2xl:pt-16">
-            <div className="bg-darysa-amarillo text-darysa-gris-950 flex h-[62px] items-center justify-center gap-8 px-12 text-base font-black">
-              <ExpressTruckIcon className="tex" />
-              <span>Falta S/.74.50 para envió gratis</span>
-              <ExpressTruckIcon className="tex" />
-            </div>
+          {/* <div className="flex h-full min-h-0 flex-col items-center justify-center overflow-y-auto">
+            <ShoppingCartIcon className="text-darysa-gris-800 mb-2 size-16 flex-none" />
+            <p className="text-darysa-gris-800 mb-6 text-lg">Tu carrito está vacío</p>
+            <Button variant="darizaPrimary" className="px-10!">
+              Comenzar a comprar
+            </Button>
+          </div> */}
+        </div>
+        <div className="shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+          <div className="bg-darysa-amarillo text-darysa-gris-950 flex h-[62px] items-center justify-center gap-8 text-base font-black sm:px-12">
+            <ExpressTruckIcon />
+            <p className="leading-tight">Falta S/.74.50 para envío gratis</p>
+            <ExpressTruckIcon className="hidden sm:block" />
           </div>
         </div>
-        <SheetFooter className="bg-darysa-gris-950 rounded-t-2xl px-14 py-10">
+        <SheetFooter className="bg-darysa-gris-950 px-14 py-10">
           <div className="mb-6 w-full text-white">
             <p className="mb-8 flex w-full items-center justify-end text-base font-bold">
               Total del carrito
             </p>
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-bold">total</span>
-              <span className="text-sm font-bold">S/1000</span>
-            </div>
+            <dl className="flex items-center justify-between">
+              <dt className="text-xl font-bold">Total</dt>
+              <dd className="text-sm font-bold">S/1000</dd>
+            </dl>
           </div>
 
           <Button
-            className="bg-darysa-green-500 hover:bg-darysa-green-500/80 mx-auto w-full max-w-56 rounded-sm py-2.5 font-bold text-white"
             asChild
+            className="bg-darysa-green-500 hover:bg-darysa-green-500/80 mx-auto w-full max-w-56 rounded-sm py-2.5 font-bold text-white"
           >
             <Link href="/carrito" onClick={() => closeUI('cart')}>
               Ir a pagar

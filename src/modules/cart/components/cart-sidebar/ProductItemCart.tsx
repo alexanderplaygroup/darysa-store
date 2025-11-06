@@ -54,7 +54,7 @@ export const ProductItemCart: FC<ProductItemCartProps> = ({
   );
 
   return (
-    <div className="border-darysa-gris-800/20 flex gap-4 border-b px-6 py-6">
+    <div className="border-darysa-gris-800/20 flex gap-4 border-b px-6 py-6 last:border-0">
       {/* Imagen del producto */}
       <div className="relative aspect-square w-[85px] overflow-hidden rounded-lg border min-[420px]:w-[110px]">
         <AppImage
@@ -77,7 +77,7 @@ export const ProductItemCart: FC<ProductItemCartProps> = ({
           <h3 className="text-darysa-gris-950 line-clamp-2 text-sm leading-tight font-bold lg:text-lg">
             {product.name}
           </h3>
-          <p className="font-barlow text-darysa-gris-800 text-xs">
+          <p className="font-barlow text-darysa-gris-800 line-clamp-1 text-xs">
             SKU: <span>{product.sku}</span>
           </p>
         </div>
