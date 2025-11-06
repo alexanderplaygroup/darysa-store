@@ -51,7 +51,6 @@ export function VideoSlide({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Detectar cambios de fullscreen
   useEffect(() => {
     const handler = () => {
       const video = videoRef.current;
@@ -61,17 +60,14 @@ export function VideoSlide({
       setIsFullscreen(isFull);
 
       if (isFull) {
-        // 👉 Entró a fullscreen
-        video.currentTime = 0; // 👈 reinicia desde el inicio
+        video.currentTime = 0;
         video.muted = false;
         video.volume = 0.5;
         video.play();
       } else {
-        // 👉 Salió de fullscreen
-        video.muted = true; // solo se silencia, pero sigue corriendo
+        video.muted = true;
       }
 
-      // Avisamos al carrusel
       onFullscreenChange?.(isFull);
     };
 
@@ -99,10 +95,9 @@ export function VideoSlide({
         className="h-full w-full object-cover"
       />
 
-      {/* Overlay hasta que el user haga clic */}
       {!isFullscreen && (
-        <div
-          className="absolute inset-0 flex items-center justify-center bg-black/40"
+        <button
+          className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/40"
           onClick={handleClick}
         >
           <svg
@@ -120,7 +115,7 @@ export function VideoSlide({
               fill="#646464"
             />
           </svg>
-        </div>
+        </button>
       )}
     </div>
   );

@@ -16,9 +16,6 @@ export function Banner() {
 
   const handleFullscreenChange = (isFullscreen: boolean) => {
     if (!api) return;
-
-    // console.log('esta full:', isFullscreen);
-
     if (isFullscreen) {
       autoplayRef.current.stop();
     } else {
