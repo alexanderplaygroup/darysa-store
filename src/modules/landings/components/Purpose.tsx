@@ -7,16 +7,16 @@ const Purpose = () => {
     <>
       <div className="mb-12 text-center">
         <Heading variant="heading" className="mb-2">
-          Proposito de marca{' '}
+          Proposito de marca
         </Heading>
         <Text variant="small" className="text-darysa-gris-800 mx-auto max-w-[821px]">
           Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada a justo, interdum
           condimentum massa ultrices tempor semper ridiculus facilisis diam phasellus, gravida
-          venenatis nisl lacinia scelerisque.{' '}
+          venenatis nisl lacinia scelerisque.
         </Text>
       </div>
-      <div className="flex w-full items-center justify-center gap-15">
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+      <div className="flex w-full flex-wrap items-center justify-center gap-8 lg:gap-15">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>
@@ -25,7 +25,7 @@ const Purpose = () => {
           </Heading>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>
@@ -33,7 +33,7 @@ const Purpose = () => {
             Propósito 2
           </Heading>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-4">
+        <div className="flex w-full max-w-[400px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full">
             <AppImage src="" alt="" fill sizes="400px" />
           </div>

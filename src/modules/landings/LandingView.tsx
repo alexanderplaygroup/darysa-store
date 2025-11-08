@@ -10,7 +10,6 @@ import Purpose from './components/Purpose';
 const aboutBanner = {
   desktop: '/about/heroBanner.png',
   mobile: '/about/heroBanner.png',
-  title: 'Soluciones Industriales Darysa',
   link: '/productos',
 };
 
@@ -21,7 +20,7 @@ export const LandingView = () => {
         {' '}
         <HeroBanner banner={aboutBanner} />
       </Container>
-      <Container className="grid grid-cols-2 gap-14">
+      <Container className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-14">
         <video
           src="/home/videoHome.mp4"
           loop
@@ -29,13 +28,17 @@ export const LandingView = () => {
           autoPlay
           playsInline
           controls
-          className="aspect-video w-full rounded-lg"
+          className="order-2 mx-auto aspect-video w-full max-w-xl rounded-lg lg:order-1 lg:max-w-2xl"
         />
-        <div className="flex flex-col items-start justify-between">
-          <div>
-            <Text className="text-darysa-gris-800 text-xl! font-semibold">Subtítulo</Text>
-            <Heading variant="heading">Sobre la marca</Heading>
-            <Text variant="small" className="text-darysa-gris-800 leading-loose">
+        <div className="order-1 flex flex-col items-center justify-between gap-6 lg:order-2 lg:items-start">
+          <div className="text-center lg:text-start">
+            <Text variant="small" className="text-darysa-gris-800 font-semibold md:text-lg">
+              Subtítulo
+            </Text>
+            <Heading variant="heading" className="mb-2">
+              Sobre la marca
+            </Heading>
+            <Text variant="small" className="text-darysa-gris-800 leading-loose text-balance">
               Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada a justo, interdum
               condimentum massa ultrices tempor semper ridiculus facilisis diam phasellus, gravida
               venenatis nisl lacinia scelerisque mattis cum hac curabitur. Dignissim neque varius
@@ -43,7 +46,7 @@ export const LandingView = () => {
               integer sodales facilisi fusce pellentesque. 
             </Text>
           </div>
-          <Button className="h-12 w-full max-w-[300px] text-base font-semibold text-white">
+          <Button className="h-10 w-full max-w-[150px] text-sm font-semibold text-white lg:h-12 lg:max-w-[300px] lg:text-base">
             Ver Video
           </Button>
         </div>
@@ -55,8 +58,8 @@ export const LandingView = () => {
       <Container>
         <BrandProducts />
       </Container>
-      <Container className="mb-16 grid grid-cols-[0.8fr_1.2fr] items-stretch gap-16">
-        <div className="relative h-full w-full overflow-hidden rounded-lg">
+      <Container className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch xl:gap-10">
+        <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg">
           <AppImage src="/about/aboutProm.png" alt="image" fill sizes="440px" />
         </div>
         <BrandForm />

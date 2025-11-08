@@ -21,14 +21,6 @@ import styles from './styles/products.module.css';
 export const ProductsView = () => {
   const { isOpen, toggleSidebar } = useSidebarStore();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const promoItem: any = {
-    id: 1,
-    src: '/product/promotionHeight.png',
-    alt: 'Promoción Especial',
-    link: 'https://www.example.com/promo',
-  };
-
   return (
     <>
       <Container size="full" className="relative mb-9">
@@ -49,7 +41,6 @@ export const ProductsView = () => {
             <ProductCategoriesIcon className="size-6" />
             Categorías de Productos
           </Button>
-          {/* Filtros (mobile/tablet) */}
           <div className="block lg:hidden">
             <FilterSectionMobile />
           </div>

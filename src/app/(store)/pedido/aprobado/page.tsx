@@ -12,7 +12,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
 export default function page() {
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 mb-5 h-[1px]" />
+      <Container className="bg-darysa-gris-800/20 mb-5 h-px" />
 
       {/* Header y Breadcrumb */}
       <Container className="mb-5 space-y-4">

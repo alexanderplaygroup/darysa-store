@@ -25,7 +25,7 @@ export const Footer = () => {
         { name: 'Contacto', href: '/contacto' },
         { name: 'Libro de Reclamaciones', href: '/libro-de-reclamaciones' },
         { name: 'Servicio al Cliente', href: '/contacto/servicio-cliente' },
-        { name: 'Política Anticorrupción y Antisoborno', href: 'politica-de-privacidad' },
+        { name: 'Política Anticorrupción y Antisoborno', href: '/politica-de-privacidad' },
       ],
     },
   ];
