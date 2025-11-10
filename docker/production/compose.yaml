@@ -6,4 +6,4 @@ services:
     image: darysa-prod
     container_name: darysa-prod
     ports:
-      - '3003:3000'
+      - '3004:3000'
