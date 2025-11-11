@@ -3,7 +3,7 @@ import { Container } from '@/common/components/custom-ui/Container';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { ProductCard } from '@/common/components/custom-ui/product/productCard';
 import { PromotionalBanner } from '@/common/components/custom-ui/PromotionalBanner';
-import { CreditCard, Headset, Shield, Truck } from 'lucide-react';
+import { HeadsetIcon, Lock, Shield, Truck } from 'lucide-react';
 import { BenefitsSection } from './components/BenefitsSection';
 import { Banner } from './components/carousel-banner/Banner';
 import CarouselBlogs from './components/CarouselBlogs';
@@ -16,10 +16,22 @@ import { BenefitItems } from './type';
 
 export const HomeView = () => {
   const benefitsData: BenefitItems = {
-    first: { title: 'Hasta 5 años de garantía', icon: <Shield className="size-8 lg:size-10" /> },
-    second: { title: 'Envíos a Todo el perú', icon: <Truck className="size-8 lg:size-10" /> },
-    third: { title: 'Atención las 24 horas', icon: <CreditCard className="size-8 lg:size-10" /> },
-    fourth: { title: 'Pagos 100% seguros', icon: <Headset className="size-8 lg:size-10" /> },
+    first: {
+      title: 'Productos certificados con respaldo técnico garantizado',
+      icon: <Shield className="size-8 lg:size-10" />,
+    },
+    second: {
+      title: 'Envíos a toda Lima Metropolitana',
+      icon: <Truck className="size-8 lg:size-10" />,
+    },
+    third: {
+      title: 'Servicio postventa comprometido contigo',
+      icon: <HeadsetIcon className="size-8 lg:size-10" />,
+    },
+    fourth: {
+      title: 'Pagos 100% seguros y protegidos',
+      icon: <Lock className="size-8 lg:size-10" />,
+    },
   };
   return (
     <>

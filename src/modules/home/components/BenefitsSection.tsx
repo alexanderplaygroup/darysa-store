@@ -16,7 +16,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </div>
         <Heading
           as="h5"
-          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start"
+          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start lg:leading-5"
         >
           {items.first.title}
         </Heading>
@@ -28,7 +28,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </div>
         <Heading
           as="h5"
-          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start"
+          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start lg:leading-5"
         >
           {items.second.title}
         </Heading>
@@ -40,7 +40,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </div>
         <Heading
           as="h5"
-          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start"
+          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start lg:leading-5"
         >
           {items.third.title}
         </Heading>
@@ -52,7 +52,7 @@ export function BenefitsSection({ items, className }: BenefitsSectionProps) {
         </div>
         <Heading
           as="h5"
-          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start"
+          className="text-center text-base leading-none wrap-break-word text-white sm:text-xl md:text-xl lg:text-start lg:leading-5"
         >
           {items.fourth.title}
         </Heading>

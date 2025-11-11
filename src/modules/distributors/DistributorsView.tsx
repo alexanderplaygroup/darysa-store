@@ -17,7 +17,7 @@ const TileLayer = dynamic(() => import('react-leaflet').then((m) => m.TileLayer)
 
 const DistributorsView = () => {
   useDefaultLeafletIcon();
-  const { mapRef, markersRef, setSelectedId } = useMapConfig({ zoomOnSelect: 13 });
+  const { mapRef, markersRef, setSelectedId } = useMapConfig({ zoomOnSelect: 16 });
 
   return (
     <>

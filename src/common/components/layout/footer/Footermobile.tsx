@@ -51,9 +51,9 @@ export default function Footermobile() {
           <AccordionContent className="bg-darysa-gris-630 space-y-4 pt-4 text-sm text-gray-300">
             <p className="px-4">Granja 1 - Alt Km. 30 Antigua Panamericana Sur, Lurín</p>
             <div className="bg-darysa-gris-800 h-px w-full" />
-            <p className="px-4">Lunes-Viernes: 8:00 AM - 5:15 AM</p>
+            <p className="px-4">Lunes-Viernes: 8:00 AM - 5:00 PM</p>
             <div className="bg-darysa-gris-800 h-px w-full" />
-            <p className="px-4">Sábado: 8:00 AM - 12:15 AM</p>
+            <p className="px-4">Sábado: 8:00 AM - 12:00 PM</p>
           </AccordionContent>
         </AccordionItem>
 

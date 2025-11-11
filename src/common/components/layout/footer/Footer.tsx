@@ -88,11 +88,11 @@ export const Footer = () => {
               <dl className="text-darysa-gris-300 space-y-0.5 text-sm">
                 <div className="flex items-center gap-2">
                   <dt>Lunes-Viernes:</dt>
-                  <dd>8:00 AM – 5:15 PM</dd>
+                  <dd>8:00 AM - 5:00 PM</dd>
                 </div>
                 <div className="flex items-center gap-2">
                   <dt>Sábado:</dt>
-                  <dd>8:00 AM – 12:15 PM</dd>
+                  <dd>8:00 AM - 12:00 PM</dd>
                 </div>
               </dl>
             </section>

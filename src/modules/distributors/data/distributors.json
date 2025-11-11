@@ -1,45 +1,193 @@
 [
   {
     "id": 1,
-    "name": "Sucursal Lima - Sede Central",
-    "address": "Av. Javier Prado Este 1234, San Isidro, Lima",
-    "phone": "+51 1 555-0101",
-    "coords": { "lat": -12.0925, "lng": -77.0365 }
+    "region": "Arequipa",
+    "name": "P & S Professional E.I.R.L.",
+    "ruc": "20612994511",
+    "address": "Urb. Las Begonias Mz G Lote 6, José Luis Bustamante y Rivero – Arequipa",
+    "email": "peterflores@pysprofessional.com",
+    "phone": "932600621",
+    "coords": { "lat": -16.4229, "lng": -71.512 }
   },
   {
     "id": 2,
-    "name": "Sucursal Arequipa",
-    "address": "Calle Mercaderes 456, Arequipa",
-    "phone": "+51 54 222-333",
-    "coords": { "lat": -16.3989, "lng": -71.5369 }
+    "region": "Arequipa",
+    "name": "Mumaz Distribuciones S.A.C.",
+    "ruc": "20609814102",
+    "address": "Mza I Lote 9 Urb. Los Zafiros, Paucarpata – Arequipa",
+    "email": "lucho.munoz.ma@gmail.com",
+    "phone": "959637693",
+    "coords": { "lat": -16.417, "lng": -71.5198 }
   },
   {
     "id": 3,
-    "name": "Sucursal Cusco",
-    "address": "Av. El Sol 789, Cusco",
-    "phone": "+51 84 555-777",
-    "coords": { "lat": -13.5171, "lng": -71.978 },
-    "note": "Cerca de la Plaza de Armas"
+    "region": "Arequipa",
+    "name": "Comercial La Golosina S.A.C.",
+    "ruc": "20129973880",
+    "address": "Calle San Pedro Nro 275 (1 cdra del Colegio Don Bosco) – Arequipa",
+    "email": "valeria.fernandez@lagolosina.com.pe",
+    "phone": "994287414",
+    "coords": { "lat": -16.3989, "lng": -71.5369 }
   },
   {
     "id": 4,
-    "name": "Sucursal Trujillo",
-    "address": "Jr. Pizarro 321, Trujillo",
-    "phone": "+51 44 333-222",
-    "coords": { "lat": -8.1117, "lng": -79.0288 }
+    "region": "Tumbes",
+    "name": "Distribuciones Abraham Inversiones y Negocios E.I.R.L.",
+    "ruc": "20610631704",
+    "address": "Av. Pasaje 28 de Julio, Los Pinos – Zorritos, Tumbes",
+    "email": "ramirezlopezguianella@gmail.com",
+    "phone": "967103974",
+    "coords": { "lat": -3.68, "lng": -80.66 }
   },
   {
     "id": 5,
-    "name": "Sucursal Piura",
-    "address": "Av. Grau 1010, Piura",
-    "phone": "+51 73 777-999",
-    "coords": { "lat": -5.1945, "lng": -80.6328 }
+    "region": "Tumbes",
+    "name": "Soluciones Integrales El Siar E.I.R.L.",
+    "ruc": "20525558682",
+    "address": "Av. Panamericana Norte Nro 132, Canoas de Punta Sal – Tumbes",
+    "email": "siarbodega@gmail.com",
+    "phone": "936417610",
+    "coords": { "lat": -3.9512, "lng": -80.9427 }
   },
   {
     "id": 6,
-    "name": "Sucursal Iquitos",
-    "address": "Jr. Próspero 123, Iquitos",
-    "phone": "+51 65 222-111",
+    "region": "Trujillo",
+    "name": "Luval Empresas E.I.R.L.",
+    "ruc": "20612899895",
+    "address": "Mza X Lote 5 Urb. Covicorti, La Libertad – Trujillo",
+    "email": "medical59@outlook.com",
+    "phone": "942270618",
+    "coords": { "lat": -8.1117, "lng": -79.0288 }
+  },
+  {
+    "id": 7,
+    "region": "Trujillo",
+    "name": "Euroquímicos Perú S.A.C.",
+    "ruc": "20600316754",
+    "address": "Av. España 1246 – Trujillo",
+    "email": "industriaselprincipe@hotmail.com",
+    "phone": "956527651",
+    "coords": { "lat": -8.1112, "lng": -79.0315 }
+  },
+  {
+    "id": 8,
+    "region": "Piura",
+    "name": "Ventas y Servicios Adriana Nicol S.R.L.",
+    "ruc": "20529727101",
+    "address": "Mza J Lote 05 A H José Olaya (Espalda cancha de fútbol de Los Titanes), Piura",
+    "email": "ventasyserviciosnicolsrl@hotmail.com",
+    "phone": "905473343",
+    "coords": { "lat": -5.1945, "lng": -80.6328 }
+  },
+  {
+    "id": 9,
+    "region": "Ica",
+    "name": "Sofer Diagnostics E.I.R.L.",
+    "ruc": "20534929081",
+    "address": "Mza M Lote 08 C.P. El Tigre – Chincha Alta, Ica",
+    "email": "sofer.diagnostics@gmail.com",
+    "phone": "950136987",
+    "coords": { "lat": -13.416, "lng": -76.132 }
+  },
+  {
+    "id": 10,
+    "region": "Ica",
+    "name": "Huertas Chapilliquen Ambar Miluska",
+    "ruc": "10425330379",
+    "address": "Urbanización Ciudadela Magisterial H-15, Ica",
+    "email": "atencion@californiamail.com",
+    "phone": "959592056",
+    "coords": { "lat": -14.0678, "lng": -75.7286 }
+  },
+  {
+    "id": 11,
+    "region": "Huancayo",
+    "name": "Inversiones San Jorge S.R.L.",
+    "ruc": "20486697947",
+    "address": "Jr. Huánuco 445 – Huancayo",
+    "email": "inversiones.sanjorge22@gmail.com",
+    "phone": "978145000",
+    "coords": { "lat": -12.0651, "lng": -75.2049 }
+  },
+  {
+    "id": 12,
+    "region": "Cusco",
+    "name": "Papa de América S.A.",
+    "ruc": null,
+    "address": null,
+    "email": "orion.areacomercial@gmail.com",
+    "phone": "931061296",
+    "note": "Tiendas de Orion y Ultra",
+    "coords": { "lat": -13.5171, "lng": -71.978 }
+  },
+  {
+    "id": 13,
+    "region": "Cusco",
+    "name": "Distribuciones LIP E.I.R.L.",
+    "ruc": "20606178434",
+    "address": "Mza V Lote 2 Urb. Santa Rosa, Cusco",
+    "email": "distribucioneslip7@gmail.com",
+    "phone": "986815639 / 930262307",
+    "coords": { "lat": -13.5168, "lng": -71.9712 }
+  },
+  {
+    "id": 14,
+    "region": "Cusco",
+    "name": "Byoclean Inversiones E.I.R.L.",
+    "ruc": "20603133995",
+    "address": "Av. Tullumayo 545 (Frente a Limacpampa Grande), Cusco",
+    "email": "byocleanlimpieza@hotmail.com",
+    "phone": "984957125",
+    "coords": { "lat": -13.521, "lng": -71.971 }
+  },
+  {
+    "id": 15,
+    "region": "Cusco",
+    "name": "Plastiquería Paz Sur S.A.C.",
+    "ruc": "20527551154",
+    "address": "Cl. Tres Cruces de Oro 284A (Costado Iglesia Evangélica), Cusco",
+    "email": "pazsursac@hotmail.com",
+    "phone": "958507175",
+    "coords": { "lat": -13.52, "lng": -71.976 }
+  },
+  {
+    "id": 16,
+    "region": "Cusco",
+    "name": "Huillca Salas Lucy",
+    "ruc": "10076239741",
+    "address": "Urb. Naciones Unidas LL-1, altura paradero San Miguel – Cusco",
+    "email": "Lucy9001@hotmail.es",
+    "phone": "946587084 / 973228625",
+    "coords": { "lat": -13.528, "lng": -71.979 }
+  },
+  {
+    "id": 17,
+    "region": "Iquitos",
+    "name": "Distribuidora Jobaro E.I.R.L.",
+    "ruc": "20611453290",
+    "address": "Mza H Lote 1 Urb. Virgen de Loreto, Maynas – Iquitos",
+    "email": "jbarciar@hotmail.com",
+    "phone": "941983415",
     "coords": { "lat": -3.7491, "lng": -73.2538 }
+  },
+  {
+    "id": 18,
+    "region": "Iquitos",
+    "name": "Servicios Generales L & L E.I.R.L.",
+    "ruc": "20600180976",
+    "address": "Calle Yavarí 467, Maynas – Iquitos",
+    "email": "larsvela@gmail.com",
+    "phone": "948664568",
+    "coords": { "lat": -3.75, "lng": -73.248 }
+  },
+  {
+    "id": 19,
+    "region": "Cajamarca",
+    "name": "DERO Serv. Generales S.R.L.",
+    "ruc": "20560082411",
+    "address": "Jr. Ayacucho Nro 1235, Barrio La Colmena – Cajamarca",
+    "email": "serviciosgeneralesdero@gmail.com",
+    "phone": "944534911",
+    "coords": { "lat": -7.1569, "lng": -78.517 }
   }
 ]

@@ -14,27 +14,25 @@ const DistributorsView = () => {
   const INFO_CARDS_DATA = [
     {
       icon: Car,
-      title: 'Social Comercial',
+      title: 'Marca Peruana',
       description:
-        'Nuestro modelo de negocio brinda grandes beneficios y cuenta con el respaldo de Daryza S.A.C.',
+        'Más de 30 a;os en el mercado ofreciendo soluciones de limpieza que representan calidad y confianza peruana.',
     },
     {
       icon: Building2,
-      title: 'Expansión Nacional',
+      title: 'Calidad',
       description:
-        'Amplía tu red comercial y llega a todo el país con nuestro soporte y experiencia.',
+        'Fórmulas efectivas que limpian, desinfectan y garantizan resultados reales en cada uso',
     },
     {
       icon: Factory,
-      title: 'Producción Propia',
-      description:
-        'Contamos con plantas certificadas y procesos eficientes de fabricación de alta calidad.',
+      title: 'Soporte y Acompañamiento',
+      description: 'Te ofrecemos asesoría, capacitación y respuesta rápida para tu negocio.',
     },
     {
       icon: Factory,
-      title: 'Herramientas de ventas',
-      description:
-        'Contamos con plantas certificadas y procesos eficientes de fabricación de alta calidad.',
+      title: 'Confianza y Sostenibilidad',
+      description: 'Abastecimiento seguro, entregas puntuales y compromiso ambiental.',
     },
   ];
   return (

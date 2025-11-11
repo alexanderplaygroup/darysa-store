@@ -53,7 +53,7 @@ export function AboutForm() {
   return (
     <div className="space-y-7">
       <Heading as="h1" variant="subheading">
-        Servicio al <span className="font-black">Obtén más Información</span>
+        Obtén <span className="font-black"> más Información</span>
       </Heading>
 
       <Form {...form}>

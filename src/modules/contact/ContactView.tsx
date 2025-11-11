@@ -8,10 +8,10 @@ const ContactView = () => {
     {
       image: '/contact/previewContactoDetail.png',
       title: 'Centro de',
-      highlight: 'Ayuda',
+      highlight: 'ayuda',
       items: [
-        { text: 'Deseo soporte para comprar en la página web.' },
-        { text: 'Quiero conocer el status de mi pedido web.' },
+        { text: 'Deseo soporte para comprar en la página web' },
+        { text: 'Quiero conocer el status de mi pedido online' },
       ],
       link: '/contacto/centro-de-ayuda',
     },
@@ -19,24 +19,28 @@ const ContactView = () => {
       image: '/contact/previewContactoDetail.png',
       title: 'Quiero ser parte de',
       highlight: 'la red comercial',
-      items: [{ text: 'Reclamos o devoluciones.' }],
+      items: [{ text: 'Deseo ser parte de la red de distribuidores ' }],
       link: '/contacto/red-comercial',
     },
     {
       image: '/contact/previewContactoDetail.png',
-      title: 'Contacta un',
+      title: 'Contactar con un',
       highlight: 'asesor comercial',
       items: [
-        { text: 'Consultas sobre productos o servicios.' },
-        { text: 'Reclamos o devoluciones.' },
+        { text: 'Quiero solicitar una cotización' },
+        { text: 'Deseo asesoría para el proceso de compra' },
       ],
       link: '/contacto/asesoria',
     },
     {
       image: '/contact/previewContactoDetail.png',
       title: 'Servicio al ',
-      highlight: 'Cliente',
-      items: [{ text: 'Consultas sobre productos o servicios.' }],
+      highlight: 'cliente',
+      items: [
+        { text: 'Consulta sobre uso de productos' },
+        { text: 'Documentación de productos ' },
+        { text: 'Tengo una queja o reclamo ' },
+      ],
       link: '/contacto/servicio-cliente',
     },
   ];

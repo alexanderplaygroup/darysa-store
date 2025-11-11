@@ -34,38 +34,63 @@ export const DistributorMarker = ({ distributor, onSelect, markersRef }: Props) 
       <strong>{distributor.name}</strong>
     </Tooltip>
     <Popup offset={[0, -35]} closeButton={false}>
-      <div className="flex w-full items-center gap-2.5 py-1">
-        <div className="w-fit">
-          <MapPin className="text-darysa-green-500 size-9" />
+      <div className="flex w-full items-start gap-3 py-2">
+        {/* Icono principal */}
+        <div className="shrink-0">
+          <MapPin className="text-darysa-green-500 size-8" />
         </div>
-        <div className="flex w-full flex-col items-center justify-start gap-1.5">
-          <span className="text-darysa-gris-800 w-full text-sm leading-tight font-semibold">
+
+        {/* Contenido del distribuidor */}
+        <div className="flex w-full flex-col">
+          <span className="text-darysa-gris-800 mb-2 text-sm leading-tight font-semibold">
             {distributor.name}
           </span>
-          <span className="text-darysa-gris-800 w-full text-xs leading-tight">
-            {distributor.address}
-          </span>
-          <div className="flex w-full items-center justify-start gap-4 text-xs">
+
+          {distributor.address && (
+            <span className="text-darysa-gris-700 mb-1 text-xs leading-tight">
+              {distributor.address}
+            </span>
+          )}
+
+          {distributor.phone && (
+            <span className="text-darysa-gris-700 mb-1 text-xs leading-tight">
+              {distributor.phone}
+            </span>
+          )}
+
+          {distributor.email && (
+            <span className="text-darysa-gris-700 hover:text-darysa-green-600 mb-3 text-xs leading-tight">
+              {distributor.email}
+            </span>
+          )}
+
+          {/* Enlaces de navegación */}
+          <div className="flex items-center gap-4 text-xs font-medium">
             <a
               href={`https://www.google.com/maps?q=${distributor.coords.lat},${distributor.coords.lng}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-blue-600 hover:underline hover:underline-offset-4"
+              className="flex items-center gap-1.5 text-blue-600 underline-offset-4 hover:underline"
             >
               <MapIcon size={14} />
-              Ir en Google Maps
+              Google Maps
             </a>
 
             <a
               href={`https://waze.com/ul?ll=${distributor.coords.lat},${distributor.coords.lng}&navigate=yes`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-blue-600 hover:underline hover:underline-offset-4"
+              className="flex items-center gap-1.5 text-blue-600 underline-offset-4 hover:underline"
             >
               <Navigation size={14} />
-              Ir con Waze
+              Waze
             </a>
           </div>
+
+          {/* Nota opcional */}
+          {distributor.note && (
+            <span className="text-darysa-gris-600 mt-2 text-[11px] italic">{distributor.note}</span>
+          )}
         </div>
       </div>
     </Popup>

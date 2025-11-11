@@ -10,6 +10,7 @@ import { TikTokIcon } from '@/common/components/icons/TikTokIcon';
 import { YouTubeIcon } from '@/common/components/icons/YouTubeIcon';
 import { Avatar, AvatarFallback, AvatarImage } from '@/common/components/shadcn-ui/avatar';
 import { Button } from '@/common/components/shadcn-ui/button';
+import Link from 'next/link';
 import SearchBlog from './components/Search';
 
 const BlogDetailView = () => {
@@ -136,8 +137,9 @@ const BlogDetailView = () => {
           <Button
             variant="darizaPrimary"
             className="bg-darysa-green-500 hover:bg-darysa-green-500/90"
+            asChild
           >
-            Volver
+            <Link href="/blog">Volver</Link>
           </Button>
         </div>
       </Container>

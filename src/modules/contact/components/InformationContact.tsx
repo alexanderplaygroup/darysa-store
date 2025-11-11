@@ -38,8 +38,12 @@ const InformationContact = () => {
           <Heading as="dt" variant="cardTitle" className="text-darysa-gris-800 md:text-lg">
             Horario de Atención
           </Heading>
-          <Text as="dd" variant="small" className="text-darysa-gris-800">
-            L-V: 8:00 am - 5:00 pm S: 8:00 am - 12:00 pm
+          <Text
+            as="dd"
+            variant="small"
+            className="text-darysa-gris-800 flex flex-wrap gap-x-4 gap-y-0"
+          >
+            Lunes a Viernes: 8:00 AM - 5:00 PM <span>Sábado: 8:00 AM - 12:00 PM</span>
           </Text>
         </div>
         <div className="space-y-1">

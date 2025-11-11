@@ -36,7 +36,7 @@ export const ContactBlock = ({
           {title} <span className="font-black">{highlight}</span>
         </Heading>
 
-        <ul className="list-disc space-y-1.5 pl-8 marker:text-xs">
+        <ul className="list-disc space-y-0.5 pl-8 marker:text-xs">
           {items.map((item, index) => (
             <li key={index}>
               <Text variant="small">{item.text}</Text>
