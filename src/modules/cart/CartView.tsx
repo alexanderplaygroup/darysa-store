@@ -23,7 +23,7 @@ const CartView = () => {
         <AppBreadcrumb items={breadcrumbItems} className="sm:gap-1.5" />
       </Container>
       <Container>
-        <div className="flex w-full flex-col-reverse gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-10 xl:gap-28">
+        <div className="flex w-full flex-col gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-10 xl:gap-28">
           {/* Columna izquierda */}
 
           <div className="w-full">

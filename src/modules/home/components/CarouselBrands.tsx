@@ -44,7 +44,7 @@ export default function CarouselBrands() {
             key={index}
             className="flex basis-1/3 items-center justify-center pl-6 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/7"
           >
-            <div className="flex items-center justify-center opacity-55 grayscale filter transition duration-300 hover:opacity-100 hover:grayscale-0">
+            <div className="flex items-center justify-center lg:opacity-55 lg:grayscale lg:filter lg:transition lg:duration-300 lg:hover:opacity-100 lg:hover:grayscale-0">
               <AppImage
                 src={src}
                 alt={`Banner ${index + 1}`}

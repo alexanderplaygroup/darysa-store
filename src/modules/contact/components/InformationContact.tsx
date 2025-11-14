@@ -8,7 +8,7 @@ import { YouTubeIcon } from '@/common/components/icons/YouTubeIcon';
 
 const InformationContact = () => {
   return (
-    <div className="space-y-7.5 overflow-hidden rounded-lg bg-white shadow-lg lg:space-y-4 lg:p-8">
+    <div className="space-y-7.5 overflow-hidden rounded-lg bg-white lg:space-y-4 lg:p-8 lg:shadow-lg">
       <div className="flex flex-col gap-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
         <Heading
           as="h1"

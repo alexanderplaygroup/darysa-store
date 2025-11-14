@@ -1,7 +1,10 @@
 import { AppImage } from '@/common/components/custom-ui/AppImage';
 import { Container } from '@/common/components/custom-ui/Container';
 import { HeroBanner } from '@/common/components/custom-ui/HeroBanner';
-import { Building2, Car, Factory } from 'lucide-react';
+import { BabyCarriageIcon } from '@/common/components/icons/BabyCarriageIcon';
+import { BottleIcon } from '@/common/components/icons/BottleIcon';
+import { CustomGearIcon } from '@/common/components/icons/CustomGearIcon';
+import { HandIcon } from '@/common/components/icons/HandIcon';
 import { DistributorsForm } from './components/distributors/DistributorsForm';
 import { InfoCard } from './components/distributors/InfoCard';
 
@@ -13,24 +16,24 @@ const DistributorsView = () => {
 
   const INFO_CARDS_DATA = [
     {
-      icon: Car,
+      icon: BottleIcon,
       title: 'Marca Peruana',
       description:
-        'Más de 30 a;os en el mercado ofreciendo soluciones de limpieza que representan calidad y confianza peruana.',
+        'Más de 30 años en el mercado ofreciendo soluciones de limpieza que representan calidad y confianza peruana.',
     },
     {
-      icon: Building2,
+      icon: CustomGearIcon,
       title: 'Calidad',
       description:
         'Fórmulas efectivas que limpian, desinfectan y garantizan resultados reales en cada uso',
     },
     {
-      icon: Factory,
+      icon: BabyCarriageIcon,
       title: 'Soporte y Acompañamiento',
       description: 'Te ofrecemos asesoría, capacitación y respuesta rápida para tu negocio.',
     },
     {
-      icon: Factory,
+      icon: HandIcon,
       title: 'Confianza y Sostenibilidad',
       description: 'Abastecimiento seguro, entregas puntuales y compromiso ambiental.',
     },

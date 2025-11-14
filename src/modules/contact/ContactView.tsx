@@ -12,6 +12,7 @@ const ContactView = () => {
       items: [
         { text: 'Deseo soporte para comprar en la página web' },
         { text: 'Quiero conocer el status de mi pedido online' },
+        { text: 'Dudas sobre métodos de pago o facturación.' },
       ],
       link: '/contacto/centro-de-ayuda',
     },
@@ -19,7 +20,11 @@ const ContactView = () => {
       image: '/contact/previewContactoDetail.png',
       title: 'Quiero ser parte de',
       highlight: 'la red de distribuidores',
-      items: [{ text: 'Deseo ser parte de la red de distribuidores ' }],
+      items: [
+        { text: 'Requisitos para ser distribuidor o socio comercial. ' },
+        { text: 'Capacitación o materiales para ventas.' },
+        { text: 'Actualización de datos como distribuidor actual' },
+      ],
       link: '/contacto/red-comercial',
     },
     {
@@ -29,6 +34,7 @@ const ContactView = () => {
       items: [
         { text: 'Quiero solicitar una cotización' },
         { text: 'Deseo asesoría para el proceso de compra' },
+        { text: 'Información sobre disponibilidad o tiempos de entrega.' },
       ],
       link: '/contacto/asesoria',
     },
@@ -40,6 +46,7 @@ const ContactView = () => {
         { text: 'Consulta sobre uso de productos' },
         { text: 'Documentación de productos ' },
         { text: 'Tengo una queja o reclamo ' },
+        { text: 'Encuesta de satisfacción / sugerencias de mejora.  ' },
       ],
       link: '/contacto/servicio-cliente',
     },
