@@ -42,6 +42,15 @@ const SustainabilityBioProducts = () => {
       price: 49.99,
       discount: 15,
     },
+    {
+      id: 5,
+      image: '/images/product4.jpg',
+      name: 'Producto BIO D',
+      sku: 'BIO-D-004',
+      brand: 'Marca D',
+      price: 49.99,
+      discount: 15,
+    },
   ];
 
   return (
@@ -56,7 +65,7 @@ const SustainabilityBioProducts = () => {
           venenatis nisl lacinia scelerisque.
         </Text>
       </div>
-      <div className="mb-16 flex w-full flex-wrap items-start justify-center gap-10 lg:gap-20">
+      <div className="mb-16 flex w-full flex-wrap items-start justify-center gap-10 lg:gap-x-20 lg:gap-y-10">
         <div className="flex w-full max-w-[150px] flex-col items-center justify-center gap-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-full">
             <AppImage src="" alt="" fill sizes="180px" />
@@ -100,7 +109,7 @@ const SustainabilityBioProducts = () => {
           </Heading>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4 xl:gap-10">
+      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-5 lg:gap-4 xl:grid-cols-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

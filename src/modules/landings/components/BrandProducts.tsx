@@ -42,6 +42,15 @@ const BrandProducts = () => {
       price: 49.99,
       discount: 15,
     },
+    {
+      id: 5,
+      image: '/images/product4.jpg',
+      name: 'Producto BIO D',
+      sku: 'BIO-D-004',
+      brand: 'Marca D',
+      price: 49.99,
+      discount: 15,
+    },
   ];
 
   return (
@@ -100,7 +109,7 @@ const BrandProducts = () => {
           </Heading>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4 xl:gap-10">
+      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-5 lg:gap-4 xl:grid-cols-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

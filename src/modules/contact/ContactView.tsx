@@ -18,7 +18,7 @@ const ContactView = () => {
     {
       image: '/contact/previewContactoDetail.png',
       title: 'Quiero ser parte de',
-      highlight: 'la red comercial',
+      highlight: 'la red de distribuidores',
       items: [{ text: 'Deseo ser parte de la red de distribuidores ' }],
       link: '/contacto/red-comercial',
     },

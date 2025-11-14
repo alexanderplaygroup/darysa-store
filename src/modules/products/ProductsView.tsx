@@ -45,7 +45,7 @@ export const ProductsView = () => {
             <FilterSectionMobile />
           </div>
           <Select>
-            <SelectTrigger className="border-darysa-gris-350-alt/50! text-darysa-gris-550-3/80! line-clamp-1 flex h-12! max-w-[250px] px-4.5 font-semibold max-sm:text-xs">
+            <SelectTrigger className="border-darysa-gris-350-alt/50! text-darysa-gris-550/80! line-clamp-1 flex h-12! max-w-[250px] px-4.5 font-semibold max-sm:text-xs">
               <SelectValue placeholder="Ordenar por" />
             </SelectTrigger>
             <SelectContent align="end">
@@ -57,7 +57,7 @@ export const ProductsView = () => {
         {/* Contenedor general (aside + productos) */}
         <div
           className={cn(
-            'relative grid gap-2.5 transition-all duration-300 ease-in-out lg:grid-cols-4 lg:gap-4 xl:gap-10'
+            'relative grid gap-2.5 transition-all duration-300 ease-in-out lg:grid-cols-4 lg:gap-4 xl:grid-cols-5'
           )}
         >
           {/* ASIDE */}
@@ -76,9 +76,11 @@ export const ProductsView = () => {
           {/* PRODUCTOS */}
           <div
             className={cn(
-              'grid gap-2.5 lg:gap-4 xl:gap-10',
+              'grid gap-2.5 lg:gap-4',
               'grid-cols-2 md:grid-cols-3',
-              isOpen ? 'lg:col-span-3 lg:grid-cols-3' : 'lg:col-span-4 lg:grid-cols-4'
+              isOpen
+                ? 'lg:col-span-3 lg:grid-cols-3 xl:col-span-4 xl:grid-cols-4'
+                : 'lg:col-span-4 lg:grid-cols-4 xl:col-span-5 xl:grid-cols-5'
             )}
           >
             {products.map((product) => (

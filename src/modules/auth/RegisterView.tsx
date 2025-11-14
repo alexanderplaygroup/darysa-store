@@ -12,7 +12,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
 export const RegisterView = () => {
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 mb-0 h-[1px]"></Container>
+      <Container className="bg-darysa-gris-800/20 mb-0 h-px"></Container>
       <Container className="mt-8">
         <div className="mb-8 space-y-4">
           <AppBreadcrumb items={breadcrumbItems} />
@@ -20,7 +20,7 @@ export const RegisterView = () => {
             Registrarme{' '}
           </Heading>
         </div>
-        <div className="grid w-full grid-cols-2 items-start justify-between gap-28">
+        <div className="grid w-full grid-cols-1 items-stretch justify-between gap-16 lg:grid-cols-2 lg:gap-28">
           <RegisterForm />
 
           <div className="relative ml-auto aspect-square w-full">

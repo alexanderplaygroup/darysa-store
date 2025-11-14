@@ -45,7 +45,7 @@ export const ProductCard = ({
         <div className="relative space-y-3.5">
           <div
             className={cn(
-              'bg-darysa-gris-800 flex w-fit items-center gap-2.5 rounded-r-md px-3 py-1.5 text-white sm:py-2',
+              'bg-darysa-gris-800 flex w-fit items-center gap-2.5 rounded-r-md px-3 py-1.5 text-white',
               !hasDiscount && 'invisible'
             )}
           >
@@ -55,13 +55,17 @@ export const ProductCard = ({
 
           <div className="space-y-2 px-3.5 pb-3.5 sm:px-4.5 sm:pb-4.5">
             {/* Product Name */}
-            <Heading as="h4" variant="cardTitle" className="text-darysa-gris-800 line-clamp-1">
+            <Heading
+              as="h4"
+              variant="cardTitle"
+              className="text-darysa-gris-800 line-clamp-1 md:text-lg"
+            >
               {name}
             </Heading>
 
             {/* Product Subtitle */}
             {(sku || brand) && (
-              <Text variant="caption" className="text-darysa-gris-550-3">
+              <Text variant="caption" className="text-darysa-gris-550">
                 {[sku, brand].filter(Boolean).join(' / ')}
               </Text>
             )}
@@ -70,14 +74,14 @@ export const ProductCard = ({
             <div className="flex items-end justify-between pt-1">
               <div className="space-y-3.5">
                 <div className={cn('flex items-center gap-2', !hasDiscount && 'invisible')}>
-                  <span className="text-darysa-gris-550-3 text-xs leading-none line-through">
+                  <span className="text-darysa-gris-550 text-xs leading-none line-through">
                     {parseSoles(price)}
                   </span>
-                  <span className="bg-darysa-amarillo rounded px-2 py-1 text-xs font-black text-gray-900">
+                  <span className="bg-darysa-amarillo rounded px-2 py-0.5 text-xs font-black text-gray-900">
                     -{discount}%
                   </span>
                 </div>
-                <div className="text-darysa-gris-800 font-inter text-xl leading-none font-black sm:text-2xl">
+                <div className="text-darysa-gris-800 font-inter text-xl leading-none font-black">
                   {parseSoles(discountedPrice)}
                 </div>
               </div>
@@ -86,7 +90,7 @@ export const ProductCard = ({
               {onAddToCart && (
                 <Button
                   size="icon"
-                  className="bg-darysa-verde-oscuro size-9 rounded-sm text-white hover:bg-green-700 sm:size-12"
+                  className="bg-darysa-verde-oscuro size-9 rounded-sm text-white hover:bg-green-700 sm:size-10"
                   aria-label="Agregar al carrito"
                   onClick={(e) => {
                     e.preventDefault(); // evita que el <Link> se dispare
@@ -94,7 +98,7 @@ export const ProductCard = ({
                     onAddToCart();
                   }}
                 >
-                  <ShoppingCart className="size-5.5 sm:size-7" />
+                  <ShoppingCart className="size-5.5 sm:size-6" />
                 </Button>
               )}
             </div>

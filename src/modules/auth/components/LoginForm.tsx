@@ -150,19 +150,19 @@ export function LoginForm() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <ButtonWithSpinner
               type="submit"
               isLoading={isPending}
               loadingText="Ingresando..."
-              className="bg-darysa-gris-800 h-12 flex-1 rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
+              className="bg-darysa-gris-800 h-12 rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
             >
               Ingresar
             </ButtonWithSpinner>
             <Button
               type="button"
               variant="outline"
-              className="border-darysa-gris-800 text-darysa-gris-800 h-12 flex-1 rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
+              className="border-darysa-gris-800 text-darysa-gris-800 rounded-sm border bg-transparent px-0! text-base font-semibold hover:bg-gray-50"
               asChild
             >
               <Link href="/registro">Crear una Cuenta</Link>

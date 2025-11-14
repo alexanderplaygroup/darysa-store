@@ -11,19 +11,19 @@ export default function CarouselBrands() {
   const groupSize = useResponsiveItemsPerView({ xl: 7, lg: 6, md: 5, sm: 4, base: 3 });
 
   const images = [
-    '/home/brands/b1.png',
-    '/home/brands/b2.png',
-    '/home/brands/b3.png',
-    '/home/brands/b4.png',
-    '/home/brands/b5.png',
-    '/home/brands/b6.png',
-    '/home/brands/b3.png',
-    '/home/brands/b4.png',
-    '/home/brands/b5.png',
-    '/home/brands/b6.png',
-    '/home/brands/b3.png',
-    '/home/brands/b4.png',
-    '/home/brands/b5.png',
+    '/home/brands/brand1.png',
+    '/home/brands/brand2.png',
+    '/home/brands/brand3.png',
+    '/home/brands/brand4.png',
+    '/home/brands/brand5.png',
+    '/home/brands/brand6.png',
+    '/home/brands/brand7.png',
+    '/home/brands/brand4.png',
+    '/home/brands/brand5.png',
+    '/home/brands/brand6.png',
+    '/home/brands/brand3.png',
+    '/home/brands/brand4.png',
+    '/home/brands/brand5.png',
   ];
 
   return (
@@ -44,13 +44,15 @@ export default function CarouselBrands() {
             key={index}
             className="flex basis-1/3 items-center justify-center pl-6 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/7"
           >
-            <AppImage
-              src={src}
-              alt={`Banner ${index + 1}`}
-              width={120}
-              height={112}
-              className="flex h-28 w-[120px] items-center"
-            />
+            <div className="flex items-center justify-center opacity-55 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0">
+              <AppImage
+                src={src}
+                alt={`Banner ${index + 1}`}
+                width={120}
+                height={80}
+                className="h-auto w-20 min-[450px]:w-[100px] xl:w-[110px]"
+              />
+            </div>
           </CarouselItem>
         ))}
       </CarouselContent>

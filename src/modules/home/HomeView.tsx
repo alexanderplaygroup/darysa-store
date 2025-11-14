@@ -43,16 +43,16 @@ export const HomeView = () => {
         <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Marcas Aliadas
         </Heading>
-        <div className="aspect-16/3 h-[136px] w-full">
+        <div className="w-full">
           <CarouselBrands />
         </div>
       </Container>
 
-      <Container className="space-y-8">
+      <Container className="space-y-6">
         <Heading as="h3" variant="heading" className="text-darysa-gris-800">
           Los más vendidos
         </Heading>
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4 xl:gap-14">
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -81,10 +81,10 @@ export const HomeView = () => {
         <BenefitsSection items={benefitsData} />
       </Container>
 
-      <Container className="space-y-8">
+      <Container className="space-y-6">
         <CarouselPacks />
       </Container>
-      <Container className="space-y-8">
+      <Container className="space-y-6">
         <CarouselBlogs />
       </Container>
       <PromotionalModal modal="/home/modal.png" />

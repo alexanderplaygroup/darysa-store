@@ -92,11 +92,11 @@ export default function CarouselBlogs() {
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-2.5 lg:-ml-4 xl:-ml-14">
+        <CarouselContent className="-ml-2.5 lg:-ml-4">
           {blogPosts.map((post, index) => (
             <CarouselItem
               key={index}
-              className="basis-full pl-2.5 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 lg:pl-4 xl:basis-1/3 xl:pl-14"
+              className="basis-full pl-2.5 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 lg:pl-4 xl:basis-1/3"
             >
               <BlogCard key={index} {...post} />
             </CarouselItem>
@@ -120,7 +120,7 @@ export default function CarouselBlogs() {
                   'border-darysa-gris-800 flex h-9 w-12 items-center justify-center rounded-xs border bg-transparent font-bold text-white transition-all duration-400',
                   isActive
                     ? 'bg-darysa-gris-800'
-                    : 'hover:bg-darysa-gris-300/40 text-darysa-gris-800 cursor-pointer'
+                    : 'hover:bg-darysa-gris-250/20 text-darysa-gris-800 cursor-pointer'
                 )}
               >
                 <span>{index + 1}</span>

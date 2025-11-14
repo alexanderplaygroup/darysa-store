@@ -195,7 +195,7 @@ export const FiltersSection = ({ className }: FiltersAccordionProps) => {
       </button>
       <div className="mt-10 ml-8 hidden space-y-4.5 lg:block">
         <h4>Marcas asociadas</h4>
-        <div className="grid w-fit grid-cols-2 items-center justify-center gap-4">
+        <div className="grid w-fit grid-cols-2 items-center justify-center gap-4 lg:grid-cols-1 xl:grid-cols-2">
           {images.map((src, index) => (
             <div
               key={index}

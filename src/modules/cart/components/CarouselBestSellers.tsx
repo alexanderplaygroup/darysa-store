@@ -19,7 +19,7 @@ export default function CarouselBestSellers() {
   const autoplayRef = useRef(Autoplay({ delay: 5000, playOnInit: true }));
   const [embla, setEmbla] = useState<CarouselApi | null>(null); // Referencia Embla
 
-  const groupSize = useResponsiveItemsPerView({ xl: 4, lg: 4, md: 4, sm: 3, base: 2 });
+  const groupSize = useResponsiveItemsPerView({ xl: 5, lg: 4, md: 4, sm: 3, base: 2 });
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
 
@@ -43,7 +43,7 @@ export default function CarouselBestSellers() {
     <>
       <div className="flex items-center justify-between">
         <Heading as="h3" variant="heading" className="text-darysa-gris-800">
-          Los más Vendidos
+          Lo mas Vendido
         </Heading>
 
         <div className="flex gap-6">
@@ -86,15 +86,15 @@ export default function CarouselBestSellers() {
           loop: false,
           slidesToScroll: groupSize,
         }}
-        className="w-full space-y-10"
+        className="w-full space-y-8 lg:space-y-10"
         onMouseEnter={() => autoplayRef.current.stop()}
         onMouseLeave={() => autoplayRef.current.play()}
       >
-        <CarouselContent className="-ml-2.5 lg:-ml-4 xl:-ml-14">
+        <CarouselContent className="-ml-2.5 lg:-ml-4">
           {products.map((product, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2 pl-2.5 sm:basis-1/3 md:basis-1/3 lg:basis-1/4 lg:pl-4 xl:basis-1/4 xl:pl-14"
+              className="basis-1/2 pl-2.5 sm:basis-1/3 md:basis-1/3 lg:basis-1/4 lg:pl-4 xl:basis-1/5"
             >
               <ProductCard
                 key={product.id}

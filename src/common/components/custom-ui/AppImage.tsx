@@ -41,7 +41,7 @@ export function AppImage({
   if (isFill) {
     return (
       <>
-        {isLoading && <Skeleton className={cn('absolute inset-0', className)} />}
+        {isLoading && <Skeleton className={cn('absolute inset-0 grayscale-0', className)} />}
         <Image
           {...props}
           src={src}
