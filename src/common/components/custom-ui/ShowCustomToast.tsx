@@ -10,14 +10,33 @@ export function showCustomToast({
   duration = 4000,
   position = 'top-center',
 }: {
-  variant?: 'success' | 'error' | 'info' | 'warning' | 'cart' | 'wishlist' | 'shipping' | 'login';
+  variant?:
+    | 'success'
+    | 'error'
+    | 'info'
+    | 'warning'
+    | 'cart'
+    | 'wishlist'
+    | 'shipping'
+    | 'login'
+    | 'register';
   title: string;
   message?: string;
   duration?: number;
   position?: 'top-center' | 'top-right' | 'bottom-right' | 'bottom-left' | 'top-left';
 }) {
-  toast.custom(() => <CustomToast variant={variant} title={title} message={message} />, {
-    duration,
-    position,
-  });
+  toast.custom(
+    (t) => (
+      <CustomToast
+        variant={variant}
+        title={title}
+        message={message}
+        onClose={() => toast.dismiss(t)}
+      />
+    ),
+    {
+      duration,
+      position,
+    }
+  );
 }

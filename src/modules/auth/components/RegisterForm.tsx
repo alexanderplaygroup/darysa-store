@@ -3,10 +3,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
+import { showCustomToast } from '@/common/components/custom-ui/ShowCustomToast';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Form,
@@ -17,10 +19,12 @@ import {
   FormMessage,
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
+import { useRouter } from 'next/navigation';
+import { registerUser } from '../auth.service';
 
 const registerSchema = z
   .object({
-    fullName: z.string().min(1, 'El nombre completo es obligatorio'),
+    full_name: z.string().min(1, 'El nombre completo es obligatorio'),
     email: z.email({ message: 'Ingrese un email válido' }),
     password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
     confirmPassword: z.string().min(6, 'Debe repetir la contraseña'),
@@ -33,11 +37,14 @@ const registerSchema = z
 export function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      fullName: '',
+      full_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -49,7 +56,42 @@ export function RegisterForm() {
   };
 
   const onSubmit = (values: z.infer<typeof registerSchema>) => {
-    console.log('Register attempt:', values);
+    startTransition(async () => {
+      const payload = {
+        full_name: values.full_name,
+        email: values.email,
+        password: values.password,
+      };
+
+      const result = await registerUser(payload);
+
+      if (result.ok) {
+        showCustomToast({
+          variant: 'success',
+          title: '¡Usuario registrado correctamente!',
+        });
+        form.reset();
+        router.push('/login');
+      } else {
+        console.log('frank cabro:', result.errors);
+
+        // Verificar si result.errors existe y tiene contenido
+        let errorMessages = 'Hubo un error desconocido';
+
+        if (result.errors) {
+          // Unir todos los mensajes de error de cada campo
+          errorMessages = Object.values(result.errors)
+            .flat() // Aplanar el array de errores si hay más de un mensaje por campo
+            .join(' | '); // Unir los mensajes con un separador " | "
+        }
+
+        showCustomToast({
+          variant: 'error',
+          title: result.message || 'Errores de validación',
+          message: errorMessages,
+        });
+      }
+    });
   };
 
   return (
@@ -63,7 +105,7 @@ export function RegisterForm() {
           {/* Nombre Completo */}
           <FormField
             control={form.control}
-            name="fullName"
+            name="full_name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-darysa-gris-550 font-semibold">
@@ -182,12 +224,14 @@ export function RegisterForm() {
           </div>
 
           {/* Botón principal */}
-          <Button
+          <ButtonWithSpinner
             type="submit"
+            isLoading={isPending}
+            loadingText="Ingresando..."
             className="bg-darysa-gris-800 h-12 w-full rounded-sm text-base font-semibold text-white hover:bg-[#1a1a1a]"
           >
             Registrarme
-          </Button>
+          </ButtonWithSpinner>
         </form>
       </Form>
 
