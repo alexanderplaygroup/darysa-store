@@ -1,23 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // services/auth.service.ts
 
+import { handleApiError, handleApiSuccess } from '@/common/helpers/handleApiResult';
+import { User } from '@/common/interfaces';
 import { api } from '@/lib/api';
-import { UserCreate } from './interfaces';
+import { LoginPayload, RegisterUserPayload } from './interfaces';
 
-export async function registerUser(data: UserCreate) {
+export async function registerUser(data: RegisterUserPayload) {
   try {
-    const user = await api.post('v1/auth/register', data);
+    const response = await api.post('v1/auth/register', data);
+    return handleApiSuccess(response);
+  } catch (err) {
+    return handleApiError(err);
+  }
+}
 
-    return {
-      ok: true,
-      data: user,
-    };
-  } catch (err: any) {
-    return {
-      ok: false,
-      status: err.status,
-      message: err.message || 'Error inesperado',
-      errors: err.data || null,
-    };
+export async function loginUser(data: LoginPayload) {
+  try {
+    const user = await api.post<User>('v1/auth/login', data);
+    return handleApiSuccess(user);
+  } catch (err) {
+    return handleApiError(err);
   }
 }

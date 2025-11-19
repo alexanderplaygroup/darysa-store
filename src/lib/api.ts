@@ -1,79 +1,93 @@
-// lib/api.ts
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ApiError, ApiResponse } from '@/common/interfaces';
 import { API_URL } from '@/config/env.config';
 
-export interface ApiError<T = unknown> {
-  message: string;
-  status?: number;
-  data?: T;
-}
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
-export interface ApiResponse<T = unknown> {
-  success: boolean;
-  message: string;
-  data?: T;
-}
-
-interface RequestOptions<BodyType = undefined> {
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  body?: BodyType;
+interface RequestOptions<Body = undefined> {
+  method?: HttpMethod;
+  body?: Body;
   headers?: Record<string, string>;
   credentials?: RequestCredentials;
+  signal?: AbortSignal;
+  retry?: number;
+  noJson?: boolean;
+  auth?: boolean;
 }
 
-async function apiRequest<ResponseType, BodyType = undefined>(
-  endpoint: string,
-  options: RequestOptions<BodyType> = {}
-): Promise<ResponseType> {
-  const { method = 'GET', body, headers = {}, credentials } = options;
+function getAuthHeaders(): Record<string, string> {
+  const token = localStorage.getItem('token');
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
 
-  const config: RequestInit = {
+async function apiRequest<Response, Body = undefined>(
+  endpoint: string,
+  options: RequestOptions<Body> = {}
+): Promise<Response> {
+  const {
+    method = 'GET',
+    body,
+    headers = {},
+    credentials = 'same-origin',
+    signal,
+    retry = 0,
+    noJson = false,
+    auth = true,
+  } = options;
+
+  // ✔ si el body es FormData NO se agrega JSON.stringify
+  const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
+
+  const init: RequestInit = {
     method,
+    credentials,
+    signal,
     headers: {
       Accept: 'application/json',
+      ...(auth ? getAuthHeaders() : {}),
       ...headers,
+      ...(isFormData ? {} : body ? { 'Content-Type': 'application/json' } : {}),
     },
-    credentials: credentials || 'same-origin', // default
+    body: body ? (isFormData ? (body as any) : JSON.stringify(body)) : undefined,
   };
 
-  if (body) {
-    config.headers = {
-      ...config.headers,
-      'Content-Type': 'application/json',
-    };
-    config.body = JSON.stringify(body);
-  }
-
-  const res = await fetch(`${API_URL}/${endpoint}`, config);
-
-  let json: ApiResponse<ResponseType> | null = null;
-
   try {
-    json = await res.json();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (_) {
-    throw {
-      message: 'Respuesta no válida del servidor',
-      status: res.status,
-    } as ApiError<undefined>;
-  }
+    const response = await fetch(`${API_URL}/${endpoint}`, init);
 
-  if (!res.ok) {
-    throw {
-      message: json?.message || 'Error en la petición',
-      status: res.status,
-      data: json?.data,
-    } as ApiError<ResponseType>;
-  }
+    if (noJson) {
+      return response as unknown as Response;
+    }
 
-  if (!json) {
-    throw {
-      message: 'Respuesta vacía del servidor',
-      status: res.status,
-    } as ApiError<undefined>;
-  }
+    const json = (await response.json()) as ApiResponse<Response>;
 
-  return json.data as ResponseType;
+    if (!response.ok) {
+      throw <ApiError>{
+        message: json?.message ?? 'Error en la petición',
+        status: response.status,
+        errors: (json as any)?.errors ?? null,
+      };
+    }
+
+    if (!json?.data) {
+      throw <ApiError>{
+        message: 'Respuesta vacía del servidor',
+        status: response.status,
+        errors: null,
+      };
+    }
+
+    return json.data;
+  } catch (error) {
+    if (retry > 0) {
+      return apiRequest<Response, Body>(endpoint, { ...options, retry: retry - 1 });
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      console.error('API ERROR:', error);
+    }
+
+    throw error;
+  }
 }
 
 export const api = {
@@ -86,6 +100,23 @@ export const api = {
   put: <T, B = unknown>(endpoint: string, body?: B, options?: Omit<RequestOptions<B>, 'method'>) =>
     apiRequest<T, B>(endpoint, { ...options, method: 'PUT', body }),
 
+  patch: <T, B = unknown>(
+    endpoint: string,
+    body?: B,
+    options?: Omit<RequestOptions<B>, 'method'>
+  ) => apiRequest<T, B>(endpoint, { ...options, method: 'PATCH', body }),
+
   delete: <T>(endpoint: string, options?: Omit<RequestOptions, 'method'>) =>
     apiRequest<T>(endpoint, { ...options, method: 'DELETE' }),
+
+  upload: <T>(
+    endpoint: string,
+    formData: FormData,
+    options?: Omit<RequestOptions<FormData>, 'method' | 'body'>
+  ) =>
+    apiRequest<T, FormData>(endpoint, {
+      ...options,
+      method: 'POST',
+      body: formData,
+    }),
 };

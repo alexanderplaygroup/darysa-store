@@ -73,16 +73,10 @@ export function RegisterForm() {
         form.reset();
         router.push('/login');
       } else {
-        console.log('frank cabro:', result.errors);
-
-        // Verificar si result.errors existe y tiene contenido
         let errorMessages = 'Hubo un error desconocido';
 
         if (result.errors) {
-          // Unir todos los mensajes de error de cada campo
-          errorMessages = Object.values(result.errors)
-            .flat() // Aplanar el array de errores si hay más de un mensaje por campo
-            .join(' | '); // Unir los mensajes con un separador " | "
+          errorMessages = Object.values(result.errors).flat().join(' | ');
         }
 
         showCustomToast({
