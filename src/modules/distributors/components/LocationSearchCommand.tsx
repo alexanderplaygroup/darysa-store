@@ -24,7 +24,7 @@ export default function LocationSearchCommand({ onSelectLocation }: LocationSear
 
   return (
     <>
-      <div className="flex w-full items-center justify-center lg:mx-2.5! lg:justify-start xl:mx-0">
+      <div className="flex w-full items-center justify-center lg:mx-4! lg:justify-start xl:mx-0!">
         <Button
           size="lg"
           variant="outline"
