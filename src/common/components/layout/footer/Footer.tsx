@@ -31,25 +31,26 @@ export const Footer = () => {
   ];
 
   const paymentMethods = [
-    { src: '/pays/Method=ApplePay.png', alt: 'Apple Pay' },
-    { src: '/pays/Method=Visa.png', alt: 'Visa' },
-    { src: '/pays/Method=Discover.png', alt: 'Discover' },
-    { src: '/pays/Method=Mastercard.png', alt: 'Mastercard' },
-    { src: '/pays/Cart.png', alt: 'Cart' },
+    { src: '/pays/nuevos/amex.png', alt: 'Apple Pay' },
+    { src: '/pays/nuevos/diners.png', alt: 'Visa' },
+    { src: '/pays/nuevos/mastercard.png', alt: 'Discover' },
+    { src: '/pays/nuevos/plin.png', alt: 'Mastercard' },
+    { src: '/pays/nuevos/visa.png', alt: 'Cart' },
+    { src: '/pays/nuevos/yape.png', alt: 'Cart' },
   ];
 
   return (
     <footer className="bg-darysa-gris-800 hidden md:block">
-      <Container className="mb-0 pb-6">
-        <div className="my-14 grid grid-cols-1 gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:gap-10 xl:gap-4">
+      <Container className="mb-0 pb-4">
+        <div className="my-10 grid grid-cols-1 gap-14 lg:grid-cols-[0.5fr_1.5fr] lg:gap-10 xl:gap-4">
           {/* Logo and Contact */}
-          <div className="flex flex-col gap-8 lg:gap-10">
+          <div className="flex flex-col gap-8 lg:gap-8">
             <Link href="/" className="w-fit">
               <AppImage
                 src="/logo-dark.svg"
                 alt="Darysa"
-                width={247}
-                height={54}
+                width={183}
+                height={40}
                 className="object-cover"
               />
             </Link>
@@ -123,7 +124,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-row items-center justify-between gap-6 border-t border-white/10 pt-6 xl:gap-0">
+        <div className="flex flex-row items-center justify-between gap-6 border-t border-white/10 pt-4 xl:gap-0">
           <div className="hidden w-full items-center justify-center gap-6 xl:flex xl:w-fit">
             <a
               href="https://www.facebook.com/DaryzaPeru/?locale=es_LA"
@@ -167,10 +168,19 @@ export const Footer = () => {
           </div>
 
           {/* Payment Methods */}
-          <div className="flex w-fit items-center justify-end gap-2">
+          <div className="flex w-fit items-center justify-end gap-3.5">
             {paymentMethods.map((pay, idx) => (
-              <div key={idx} className="relative flex h-8 w-[50px] items-center justify-center">
-                <AppImage src={pay.src} alt={pay.alt} fill className="object-contain" />
+              <div
+                key={idx}
+                className="relative flex items-center justify-center overflow-hidden rounded-sm bg-amber-600"
+              >
+                <AppImage
+                  src={pay.src}
+                  alt={pay.alt}
+                  height={30}
+                  width={40}
+                  className="object-contain"
+                />
               </div>
             ))}
           </div>

@@ -14,8 +14,8 @@ export default function DashboardLayout({
 }>) {
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 h-px" />
-      <Container className="mb-5 space-y-4">
+      {/* <Container className="bg-darysa-gris-800/20 mb-6 h-px" /> */}
+      <Container className="mt-10 mb-5 space-y-4">
         <AppBreadcrumb items={breadcrumbItems} className="sm:gap-1.5" />
         <Heading variant="heading" className="text-darysa-gris-950 font-bold md:text-3xl">
           Perfil de Usuario

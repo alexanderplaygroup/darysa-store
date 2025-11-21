@@ -58,8 +58,8 @@ export function MegaMenu() {
       onOpenChange={(isOpen) => (isOpen ? openUI('megaMenu') : closeUI('megaMenu'))}
     >
       <PopoverTrigger asChild>
-        <Button className="bg-darysa-gris-800 hover:bg-darysa-gris-800 flex h-10 cursor-pointer items-center gap-2.5 rounded-md px-4! text-sm">
-          <Menu className="size-5" />
+        <Button className="bg-darysa-gris-800 hover:bg-darysa-gris-800 flex h-8.5 cursor-pointer items-center gap-2.5 rounded-sm px-3! text-sm font-semibold">
+          <Menu className="size-4.5" />
           Todas las Categorías
         </Button>
       </PopoverTrigger>
@@ -68,7 +68,7 @@ export function MegaMenu() {
         overlay
         align="start"
         side="bottom"
-        sideOffset={14}
+        sideOffset={9}
         className={cn(
           'w-screen rounded-t-none rounded-br-sm rounded-bl-sm border-none bg-white p-0 shadow-lg 2xl:max-w-[1366px]'
         )}

@@ -26,8 +26,8 @@ export default function DetailProductView() {
 
   return (
     <>
-      <Container className="bg-darysa-gris-800/20 h-px" />
-      <Container className="mb-7">
+      {/* <Container className="bg-darysa-gris-800/20 h-px" /> */}
+      <Container className="mt-8 mb-7">
         <AppBreadcrumb items={breadcrumbItems} />
       </Container>
       <Container className="grid grid-cols-1 items-start gap-8 md:gap-16 lg:mb-16 lg:grid-cols-2">

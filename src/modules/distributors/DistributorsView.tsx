@@ -29,7 +29,7 @@ const DistributorsView = () => {
           <LocationSearchCommand onSelectLocation={setSelectedId} />
         </div>
 
-        <div className="relative z-0 h-[calc(100dvh-102px)] w-full lg:h-[calc(100dvh-116px)]">
+        <div className="relative z-0 h-[calc(100dvh-88px)] w-full lg:h-[calc(100dvh-94px)]">
           <MapContainer
             ref={mapRef}
             center={[-9.19, -75.0152]}

@@ -1,6 +1,5 @@
 'use client';
 import { useCloseOnScroll } from '@/common/hooks/useCloseOnScroll';
-import { useScrolled } from '@/common/hooks/useScrolled';
 import { useUserSession } from '@/common/hooks/useUserSession';
 import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
@@ -22,21 +21,16 @@ export const Header = () => {
     console.log('Usuario cambió:', user);
   }, [user]);
 
-  const isScrolled = useScrolled(0); // 👈 mucho más limpio
+  // const isScrolled = useScrolled(0); // 👈 mucho más limpio
 
   // 👇 Cerrar mega menú al hacer scroll
   useCloseOnScroll('megaMenu');
 
-  const { openUI } = useUIStore(); // <-- Aquí traemos la función para abrir
+  const { openUI } = useUIStore();
 
   return (
-    <header
-      className={cn(
-        'headerCustomize sticky top-0 z-50 w-full bg-white transition-shadow duration-300',
-        isScrolled && 'drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)]'
-      )}
-    >
-      <Container className="mb-0 space-y-2 px-0! pt-3.5 lg:py-3.5">
+    <header className="headerCustomize sticky top-0 z-50 w-full bg-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)] transition-shadow duration-300">
+      <Container className="mb-0 space-y-0.5 px-0! pt-1.5 lg:py-1.5">
         <div className="flex w-full items-center justify-between px-2.5 py-0 lg:px-4 2xl:px-0">
           <div className="flex items-center gap-4.5 sm:gap-6">
             <button
@@ -59,10 +53,10 @@ export const Header = () => {
           <div className="hidden w-full items-center gap-2 lg:flex lg:max-w-[400px] xl:max-w-[652px]">
             <Input
               placeholder="Buscar"
-              className="h-10 w-full rounded-md border-none bg-[#0000000A] p-4 focus-visible:ring-0"
+              className="h-8 w-full rounded-sm border-none bg-[#0000000A] p-4 focus-visible:ring-0"
             />
-            <span className="bg-darysa-green-500 flex aspect-square size-10 items-center justify-center rounded-md">
-              <Search className="size-5.5 text-white" />
+            <span className="bg-darysa-green-500 flex aspect-square size-8 items-center justify-center rounded-sm">
+              <Search className="size-4.5 text-white" />
             </span>
           </div>
 
@@ -71,7 +65,7 @@ export const Header = () => {
               <SearchCustomIcon className="size-6" strokeWidth={1.5} />
             </div>
             <div className="relative flex size-10 w-fit items-center justify-center">
-              <Badge className="bg-darysa-green-500 absolute -top-[2.5px] -right-3 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
+              <Badge className="bg-darysa-green-500 absolute top-0 -right-2.5 h-4.5 min-w-4.5 rounded-full px-1 font-mono text-[10px] leading-none tabular-nums">
                 3
               </Badge>
               <Heart className="size-6" />
@@ -82,7 +76,7 @@ export const Header = () => {
               onClick={() => openUI('cart')}
               aria-label="Abrir carrito de compras"
             >
-              <Badge className="bg-darysa-green-500 absolute -top-[2.5px] -right-3 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
+              <Badge className="bg-darysa-green-500 absolute top-0 -right-2.5 h-4.5 min-w-4.5 rounded-full px-1 font-mono text-[10px] leading-none tabular-nums">
                 2
               </Badge>
               <ShoppingCart className="size-6" />
