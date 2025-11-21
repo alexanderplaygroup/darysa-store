@@ -158,7 +158,7 @@ export default function Footermobile() {
           {paymentMethods.map((pay, idx) => (
             <div
               key={idx}
-              className="relative flex items-center justify-center overflow-hidden rounded-sm bg-amber-600"
+              className="relative flex items-center justify-center overflow-hidden rounded-sm"
             >
               <AppImage
                 src={pay.src}
