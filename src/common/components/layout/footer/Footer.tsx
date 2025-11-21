@@ -1,4 +1,4 @@
-import { Mail, PhoneCall } from 'lucide-react';
+import { Mail, PhoneCall, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
@@ -58,7 +58,11 @@ export const Footer = () => {
               <dt className="sr-only">Teléfono:</dt>
               <dd className="flex items-center gap-2">
                 <PhoneCall className="size-5" />
-                +51 (01) 315 3600
+                (01) 315-3600
+              </dd>
+              <dd className="flex items-center gap-2">
+                <Smartphone className="size-5" />
+                +51 967 767 831
               </dd>
               <dt className="sr-only">Email:</dt>
               <dd className="flex items-center gap-2">
@@ -121,11 +125,41 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-row items-center justify-between gap-6 border-t border-white/10 pt-6 xl:gap-0">
           <div className="hidden w-full items-center justify-center gap-6 xl:flex xl:w-fit">
-            <FacebookIcon size={30} className="text-white" />
-            <LinkedInIcon size={28} className="text-white" />
-            <InstagramIcon size={30} className="text-white" />
-            <TikTokIcon size={30} className="text-white" />
-            <YouTubeIcon size={30} className="text-white" />
+            <a
+              href="https://www.facebook.com/DaryzaPeru/?locale=es_LA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FacebookIcon size={30} className="text-white" />
+            </a>
+
+            <a
+              href="https://pe.linkedin.com/company/daryza-s-a-"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon size={28} className="text-white" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/daryza_peru/?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon size={30} className="text-white" />
+            </a>
+
+            <a href="https://www.tiktok.com/@daryza_peru" target="_blank" rel="noopener noreferrer">
+              <TikTokIcon size={30} className="text-white" />
+            </a>
+
+            <a
+              href="https://www.youtube.com/channel/UC7c3g8q4QvOTrlUIwnAn3jQ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YouTubeIcon size={30} className="text-white" />
+            </a>
           </div>
 
           <div className="text-darysa-gris-300 text-xs font-semibold lg:text-sm">

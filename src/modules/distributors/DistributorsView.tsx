@@ -14,6 +14,9 @@ const MapContainer = dynamic(() => import('react-leaflet').then((m) => m.MapCont
   ssr: false,
 });
 const TileLayer = dynamic(() => import('react-leaflet').then((m) => m.TileLayer), { ssr: false });
+const ZoomControl = dynamic(() => import('react-leaflet').then((m) => m.ZoomControl), {
+  ssr: false,
+});
 
 const DistributorsView = () => {
   useDefaultLeafletIcon();
@@ -26,22 +29,22 @@ const DistributorsView = () => {
           <LocationSearchCommand onSelectLocation={setSelectedId} />
         </div>
 
-        <div className="relative z-0 h-full w-full overflow-hidden">
+        <div className="relative z-0 h-[calc(100dvh-102px)] w-full overflow-hidden lg:h-[calc(100dvh-116px)]">
           <MapContainer
             ref={mapRef}
             center={[-9.19, -75.0152]}
             zoom={6}
-            scrollWheelZoom={false}
+            scrollWheelZoom
             zoomControl={false}
-            className="h-[calc(100dvh-102px)] w-full lg:h-[calc(100dvh-116px)]"
+            className="size-full"
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-
+            <ZoomControl position="topright" />{' '}
+            {/* Cambia top-left, top-right, bottom-left, bottom-right */}
             <FitBounds distributors={distributors} />
-
             {distributors.map((d) => (
               <DistributorMarker
                 key={d.id}

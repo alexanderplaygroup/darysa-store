@@ -18,11 +18,41 @@ const InformationContact = () => {
           Información de Contacto
         </Heading>
         <div className="flex items-center gap-6">
-          <FacebookIcon size={30} className="text-darysa-verde-oscuro" />
-          <LinkedInIcon size={28} className="text-darysa-verde-oscuro" />
-          <InstagramIcon size={30} className="text-darysa-verde-oscuro" />
-          <TikTokIcon size={30} className="text-darysa-verde-oscuro" />
-          <YouTubeIcon size={30} className="text-darysa-verde-oscuro" />
+          <a
+            href="https://www.facebook.com/DaryzaPeru/?locale=es_LA"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FacebookIcon size={30} className="text-darysa-verde-oscuro" />
+          </a>
+
+          <a
+            href="https://pe.linkedin.com/company/daryza-s-a-"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon size={28} className="text-darysa-verde-oscuro" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/daryza_peru/?hl=es"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon size={30} className="text-darysa-verde-oscuro" />
+          </a>
+
+          <a href="https://www.tiktok.com/@daryza_peru" target="_blank" rel="noopener noreferrer">
+            <TikTokIcon size={30} className="text-darysa-verde-oscuro" />
+          </a>
+
+          <a
+            href="https://www.youtube.com/channel/UC7c3g8q4QvOTrlUIwnAn3jQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <YouTubeIcon size={30} className="text-darysa-verde-oscuro" />
+          </a>
         </div>
       </div>
       <dl className="grid grid-cols-1 items-center justify-between gap-6 lg:grid-cols-[auto_auto_auto]">

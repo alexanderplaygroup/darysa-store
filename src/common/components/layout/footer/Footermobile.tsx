@@ -37,7 +37,10 @@ export default function Footermobile() {
             <p className="px-4">Correo: contacto@daryza.com</p>
             <div className="bg-darysa-gris-800 h-px w-full" />
 
-            <p className="px-4">Teléfono: (01) 123-4567</p>
+            <p className="px-4">Teléfono: (01) 315-3600</p>
+            <div className="bg-darysa-gris-800 h-px w-full" />
+
+            <p className="px-4">Celular: +51 967 767 831</p>
           </AccordionContent>
         </AccordionItem>
 
@@ -111,11 +114,41 @@ export default function Footermobile() {
       </Accordion>
 
       <div className="mt-7 mb-9 flex items-center justify-center gap-7">
-        <FacebookIcon size={36} className="text-white" />
-        <LinkedInIcon size={34} className="text-white" />
-        <InstagramIcon size={36} className="text-white" />
-        <TikTokIcon size={36} className="text-white" />
-        <YouTubeIcon size={36} className="text-white" />
+        <a
+          href="https://www.facebook.com/DaryzaPeru/?locale=es_LA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FacebookIcon size={36} className="text-white" />
+        </a>
+
+        <a
+          href="https://pe.linkedin.com/company/daryza-s-a-"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedInIcon size={34} className="text-white" />
+        </a>
+
+        <a
+          href="https://www.instagram.com/daryza_peru/?hl=es"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <InstagramIcon size={36} className="text-white" />
+        </a>
+
+        <a href="https://www.tiktok.com/@daryza_peru" target="_blank" rel="noopener noreferrer">
+          <TikTokIcon size={36} className="text-white" />
+        </a>
+
+        <a
+          href="https://www.youtube.com/channel/UC7c3g8q4QvOTrlUIwnAn3jQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <YouTubeIcon size={36} className="text-white" />
+        </a>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-2.5">

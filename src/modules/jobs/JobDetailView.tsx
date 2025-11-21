@@ -2,6 +2,7 @@ import { Container } from '@/common/components/custom-ui/Container';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { Text } from '@/common/components/custom-ui/Text';
 import { Button } from '@/common/components/shadcn-ui/button';
+import Link from 'next/link';
 import { JoinTeamModalForm } from './components/JoinTeamModalForm';
 
 export interface JobDetailProps {
@@ -117,8 +118,8 @@ export const JobDetailView = ({
           {/* Botones */}
           <div className="flex flex-col gap-6">
             <JoinTeamModalForm />
-            <Button variant="outline" className="h-16 w-full text-xl font-bold">
-              Buscar más ofertas
+            <Button variant="outline" className="h-16 w-full text-xl font-bold" asChild>
+              <Link href="/trabajos">Buscar más ofertas</Link>
             </Button>
           </div>
         </aside>

@@ -12,7 +12,7 @@ const ContactView = () => {
       items: [
         { text: 'Deseo soporte para comprar en la página web' },
         { text: 'Quiero conocer el status de mi pedido online' },
-        { text: 'Dudas sobre métodos de pago o facturación.' },
+        { text: 'Dudas sobre métodos de pago o facturación' },
       ],
       link: '/contacto/centro-de-ayuda',
     },

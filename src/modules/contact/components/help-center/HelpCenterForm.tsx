@@ -211,15 +211,14 @@ export function HelpCenterForm() {
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="soporte-compra">
-                        Desea soporte para comprar en la web
+                        Deseo soporte para comprar en la página web
                       </SelectItem>
                       <SelectItem value="estado-pedido">
-                        Quiero conocer el estado de mi pedido
+                        Quiero conocer el status de mi pedido online
                       </SelectItem>
                       <SelectItem value="problema-pedido">
-                        Tuve un problema con mi pedido
+                        Dudas sobre métodos de pago o facturación
                       </SelectItem>
-                      <SelectItem value="otro">Otro</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -263,13 +262,14 @@ export function HelpCenterForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-darysa-gris-700 font-semibold">
-                    Número de RUC / DNI <span className="text-destructive">*</span>
+                    DNI / CE o RUC
+                    <span className="text-destructive">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="RUC / DNI"
+                      placeholder="DNI / CE o RUC"
                       className="h-10"
                     />
                   </FormControl>

@@ -107,11 +107,45 @@ const BlogDetailView = () => {
 
           <div className="flex items-center justify-between gap-6">
             <div className="flex items-center gap-4.5">
-              <FacebookIcon size={30} className="text-darysa-gris-800" />
-              <LinkedInIcon size={28} className="text-darysa-gris-800" />
-              <InstagramIcon size={30} className="text-darysa-gris-800" />
-              <TikTokIcon size={30} className="text-darysa-gris-800" />
-              <YouTubeIcon size={30} className="text-darysa-gris-800" />
+              <a
+                href="https://www.facebook.com/DaryzaPeru/?locale=es_LA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon size={30} className="text-darysa-gris-800" />
+              </a>
+
+              <a
+                href="https://pe.linkedin.com/company/daryza-s-a-"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon size={28} className="text-darysa-gris-800" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/daryza_peru/?hl=es"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon size={30} className="text-darysa-gris-800" />
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@daryza_peru"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TikTokIcon size={30} className="text-darysa-gris-800" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/channel/UC7c3g8q4QvOTrlUIwnAn3jQ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YouTubeIcon size={30} className="text-darysa-gris-800" />
+              </a>
             </div>
             <span className="text-darysa-green-500 flex items-center gap-2 underline underline-offset-4">
               Compartir Nota

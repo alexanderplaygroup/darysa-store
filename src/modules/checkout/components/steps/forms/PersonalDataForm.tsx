@@ -125,13 +125,12 @@ export function PersonalDataForm({ onSubmit, defaultValues }: Props) {
                 <FormLabel className="text-darysa-gris-950">Documento de Identidad</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className="border-darysa-green-500 placeholder:text-darysa-gris-250 text-darysa-gris-950 !h-10 w-full">
+                    <SelectTrigger className="border-darysa-green-500 placeholder:text-darysa-gris-250 text-darysa-gris-950 h-10! w-full">
                       <SelectValue placeholder="Escoger Aquí" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="dni">DNI</SelectItem>
-                      <SelectItem value="passport">Pasaporte</SelectItem>
-                      <SelectItem value="other">Otro</SelectItem>
+                      <SelectItem value="carnet_extranjeria">Carnet de Extranjería</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
