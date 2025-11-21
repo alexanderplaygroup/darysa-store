@@ -36,6 +36,7 @@ const DistributorsView = () => {
             zoom={6}
             scrollWheelZoom
             zoomControl={false}
+            preferCanvas
             className="size-full"
           >
             <TileLayer
