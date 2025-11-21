@@ -14,11 +14,12 @@ import {
 
 export default function Footermobile() {
   const paymentMethods = [
-    { src: '/pays/Method=ApplePay.png', alt: 'Apple Pay' },
-    { src: '/pays/Method=Visa.png', alt: 'Visa' },
-    { src: '/pays/Method=Discover.png', alt: 'Discover' },
-    { src: '/pays/Method=Mastercard.png', alt: 'Mastercard' },
-    { src: '/pays/Cart.png', alt: 'Cart' },
+    { src: '/pays/nuevos/amex.png', alt: 'Apple Pay' },
+    { src: '/pays/nuevos/diners.png', alt: 'Visa' },
+    { src: '/pays/nuevos/mastercard.png', alt: 'Discover' },
+    { src: '/pays/nuevos/plin.png', alt: 'Mastercard' },
+    { src: '/pays/nuevos/visa.png', alt: 'Cart' },
+    { src: '/pays/nuevos/yape.png', alt: 'Cart' },
   ];
   return (
     <footer className="bg-darysa-gris-800 block pt-7 md:hidden">
@@ -153,10 +154,19 @@ export default function Footermobile() {
 
       <div className="flex flex-col items-center justify-center gap-2.5">
         <p className="text-darysa-gris-750 text-sm">Métodos de Pago Seguro</p>
-        <div className="mb-7 flex items-center justify-center gap-2">
+        <div className="mb-7 flex items-center justify-center gap-3.5">
           {paymentMethods.map((pay, idx) => (
-            <div key={idx} className="relative flex h-8 w-[50px] items-center justify-center">
-              <AppImage src={pay.src} alt={pay.alt} fill className="object-contain" />
+            <div
+              key={idx}
+              className="relative flex items-center justify-center overflow-hidden rounded-sm bg-amber-600"
+            >
+              <AppImage
+                src={pay.src}
+                alt={pay.alt}
+                height={30}
+                width={40}
+                className="object-contain"
+              />
             </div>
           ))}
         </div>
