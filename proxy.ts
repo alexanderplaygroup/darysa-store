@@ -2,7 +2,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-export async function middleware(req: NextRequest) {
+export default async function proxy(req: NextRequest) {
   const jwt = req.cookies.get('jwt')?.value;
 
   // Rutas públicas que no necesitan autenticación
