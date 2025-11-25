@@ -1,5 +1,4 @@
 /* eslint-disable prefer-const */
-import { auth } from '@auth';
 import { NextRequest } from 'next/server';
 
 //TODO: PENDIENTE A USAR
@@ -17,10 +16,9 @@ function stripContentEncoding(result: Response) {
 
 async function handler(request: NextRequest) {
   console.log('🔥 Entró al handler'); // <= VER ESTO EN TERMINAL
-  const session = await auth();
-  console.log('🧠 Session:', session);
+
   const headers = new Headers(request.headers);
-  headers.set('Authorization', `Bearer ${session?.user.accessToken}`);
+  // headers.set('Authorization', `Bearer ${session?.user.accessToken}`);
 
   let backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'https://third-party-backend.authjs.dev';
 
