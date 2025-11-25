@@ -2,7 +2,6 @@
 import { UserAvatar } from '@/common/components/custom-ui/UserAvatar';
 import { Heart, LogOut, ShoppingCart, TicketPercent, Truck, User } from 'lucide-react';
 // import { usePathname } from 'next/navigation';
-import { signOut } from 'next-auth/react';
 import { ActiveLink } from './ActiveLink';
 
 export const SidebarDashboard = () => {
@@ -39,7 +38,6 @@ export const SidebarDashboard = () => {
   ];
 
   const handleLogout = async () => {
-    await signOut({ redirect: false });
     window.location.href = '/';
   };
 
