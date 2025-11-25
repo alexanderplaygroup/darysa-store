@@ -38,7 +38,7 @@ export const Header = () => {
               href="/"
               className="flex max-w-[130px] items-center outline-none sm:max-w-[150px]"
             >
-              <AppImage src="/logo-light.svg" alt="Darysa" width={150} height={30} priority />
+              <AppImage src="/logo-light.svg" alt="Darysa" width={150} height={30} />
             </Link>
           </div>
 
