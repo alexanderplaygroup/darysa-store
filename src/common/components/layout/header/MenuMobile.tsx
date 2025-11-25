@@ -1,19 +1,16 @@
 'use client';
 
 import { Button } from '@/common/components/shadcn-ui/button';
-import { useUserSession } from '@/common/hooks/useUserSession';
 import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@shadcnui/sheet';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { UserMenuMobile } from './UserMenuMobile';
 
 export default function MenuMobile() {
   const { open, openUI, closeUI } = useUIStore();
   const isOpen = open.mobileMenu;
-  const { user, isLoading, isAuthenticated } = useUserSession();
 
   const [activeMenu, setActiveMenu] = useState<'main' | string>('main');
 
@@ -38,7 +35,8 @@ export default function MenuMobile() {
         {/* Header */}
         <SheetHeader className="bg-darysa-gris-1000 flex h-16 flex-row items-center justify-between border-b border-white/10 px-8 drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)]">
           <SheetTitle>
-            <UserMenuMobile isLoading={isLoading} isAuthenticated={isAuthenticated} user={user} />
+            asdasdsad{' '}
+            {/* <UserMenuMobile isLoading={isLoading} isAuthenticated={isAuthenticated} user={user} /> */}
           </SheetTitle>
           <Button
             variant="ghost"

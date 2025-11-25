@@ -4,10 +4,11 @@ import { ClientWrapper } from '@/common/components/layout/ClientWrapper';
 import { Footer } from '@/common/components/layout/footer/Footer';
 import Footermobile from '@/common/components/layout/footer/Footermobile';
 import { Header } from '@/common/components/layout/header/Header';
+import AuthInitializer from '@/common/hooks/useAuthInitializer';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
-import { auth } from '@auth';
+import { AUTH_COOKIE_NAME } from '@/config/env.config';
 import '@common/styles/globals.css';
-import { SessionProvider } from 'next-auth/react';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,21 +20,22 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  const cookieStore = await cookies();
 
+  const hasAuthCookie = cookieStore.has(AUTH_COOKIE_NAME);
   return (
-    <SessionProvider session={session}>
-      <html lang="es" suppressHydrationWarning>
-        <body
-          className={`${boston.className} ${geistSans.variable} ${barlow.variable} ${inter.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
-        >
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Footermobile />
-          <ClientWrapper />
-        </body>
-      </html>
-    </SessionProvider>
+    <html lang="es" suppressHydrationWarning>
+      <body
+        className={`${boston.className} ${geistSans.variable} ${barlow.variable} ${inter.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+      >
+        <Header />
+        <AuthInitializer shouldFetch={hasAuthCookie} />
+
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <Footermobile />
+        <ClientWrapper />
+      </body>
+    </html>
   );
 }

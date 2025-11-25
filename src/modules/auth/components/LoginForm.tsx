@@ -20,9 +20,9 @@ import {
   FormMessage,
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
-import { useSession } from 'next-auth/react';
+import { useAuthStore } from '@/common/store/auth/useAuthStore';
 import { useRouter } from 'next/navigation';
-import { Login } from '../actions/login';
+import { loginUser } from '../auth.service';
 
 // Esquema de validación con Zod
 export const loginSchema = z.object({
@@ -34,7 +34,7 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isPending, startTransition] = useTransition(); // hook de transición
   const router = useRouter();
-  const { update } = useSession();
+  const { setUser } = useAuthStore(); // destructuras directamente
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -50,25 +50,30 @@ export function LoginForm() {
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
     startTransition(async () => {
-      const result = await Login(values);
+      const result = await loginUser(values);
 
-      if (result.error) {
-        // console.error('Error en login:', result.error);
+      if (!result.success) {
+        // Muestra error
         showCustomToast({
           variant: 'error',
           title: 'Error al iniciar sesión',
-          message: result.error || 'Ocurrió un problema al iniciar sesión.',
+          message: result.message,
         });
-      } else {
-        showCustomToast({
-          variant: 'login',
-          title: '¡Bienvenido! ',
-          message: result.success,
-        });
-        await update(); // 🔹 actualiza la sesión en cliente
-        router.push('/');
-        router.refresh();
+        return;
       }
+      console.log('asdasdasd', result.data);
+      setUser(result.data!);
+
+      // Login exitoso
+      showCustomToast({
+        variant: 'success',
+        title: result.message,
+        message: 'Has iniciado sesión correctamente.',
+      });
+
+      // Redirección o actualización
+      router.push('/');
+      router.refresh();
     });
   };
 

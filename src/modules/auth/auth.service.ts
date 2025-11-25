@@ -1,26 +1,43 @@
 // services/auth.service.ts
-
-import { handleApiError, handleApiSuccess } from '@/common/helpers/handleApiResult';
-import { User } from '@/common/interfaces';
+import { ApiResult } from '@/common/helpers/handleApiResult';
+import { ApiError, User } from '@/common/interfaces';
 import { api } from '@/lib/api';
 import { LoginPayload, RegisterUserPayload } from './interfaces';
 
-export async function registerUser(data: RegisterUserPayload) {
+export async function registerUser(data: RegisterUserPayload): Promise<ApiResult<User>> {
   try {
-    const response = await api.post('v1/auth/register', data);
-    return handleApiSuccess(response);
+    const response = await api.post<{ user: User }>('v1/auth/register', data);
+    return {
+      success: response.success,
+      message: response.message,
+      data: response.data?.user,
+    };
   } catch (err) {
-    return handleApiError(err);
+    const error = err as ApiError;
+    return {
+      success: false,
+      message: error.message,
+      errors: error.errors,
+    };
   }
 }
 
-export async function loginUser(data: LoginPayload) {
+export async function loginUser(data: LoginPayload): Promise<ApiResult<User>> {
   try {
-    const user = await api.post<User>('v1/auth/login', data, {
+    const response = await api.post<{ user: User }>('v1/auth/login', data, {
       credentials: 'include',
     });
-    return handleApiSuccess(user);
+    return {
+      success: response.success,
+      message: response.message,
+      data: response.data?.user,
+    };
   } catch (err) {
-    return handleApiError(err);
+    const error = err as ApiError;
+    return {
+      success: false,
+      message: error.message,
+      errors: error.errors,
+    };
   }
 }

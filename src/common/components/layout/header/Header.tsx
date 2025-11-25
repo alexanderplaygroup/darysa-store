@@ -1,11 +1,9 @@
 'use client';
 import { useCloseOnScroll } from '@/common/hooks/useCloseOnScroll';
-import { useUserSession } from '@/common/hooks/useUserSession';
 import { useUIStore } from '@/common/store/useUIStore';
 import { cn } from '@/lib/utils';
 import { Heart, MapPin, Menu, Search, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { AppImage } from '../../custom-ui/AppImage';
 import { Container } from '../../custom-ui/Container';
 import { SearchCustomIcon } from '../../icons/SearchIcon';
@@ -15,12 +13,6 @@ import { MegaMenu } from './MegaMenu';
 import { UserMenu } from './UserMenu';
 
 export const Header = () => {
-  const { user, isLoading, isAuthenticated } = useUserSession();
-
-  useEffect(() => {
-    console.log('Usuario cambió:', user);
-  }, [user]);
-
   // const isScrolled = useScrolled(0); // 👈 mucho más limpio
 
   // 👇 Cerrar mega menú al hacer scroll
@@ -82,7 +74,7 @@ export const Header = () => {
               <ShoppingCart className="size-6" />
             </button>
             <div className="hidden lg:block">
-              <UserMenu isLoading={isLoading} isAuthenticated={isAuthenticated} user={user} />
+              <UserMenu />
             </div>
           </div>
         </div>

@@ -11,21 +11,12 @@ interface RequestOptions<Body = undefined> {
   credentials?: RequestCredentials;
   signal?: AbortSignal;
   retry?: number;
-  noJson?: boolean;
-  auth?: boolean;
 }
 
-function getAuthHeaders(): Record<string, string> {
-  if (typeof window === 'undefined') return {}; // SSR safe
-
-  const token = localStorage.getItem('token');
-  return token ? { Authorization: `Bearer ${token}` } : {};
-}
-
-async function apiRequest<Response, Body = undefined>(
+async function apiRequest<T = any, Body = undefined>(
   endpoint: string,
   options: RequestOptions<Body> = {}
-): Promise<Response> {
+): Promise<ApiResponse<T>> {
   const {
     method = 'GET',
     body,
@@ -33,11 +24,8 @@ async function apiRequest<Response, Body = undefined>(
     credentials = 'same-origin',
     signal,
     retry = 0,
-    noJson = false,
-    auth = false,
   } = options;
 
-  // ✔ si el body es FormData NO se agrega JSON.stringify
   const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
 
   const init: RequestInit = {
@@ -46,7 +34,6 @@ async function apiRequest<Response, Body = undefined>(
     signal,
     headers: {
       Accept: 'application/json',
-      ...(auth ? getAuthHeaders() : {}),
       ...headers,
       ...(isFormData ? {} : body ? { 'Content-Type': 'application/json' } : {}),
     },
@@ -56,11 +43,7 @@ async function apiRequest<Response, Body = undefined>(
   try {
     const response = await fetch(`${API_URL}/${endpoint}`, init);
 
-    if (noJson) {
-      return response as unknown as Response;
-    }
-
-    const json = (await response.json()) as ApiResponse<Response>;
+    const json = (await response.json()) as ApiResponse<T>;
 
     if (!response.ok) {
       throw <ApiError>{
@@ -70,18 +53,11 @@ async function apiRequest<Response, Body = undefined>(
       };
     }
 
-    if (!json?.data) {
-      throw <ApiError>{
-        message: 'Respuesta vacía del servidor',
-        status: response.status,
-        errors: null,
-      };
-    }
-
-    return json.data;
+    // Retornamos siempre el objeto completo del backend
+    return json;
   } catch (error) {
     if (retry > 0) {
-      return apiRequest<Response, Body>(endpoint, { ...options, retry: retry - 1 });
+      return apiRequest<T, Body>(endpoint, { ...options, retry: retry - 1 });
     }
 
     if (process.env.NODE_ENV === 'development') {

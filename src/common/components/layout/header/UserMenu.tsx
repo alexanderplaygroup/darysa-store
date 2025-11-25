@@ -2,25 +2,12 @@
 
 import { UserAvatar } from '@/common/components/custom-ui/UserAvatar';
 import { Skeleton } from '@/common/components/shadcn-ui/skeleton';
-import { User } from 'lucide-react';
+import { useAuthStore } from '@/common/store/auth/useAuthStore';
+import { User as UserIcon } from 'lucide-react';
 import Link from 'next/link';
 
-type UserType = {
-  id?: string | number;
-  name?: string | null;
-  email?: string | null;
-  accessToken?: string;
-  tokenType?: string;
-  expiresIn?: number;
-};
-
-type UserMenuProps = {
-  isLoading: boolean;
-  isAuthenticated: boolean;
-  user: UserType | null;
-};
-
-export const UserMenu = ({ isLoading, isAuthenticated, user }: UserMenuProps) => {
+export const UserMenu = () => {
+  const { user, isAuthenticated, isLoading } = useAuthStore();
   if (isLoading) {
     return <Skeleton className="size-10 rounded-full" />;
   }
@@ -28,7 +15,7 @@ export const UserMenu = ({ isLoading, isAuthenticated, user }: UserMenuProps) =>
   if (isAuthenticated && user) {
     return (
       <Link href="/pedidos" aria-label="Ir a pedidos">
-        <UserAvatar name={user.name ?? 'Usuario'} size="md" />
+        <UserAvatar name={user.full_name ?? 'Usuario'} size="md" />
       </Link>
     );
   }
@@ -39,7 +26,7 @@ export const UserMenu = ({ isLoading, isAuthenticated, user }: UserMenuProps) =>
       aria-label="Ir a login"
       className="flex h-10 w-10 items-center justify-center"
     >
-      <User className="h-6 w-6" />
+      <UserIcon className="h-6 w-6" />
     </Link>
   );
 };

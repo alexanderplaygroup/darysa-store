@@ -19,6 +19,7 @@ import {
   FormMessage,
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
+import { getErrorMessage } from '@/common/helpers/apiMessages';
 import { useRouter } from 'next/navigation';
 import { registerUser } from '../auth.service';
 
@@ -65,26 +66,23 @@ export function RegisterForm() {
 
       const result = await registerUser(payload);
 
-      if (result.ok) {
-        showCustomToast({
-          variant: 'success',
-          title: '¡Usuario registrado correctamente!',
-        });
-        form.reset();
-        router.push('/login');
-      } else {
-        let errorMessages = 'Hubo un error desconocido';
-
-        if (result.errors) {
-          errorMessages = Object.values(result.errors).flat().join(' | ');
-        }
-
+      if (!result.success) {
         showCustomToast({
           variant: 'error',
           title: result.message || 'Errores de validación',
-          message: errorMessages,
+          message: getErrorMessage(result),
         });
+        return; // sale si hay error
       }
+
+      // Registro exitoso
+      showCustomToast({
+        variant: 'success',
+        title: result.message,
+      });
+
+      form.reset();
+      router.push('/login');
     });
   };
 
