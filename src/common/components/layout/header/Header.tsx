@@ -29,7 +29,7 @@ export const Header = () => {
   const { openUI } = useUIStore();
 
   return (
-    <header className="headerCustomize sticky top-0 z-50 w-full bg-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)] transition-shadow duration-300">
+    <header className="sticky top-0 z-50 w-full bg-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.15)] transition-shadow duration-300">
       <Container className="mb-0 space-y-0.5 px-0! pt-1.5 lg:py-1.5">
         <div className="flex w-full items-center justify-between px-2.5 py-0 lg:px-4 2xl:px-0">
           <div className="flex items-center gap-4.5 sm:gap-6">

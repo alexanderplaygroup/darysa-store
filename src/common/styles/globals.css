@@ -152,8 +152,51 @@
   }
 }
 
-.headerCustomize {
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 50;
+/* Custom Scrollbar Styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.35 0 0) transparent;
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0 0);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.45 0 0);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: oklch(0.55 0 0);
+  background-clip: padding-box;
+}
+
+/* Horizontal scrollbar for code blocks */
+.shiki::-webkit-scrollbar {
+  height: 6px;
+}
+
+.shiki::-webkit-scrollbar-thumb {
+  background: oklch(0.4 0 0);
+  border-radius: 6px;
+}
+
+.shiki::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.5 0 0);
 }

@@ -10,7 +10,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   // basePath: "/auth",
   session: { strategy: 'jwt' },
   pages: {
-    signIn: '/login',
+    signIn: '/',
     signOut: '/login',
     error: '/error',
   },
@@ -25,18 +25,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ token: account.id_token }),
         }).then((res) => res.json());
-
-        token.accessToken = backendToken.data.accessToken; // el JWT que responde tu backend
-        token.tokenType = backendToken.data.tokenType;
-        token.expiresIn = backendToken.data.expiresIn;
       }
 
       // ✅ Login por credentials
       if (account?.provider === 'credentials' && user) {
-        token.accessToken = user.accessToken;
-        token.tokenType = user.tokenType;
-        token.expiresIn = user.expiresIn;
         token.email = user.email;
+        token.name = user.name;
       }
 
       return token;
@@ -44,9 +38,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session, token }: { session: DefaultSession; token: JWT }) {
       session.user = {
         ...session.user,
-        accessToken: token.accessToken,
-        tokenType: token.tokenType,
-        expiresIn: token.expiresIn,
+        name: token.name,
         email: token.email ?? session.user?.email ?? '',
       };
       return session;
@@ -55,6 +47,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return `${baseUrl}`;
     },
   },
+  // cookies: {
+  //   // Puedes personalizar cookie si quieres
+  //   sessionToken: {
+  //     name: 'next-auth.session-token',
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: 'lax',
+  //       path: '/',
+  //       secure: process.env.NODE_ENV === 'production',
+  //     },
+  //   },
+  // },
   secret: process.env.AUTH_SECRET,
   trustHost: true,
 

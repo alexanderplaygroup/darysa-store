@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { AlertTriangle, Check, Heart, Info, ShoppingBag, Truck } from 'lucide-react';
+import { AlertTriangle, Check, Heart, Info, ShoppingBag, Truck, X } from 'lucide-react';
 
 /**
  * Configuración de variantes con cva (Class Variance Authority)
@@ -93,7 +93,7 @@ export function CustomToast({ title, message, variant, onClose }: CustomToastPro
           aria-label="Cerrar"
           className="border-darysa-gris-300 text-darysa-gris-450 absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full border bg-gray-50"
         >
-          ×
+          <X size={14} />
         </button>
       )}
     </div>

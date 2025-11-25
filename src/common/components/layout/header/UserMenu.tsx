@@ -6,8 +6,9 @@ import { User } from 'lucide-react';
 import Link from 'next/link';
 
 type UserType = {
-  name?: string;
-  email?: string;
+  id?: string | number;
+  name?: string | null;
+  email?: string | null;
   accessToken?: string;
   tokenType?: string;
   expiresIn?: number;

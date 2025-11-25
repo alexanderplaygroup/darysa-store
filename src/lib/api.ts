@@ -16,6 +16,8 @@ interface RequestOptions<Body = undefined> {
 }
 
 function getAuthHeaders(): Record<string, string> {
+  if (typeof window === 'undefined') return {}; // SSR safe
+
   const token = localStorage.getItem('token');
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
@@ -32,7 +34,7 @@ async function apiRequest<Response, Body = undefined>(
     signal,
     retry = 0,
     noJson = false,
-    auth = true,
+    auth = false,
   } = options;
 
   // ✔ si el body es FormData NO se agrega JSON.stringify

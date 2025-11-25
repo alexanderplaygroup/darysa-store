@@ -16,7 +16,9 @@ export async function registerUser(data: RegisterUserPayload) {
 
 export async function loginUser(data: LoginPayload) {
   try {
-    const user = await api.post<User>('v1/auth/login', data);
+    const user = await api.post<User>('v1/auth/login', data, {
+      credentials: 'include',
+    });
     return handleApiSuccess(user);
   } catch (err) {
     return handleApiError(err);
