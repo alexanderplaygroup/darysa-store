@@ -21,7 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
-
+  // console.log(AUTH_COOKIE_NAME);
   const hasAuthCookie = cookieStore.has(AUTH_COOKIE_NAME);
   return (
     <html lang="es" suppressHydrationWarning>

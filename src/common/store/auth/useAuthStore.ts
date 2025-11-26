@@ -1,6 +1,7 @@
 // store/auth/useAuthStore.ts
 import { User } from '@/common/interfaces';
 import { api } from '@/lib/api';
+import { getMe } from '@/modules/auth/auth.service';
 import { create } from 'zustand';
 
 interface AuthState {
@@ -28,7 +29,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ isLoading: true });
 
     try {
-      const res = await api.get<User>('v1/auth/me', { credentials: 'include' });
+      const res = await getMe();
 
       set({
         user: res.data ?? null,
