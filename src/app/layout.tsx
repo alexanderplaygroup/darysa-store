@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import WindowSizeIndicator from '@/common/components/custom-ui/mock/WindowSizeIndicator';
 import { ClientWrapper } from '@/common/components/layout/ClientWrapper';
 import { Footer } from '@/common/components/layout/footer/Footer';
 import Footermobile from '@/common/components/layout/footer/Footermobile';
@@ -35,6 +36,8 @@ export default async function RootLayout({
         <Footer />
         <Footermobile />
         <ClientWrapper />
+
+        <WindowSizeIndicator />
       </body>
     </html>
   );
