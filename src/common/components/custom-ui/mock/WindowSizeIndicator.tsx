@@ -28,7 +28,7 @@ const WindowSizeIndicator: React.FC = () => {
   if (width === 0) return null;
 
   return (
-    <div className="bg-opacity-70 fixed bottom-2 left-1/2 z-9999 -translate-x-1/2 rounded-md bg-black p-2 font-mono text-sm text-white shadow-lg select-none">
+    <div className="fixed bottom-2 left-1/2 z-9999 -translate-x-1/2 rounded-md bg-black p-2 font-mono text-sm text-white shadow-lg select-none">
       W: {width} px | H: {height} px
     </div>
   );

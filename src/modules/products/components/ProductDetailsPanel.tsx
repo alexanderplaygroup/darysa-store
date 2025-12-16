@@ -43,7 +43,7 @@ export default function ProductDetailsPanel() {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex-1">
       {/* Nombre del producto */}
       <Heading
         as="h1"

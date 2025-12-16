@@ -16,10 +16,10 @@ type ProductImageCarouselProps = {
 
 export function ProductImageCarousel({ images }: ProductImageCarouselProps) {
   return (
-    <Carousel opts={{ loop: true }} className="w-full space-y-2.5 sm:space-y-6">
-      <div className="relative">
+    <Carousel opts={{ loop: true }} className="flex flex-row-reverse gap-2.5 sm:gap-6">
+      <div className="relative flex-1">
         {/* Slides principales */}
-        <CarouselContent className="-ml-6">
+        <CarouselContent className="-ml-6 size-108">
           {images.map((src, i) => (
             <CarouselItem key={i} className="pl-6">
               <div className="border-darysa-gris-800/20 relative aspect-square w-full overflow-hidden rounded-xl border">
@@ -41,6 +41,7 @@ export function ProductImageCarousel({ images }: ProductImageCarouselProps) {
           containScroll: 'keepSnaps',
           dragFree: true,
         }}
+        orientation="vertical"
       />
     </Carousel>
   );

@@ -30,7 +30,7 @@ export default function DetailProductView() {
       <Container className="mt-8 mb-7">
         <AppBreadcrumb items={breadcrumbItems} />
       </Container>
-      <Container className="grid grid-cols-1 items-start gap-8 md:gap-16 lg:mb-16 lg:grid-cols-2">
+      <Container className="flex flex-col items-start gap-8 md:flex-row lg:mb-16">
         <ProductImageCarousel images={images} />
         <ProductDetailsPanel />
       </Container>

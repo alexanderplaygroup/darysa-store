@@ -291,14 +291,17 @@ function CarouselThumbnails({
   images,
   className,
   opts,
+  orientation = 'horizontal',
   ...props
 }: React.ComponentProps<'div'> & {
   images: string[];
+  orientation?: 'horizontal' | 'vertical';
   opts?: CarouselOptions;
 }) {
   const { api: mainApi, selectedIndex } = useCarousel();
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
     ...opts,
+    axis: orientation === 'horizontal' ? 'x' : 'y',
   });
 
   React.useEffect(() => {
@@ -319,11 +322,20 @@ function CarouselThumbnails({
   return (
     <div
       ref={thumbsRef}
-      className={cn('overflow-hidden px-[0.5px]', className)}
+      className={cn(
+        'overflow-hidden',
+        orientation === 'horizontal' ? 'px-[0.5px]' : 'h-102 w-21.5',
+        className
+      )}
       data-slot="carousel-thumbnails"
       {...props}
     >
-      <div className="-ml-2.5 flex sm:-ml-6">
+      <div
+        className={cn(
+          '-ml-2.5 flex',
+          orientation === 'horizontal' ? 'flex-row' : '-mt-3.5 flex-col'
+        )}
+      >
         {images.map((src, index) => {
           const isActive = selectedIndex === index;
 
@@ -333,7 +345,10 @@ function CarouselThumbnails({
               aria-roledescription="slide"
               data-slot="carousel-item"
               key={index}
-              className="min-w-0 shrink-0 grow-0 basis-1/4 pl-2.5 sm:pl-6"
+              className={cn(
+                'min-w-0 shrink-0 grow-0 pl-2.5',
+                orientation === 'horizontal' ? 'basis-1/4' : 'basis-full pt-3.5'
+              )}
             >
               <button
                 aria-label={`Ir al slide ${index + 1}`}
