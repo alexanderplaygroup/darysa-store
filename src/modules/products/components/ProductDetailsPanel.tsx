@@ -48,18 +48,18 @@ export default function ProductDetailsPanel() {
       <Heading
         as="h1"
         variant="subheading"
-        className="text-darysa-gris-800 mb-2.5 font-bold text-balance lg:mb-4"
+        className="text-darysa-gris-800 mb-0 font-semibold text-balance lg:text-2xl"
       >
         Jabón Líquido de Manos Caricías Frutales Daryza x 3.8 L
       </Heading>
 
       {/* SKU */}
-      <Text variant="small" className="text-darysa-green-500 mb-6 font-medium lg:mb-10">
+      <Text variant="small" className="text-darysa-green-500 mb-4 font-medium">
         SKU: 0000000
       </Text>
 
       {/* Precios */}
-      <div className="mb-8 flex items-center gap-6 lg:mb-13">
+      <div className="mb-4 flex items-center gap-6">
         <span className="text-4xl font-bold text-green-600">{parseSoles(discountedPrice)}</span>
         {discountLabel && (
           <span className="inline-block rounded-full bg-yellow-400 px-3.5 py-1 text-base font-semibold text-white">
@@ -74,8 +74,8 @@ export default function ProductDetailsPanel() {
       </div>
 
       {/* Selector de colores */}
-      <div className="mb-8">
-        <p className="text-darysa-gris-800 mb-4 text-xl font-medium lg:mb-6">Colores</p>
+      <div className="mb-6">
+        <p className="text-darysa-gris-800 mb-2 text-xl font-medium">Colores</p>
         <div className="flex gap-10">
           {colors.map((color) => (
             <button
@@ -94,39 +94,39 @@ export default function ProductDetailsPanel() {
       </div>
 
       {/* Selector de cantidad */}
-      <div className="mb-8">
-        <p className="text-darysa-gris-800 mb-4 text-xl font-medium lg:mb-6">Cantidad</p>
+      <div className="mb-6">
+        <p className="text-darysa-gris-800 mb-2 text-xl font-medium">Cantidad</p>
         {/* Controles de cantidad */}
         <div className="flex max-w-[360px] items-center justify-between">
           <div className="flex items-center gap-4">
             <Button
               variant="default"
               size="icon"
-              className="bg-darysa-green-500 hover:bg-darysa-green-500 size-10 rounded lg:size-14"
+              className="bg-darysa-green-500 hover:bg-darysa-green-500 size-10 rounded lg:size-10.5"
             >
               <MinusIcon strokeWidth={4} />
             </Button>
 
-            <span className="border-darysa-green-500 text-darysa-green-500 flex size-10 items-center justify-center rounded border px-10 text-center text-sm font-bold lg:size-14 lg:text-lg">
+            <span className="border-darysa-green-500 text-darysa-green-500 flex size-10 items-center justify-center rounded border px-10 text-center text-sm font-bold lg:size-10.5 lg:text-lg">
               1
             </span>
 
             <Button
               variant="default"
               size="icon"
-              className="hover:bg-darysa-green-500 bg-darysa-green-500 mr-6 size-10 rounded lg:size-14"
+              className="hover:bg-darysa-green-500 bg-darysa-green-500 mr-6 size-10 rounded lg:size-10.5"
             >
               <PlusIcon strokeWidth={4} />
             </Button>
           </div>
-          <span className="text-darysa-green-500 border-darysa-green-500 flex size-10 items-center justify-center rounded-full border lg:size-14">
+          <span className="text-darysa-green-500 border-darysa-green-500 flex size-10 items-center justify-center rounded-full border lg:size-10.5">
             <Heart />
           </span>
         </div>
       </div>
 
       {/* Botones de acción */}
-      <div className="mb-8 max-w-[360px] space-y-4 lg:space-y-7">
+      <div className="mb-6 flex w-full max-w-[360px] flex-col gap-4 lg:max-w-full lg:flex-row lg:gap-7">
         <button
           onClick={handleAddToCart}
           className="border-darysa-green-500 text-darysa-green-500 flex h-12 w-full items-center justify-center gap-4 rounded-lg border bg-white py-3 leading-none font-bold transition-colors hover:bg-green-50"
