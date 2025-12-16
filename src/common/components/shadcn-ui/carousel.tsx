@@ -134,7 +134,11 @@ function Carousel({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cn('relative', className)}
+        className={cn(
+          'relative',
+          orientation === 'horizontal' ? 'flex-row-reverse' : 'flex-col',
+          className
+        )}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
@@ -290,18 +294,15 @@ function CarouselDots({
 function CarouselThumbnails({
   images,
   className,
-  opts,
-  orientation = 'horizontal',
   ...props
-}: React.ComponentProps<'div'> & {
-  images: string[];
-  orientation?: 'horizontal' | 'vertical';
-  opts?: CarouselOptions;
-}) {
-  const { api: mainApi, selectedIndex } = useCarousel();
+}: React.ComponentProps<'div'> & { images: string[] }) {
+  const { selectedIndex, api: parentApi, orientation } = useCarousel();
+
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
-    ...opts,
-    axis: orientation === 'horizontal' ? 'x' : 'y',
+    loop: true,
+    align: 'start',
+    slidesToScroll: 1,
+    axis: orientation !== 'horizontal' ? 'x' : 'y',
   });
 
   React.useEffect(() => {
@@ -309,63 +310,50 @@ function CarouselThumbnails({
     thumbsApi.scrollTo(selectedIndex);
   }, [selectedIndex, thumbsApi]);
 
-  const scrollTo = React.useCallback(
-    (index: number) => {
-      mainApi?.scrollTo(index);
-    },
-    [mainApi]
-  );
-  if (!mainApi || !images?.length) return null;
-
-  // const scrollTo = (index: number) => mainApi.scrollTo(index);
-
   return (
     <div
-      ref={thumbsRef}
-      className={cn(
-        'overflow-hidden',
-        orientation === 'horizontal' ? 'px-[0.5px]' : 'h-102 w-21.5',
-        className
-      )}
-      data-slot="carousel-thumbnails"
+      className={cn('relative', className)}
+      role="region"
+      aria-roledescription="carousel"
+      data-slot="carousel"
       {...props}
     >
-      <div
-        className={cn(
-          '-ml-2.5 flex',
-          orientation === 'horizontal' ? 'flex-row' : '-mt-3.5 flex-col'
-        )}
-      >
-        {images.map((src, index) => {
-          const isActive = selectedIndex === index;
-
-          return (
-            <div
-              role="group"
-              aria-roledescription="slide"
-              data-slot="carousel-item"
-              key={index}
-              className={cn(
-                'min-w-0 shrink-0 grow-0 pl-2.5',
-                orientation === 'horizontal' ? 'basis-1/4' : 'basis-full pt-3.5'
-              )}
-            >
-              <button
-                aria-label={`Ir al slide ${index + 1}`}
-                aria-current={isActive}
-                onClick={() => scrollTo(index)}
+      <div ref={thumbsRef} className="overflow-hidden" data-slot="carousel-content">
+        <div
+          className={cn(
+            'flex',
+            orientation !== 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+            className
+          )}
+          {...props}
+        >
+          {images.map((src, i) => {
+            return (
+              <div
+                role="group"
+                aria-roledescription="slide"
+                data-slot="carousel-item"
                 className={cn(
-                  'size-full overflow-hidden rounded-xl border transition-all',
-                  isActive ? 'border-darysa-green-500' : 'border-darysa-gris-800/20'
+                  'aspect-square min-w-0 shrink-0 grow-0 basis-1/4',
+                  orientation !== 'horizontal' ? 'pl-4' : 'pt-4',
+
+                  className
                 )}
+                {...props}
               >
-                <div className="relative aspect-square size-full">
-                  <AppImage src={src} alt={`Thumbnail ${index + 1}`} fill sizes="147px" />
+                <div
+                  className={cn(
+                    'border-darysa-gris-800/20 relative aspect-square w-full cursor-pointer overflow-hidden rounded-xl border transition-all delay-150 duration-300 ease-in-out',
+                    i === selectedIndex ? 'border-darysa-green-500' : 'border-darysa-gris-800/20'
+                  )}
+                  onClick={() => parentApi?.scrollTo(i)}
+                >
+                  <AppImage src={src} alt={`Imagen ${i + 1} del producto`} fill sizes="625px" />
                 </div>
-              </button>
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
