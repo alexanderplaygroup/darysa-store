@@ -62,3 +62,25 @@ export async function getMe(): Promise<ApiResult<User>> {
     };
   }
 }
+
+export async function logoutUser(): Promise<ApiResult<null>> {
+  try {
+    const response = await api.post<null>('v1/auth/logout', null, {
+      credentials: 'include',
+    });
+
+    return {
+      success: response.success,
+      message: response.message,
+      data: null,
+    };
+  } catch (err) {
+    const error = err as ApiError;
+
+    return {
+      success: false,
+      message: error.message,
+      errors: error.errors,
+    };
+  }
+}

@@ -61,7 +61,6 @@ export function LoginForm() {
         });
         return;
       }
-      console.log('asdasdasd', result.data);
       setUser(result.data!);
 
       // Login exitoso
@@ -72,7 +71,7 @@ export function LoginForm() {
       });
 
       // Redirección o actualización
-      router.push('/');
+      router.replace('/');
       router.refresh();
     });
   };

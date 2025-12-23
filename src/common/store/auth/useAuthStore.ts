@@ -1,7 +1,7 @@
 // store/auth/useAuthStore.ts
+import { ApiResult } from '@/common/helpers/handleApiResult';
 import { User } from '@/common/interfaces';
-import { api } from '@/lib/api';
-import { getMe } from '@/modules/auth/auth.service';
+import { getMe, logoutUser } from '@/modules/auth/auth.service';
 import { create } from 'zustand';
 
 interface AuthState {
@@ -11,7 +11,7 @@ interface AuthState {
 
   setUser: (user: User | null) => void;
   fetchUser: () => Promise<void>;
-  logout: () => Promise<void>;
+  logout: () => Promise<ApiResult<null>>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -48,18 +48,17 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: async () => {
     set({ isLoading: true });
 
-    try {
-      // 🔥 Esto llama al backend para borrar la cookie
-      await api.post('v1/auth/logout', {}, { credentials: 'include' });
-    } catch (e) {
-      console.error('Error al hacer logout:', e);
-    }
+    const result = await logoutUser();
 
-    // 🔥 Limpiamos el estado local sin importar qué pase
     set({
       user: null,
       isAuthenticated: false,
       isLoading: false,
     });
+
+    return {
+      success: result.success,
+      message: result.message,
+    };
   },
 }));
