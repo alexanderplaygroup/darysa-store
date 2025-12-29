@@ -6,6 +6,7 @@ import { Footer } from '@/common/components/layout/footer/Footer';
 import Footermobile from '@/common/components/layout/footer/Footermobile';
 import { Header } from '@/common/components/layout/header/Header';
 import AuthInitializer from '@/common/hooks/useAuthInitializer';
+import { GoogleScriptLoader } from '@/common/scripts/GoogleScriptLoader';
 import { barlow, boston, geistMono, geistSans, inter } from '@/common/styles/fonts/config';
 import { AUTH_COOKIE_NAME } from '@/config/env.config';
 import '@common/styles/globals.css';
@@ -36,8 +37,10 @@ export default async function RootLayout({
         <Footer />
         <Footermobile />
         <ClientWrapper />
-
         <WindowSizeIndicator />
+
+        {/* Google Identity Services */}
+        <GoogleScriptLoader />
       </body>
     </html>
   );

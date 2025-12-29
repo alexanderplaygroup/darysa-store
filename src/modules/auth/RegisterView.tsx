@@ -20,10 +20,10 @@ export const RegisterView = () => {
             Registrarme{' '}
           </Heading>
         </div>
-        <div className="grid w-full grid-cols-1 items-stretch justify-between gap-16 lg:grid-cols-2 lg:gap-28">
+        <div className="grid w-full grid-cols-1 items-stretch justify-between gap-16 lg:grid-cols-2">
           <RegisterForm />
 
-          <div className="relative ml-auto aspect-square w-full">
+          <div className="relative ml-auto hidden aspect-square w-full lg:block">
             <AppImage
               src="/home/bannerHome.png"
               alt="Pantalla de inicio de sesión"

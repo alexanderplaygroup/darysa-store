@@ -15,7 +15,6 @@ import {
 
 import { Label } from '@/common/components/shadcn-ui/label';
 import { cn } from '@/lib/utils';
-import { AlertCircle } from 'lucide-react';
 
 const Form = FormProvider;
 
@@ -75,7 +74,7 @@ function FormItem({ className, ...props }: React.ComponentProps<'div'>) {
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div data-slot="form-item" className={cn('grid gap-2', className)} {...props} />
+      <div data-slot="form-item" className={cn('flex flex-col gap-2', className)} {...props} />
     </FormItemContext.Provider>
   );
 }
@@ -133,11 +132,9 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn('text-destructive flex items-center gap-1.5 text-sm', className)}
+      className={cn('text-destructive text-sm', className)}
       {...props}
     >
-      <AlertCircle className="size-3.5" />
-
       {body}
     </p>
   );

@@ -70,7 +70,7 @@ export function MegaMenu() {
         side="bottom"
         sideOffset={9}
         className={cn(
-          'w-screen rounded-t-none rounded-br-sm rounded-bl-sm border-none bg-white p-0 shadow-lg 2xl:max-w-[1366px]'
+          'w-screen rounded-t-none rounded-br-sm rounded-bl-sm border-none bg-white p-0 shadow-lg 2xl:max-w-7xl'
         )}
       >
         <div className="flex h-[500px] overflow-hidden">

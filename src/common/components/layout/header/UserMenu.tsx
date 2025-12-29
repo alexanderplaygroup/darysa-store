@@ -15,7 +15,11 @@ export const UserMenu = () => {
   if (isAuthenticated && user) {
     return (
       <Link href="/pedidos" aria-label="Ir a pedidos">
-        <UserAvatar name={user.full_name ?? 'Usuario'} size="md" />
+        <UserAvatar
+          image={user.photo} // 🔥 aquí
+          name={user.full_name ?? 'Usuario'}
+          size="md"
+        />
       </Link>
     );
   }
