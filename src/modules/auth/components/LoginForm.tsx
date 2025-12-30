@@ -3,14 +3,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { showCustomToast } from '@/common/components/custom-ui/ShowCustomToast';
-import { GoogleIcon } from '@/common/components/icons/GoogleIcon';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Form,
@@ -22,9 +21,9 @@ import {
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
 import { useAuthStore } from '@/common/store/auth/useAuthStore';
-import { useGoogleIdentity } from '@/lib/hooks/useGoogleIdentity';
+import { useGoogleAuth } from '@/lib/hooks/useGoogleIdentity';
 import { useRouter } from 'next/navigation';
-import { loginUser, loginWithGoogle } from '../auth.service';
+import { loginUser, loginWithGoogle as loginWithGoogle2 } from '../auth.service';
 
 // Esquema de validación con Zod
 export const loginSchema = z.object({
@@ -46,21 +45,27 @@ export function LoginForm() {
     },
   });
 
-  const { prompt: promptGoogle } = useGoogleIdentity(async (credential) => {
-    const result = await loginWithGoogle(credential);
-    if (!result.success) {
-      showCustomToast({ variant: 'error', title: 'Error', message: result.message });
-      return;
-    }
+  // 1. Usar el Hook
+  const { renderGoogleButton } = useGoogleAuth({
+    onSuccess: async (token) => {
+      // AQUÍ 'token' YA ES EL ID TOKEN (JWT)
+      // Puedes mandarlo directo a tu backend que usa verifyIdToken
+      const result = await loginWithGoogle2(token);
 
-    setUser(result.data!);
-    showCustomToast({
-      variant: 'success',
-      title: 'Bienvenido',
-      message: 'Inicio de sesión con Google exitoso',
-    });
-    router.replace('/');
+      if (!result.success) {
+        showCustomToast({ variant: 'error', title: 'Error', message: result.message });
+        return;
+      }
+      setUser(result.data!);
+      router.replace('/');
+    },
   });
+
+  // 2. Renderizar el botón cuando el componente cargue
+  useEffect(() => {
+    // 'google-btn-container' es el ID del div donde se pintará
+    renderGoogleButton('google-btn-container');
+  }, [renderGoogleButton]);
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
     startTransition(async () => {
@@ -194,16 +199,18 @@ export function LoginForm() {
       </div>
 
       {/* Google Sign-In */}
-      <Button
+      {/* <Button
         type="button"
         variant="outline"
-        onClick={promptGoogle}
+        onClick={loginManual}
         className="border-darysa-gris-800 h-14 w-full rounded-sm border bg-transparent text-base font-semibold hover:bg-gray-50"
       >
         <GoogleIcon className="size-4.5" />
         Inicia Sesión con Google
-      </Button>
-      {/* <div id="google-btn" /> */}
+      </Button> */}
+      <div className="border-darysa-gris-800 w-full overflow-hidden rounded-sm border text-base hover:bg-gray-50">
+        <div id="google-btn-container" />
+      </div>
     </div>
   );
 }
