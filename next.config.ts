@@ -3,11 +3,11 @@ import path from 'path';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'standalone',
   turbopack: {
     root: path.join(__dirname, '..'),
   },
   reactStrictMode: true,
-  output: 'standalone',
   images: {
     remotePatterns: [
       {
