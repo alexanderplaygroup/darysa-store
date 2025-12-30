@@ -1,3 +1,5 @@
+import { Container } from '@/common/components/custom-ui/Container';
+
 export default function page() {
-  return <div>recuperar contraseña</div>;
+  return <Container>recuperar contraseña</Container>;
 }
