@@ -66,6 +66,10 @@ export function LoginForm() {
   }, [renderGoogleButton]);
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
+    // TODO: REVISAR ESTO SI FUNCIONA
+    if (window.google?.accounts?.id) {
+      window.google.accounts.id.cancel(); // ❌ cancela One Tap si está abierto
+    }
     startTransition(async () => {
       const result = await loginUser(values);
 
