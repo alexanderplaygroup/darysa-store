@@ -37,18 +37,15 @@ export function useGoogleAuth({ onSuccess, isAuthenticated = false }: Props) {
       client_id: GOOGLE_CLIENT_ID,
       callback: (response: any) => {
         if (response.credential) {
-          console.log('ID Token recibido:', response.credential);
+          // console.log('ID Token recibido:', response.credential);
           window.google.accounts.id.cancel();
           onSuccess(response.credential);
-        } else {
-          console.warn('No se recibió ID Token.');
         }
       },
       auto_select: false,
       cancel_on_tap_outside: true,
     });
 
-    // Ya no necesitamos la callback de PromptMomentNotification
     window.google.accounts.id.prompt();
   }, [scriptLoaded, onSuccess, isAuthenticated]);
 
@@ -64,7 +61,6 @@ export function useGoogleAuth({ onSuccess, isAuthenticated = false }: Props) {
         shape: 'rectangular',
         width: 250, // ✅ usa px, no %, Google da warning con %
         logo_alignment: 'center',
-        use_fedcm_for_button: true,
       });
     }
   };

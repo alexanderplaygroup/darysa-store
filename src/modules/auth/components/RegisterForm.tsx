@@ -3,14 +3,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { ButtonWithSpinner } from '@/common/components/custom-ui/ButtonWithSpinner';
 import { Heading } from '@/common/components/custom-ui/Heading';
 import { showCustomToast } from '@/common/components/custom-ui/ShowCustomToast';
-import { GoogleIcon } from '@/common/components/icons/GoogleIcon';
 import { Button } from '@/common/components/shadcn-ui/button';
 import {
   Form,
@@ -22,8 +21,10 @@ import {
 } from '@/common/components/shadcn-ui/form';
 import { Input } from '@/common/components/shadcn-ui/input';
 import { getErrorMessage } from '@/common/helpers/apiMessages';
+import { useAuthStore } from '@/common/store/auth/useAuthStore';
+import { useGoogleAuth } from '@/lib/hooks/useGoogleIdentity';
 import { useRouter } from 'next/navigation';
-import { registerUser } from '../auth.service';
+import { loginWithGoogle, registerUser } from '../auth.service';
 
 const registerSchema = z
   .object({
@@ -43,6 +44,7 @@ export function RegisterForm() {
   const [isPending, startTransition] = useTransition();
 
   const router = useRouter();
+  const { setUser, isAuthenticated } = useAuthStore();
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -57,6 +59,27 @@ export function RegisterForm() {
   const handleGoogleSignIn = () => {
     console.log('Google sign-in clicked');
   };
+
+  const { renderGoogleButton } = useGoogleAuth({
+    isAuthenticated: isAuthenticated,
+
+    onSuccess: async (token) => {
+      // AQUÍ 'token' YA ES EL ID TOKEN (JWT)
+      const result = await loginWithGoogle(token);
+
+      if (!result.success) {
+        showCustomToast({ variant: 'error', title: 'Error', message: result.message });
+        return;
+      }
+      setUser(result.data!);
+      window.location.replace('/');
+    },
+  });
+
+  useEffect(() => {
+    // 'google-btn-container' es el ID del div donde se pintará
+    renderGoogleButton('google-btn-container-register');
+  }, [renderGoogleButton]);
 
   const onSubmit = (values: z.infer<typeof registerSchema>) => {
     startTransition(async () => {
@@ -239,7 +262,7 @@ export function RegisterForm() {
       </div>
 
       {/* Google Sign-In */}
-      <Button
+      {/* <Button
         type="button"
         variant="outline"
         onClick={handleGoogleSignIn}
@@ -247,7 +270,8 @@ export function RegisterForm() {
       >
         <GoogleIcon className="size-4.5" />
         Inicia Sesión con Google
-      </Button>
+      </Button> */}
+      <div id="google-btn-container-register" />
 
       {/* Botón adicional */}
       <Button

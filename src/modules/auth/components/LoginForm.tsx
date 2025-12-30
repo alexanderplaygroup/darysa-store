@@ -56,13 +56,12 @@ export function LoginForm() {
         return;
       }
       setUser(result.data!);
-      window.location.href = '/';
+      window.location.replace('/');
     },
   });
 
   // 2. Renderizar el botón cuando el componente cargue
   useEffect(() => {
-    // 'google-btn-container' es el ID del div donde se pintará
     renderGoogleButton('google-btn-container');
   }, [renderGoogleButton]);
 
