@@ -1,16 +1,8 @@
 import type { NextConfig } from 'next';
-import path from 'path';
-
-const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone',
-  ...(isDev && {
-    turbopack: {
-      root: path.join(__dirname, '..'),
-    },
-  }),
   reactStrictMode: true,
   images: {
     remotePatterns: [

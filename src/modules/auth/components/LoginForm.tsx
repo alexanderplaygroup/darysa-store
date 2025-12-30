@@ -23,9 +23,8 @@ import { Input } from '@/common/components/shadcn-ui/input';
 import { useAuthStore } from '@/common/store/auth/useAuthStore';
 import { useGoogleAuth } from '@/lib/hooks/useGoogleIdentity';
 import { useRouter } from 'next/navigation';
-import { loginUser, loginWithGoogle as loginWithGoogle2 } from '../auth.service';
+import { loginUser, loginWithGoogle } from '../auth.service';
 
-// Esquema de validación con Zod
 export const loginSchema = z.object({
   email: z.email('Ingrese un email válido'),
   password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
@@ -33,9 +32,9 @@ export const loginSchema = z.object({
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isPending, startTransition] = useTransition(); // hook de transición
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
-  const { setUser } = useAuthStore(); // destructuras directamente
+  const { setUser, isAuthenticated } = useAuthStore();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -45,19 +44,19 @@ export function LoginForm() {
     },
   });
 
-  // 1. Usar el Hook
   const { renderGoogleButton } = useGoogleAuth({
+    isAuthenticated: isAuthenticated,
+
     onSuccess: async (token) => {
       // AQUÍ 'token' YA ES EL ID TOKEN (JWT)
-      // Puedes mandarlo directo a tu backend que usa verifyIdToken
-      const result = await loginWithGoogle2(token);
+      const result = await loginWithGoogle(token);
 
       if (!result.success) {
         showCustomToast({ variant: 'error', title: 'Error', message: result.message });
         return;
       }
       setUser(result.data!);
-      router.replace('/');
+      window.location.href = '/';
     },
   });
 
@@ -208,9 +207,7 @@ export function LoginForm() {
         <GoogleIcon className="size-4.5" />
         Inicia Sesión con Google
       </Button> */}
-      <div className="border-darysa-gris-800 w-full overflow-hidden rounded-sm border text-base hover:bg-gray-50">
-        <div id="google-btn-container" />
-      </div>
+      <div id="google-btn-container" />
     </div>
   );
 }
